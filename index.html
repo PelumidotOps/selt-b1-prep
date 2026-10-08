@@ -1,134 +1,264 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#1e293b">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#090d16">
   <title>SELT B1 Pass Master | UK Health & Care Visa</title>
+  
+  <!-- Inter & Plus Jakarta Sans Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            },
+            surface: {
+              50: '#141c2e',
+              100: '#0f172a',
+              200: '#0b1120',
+              card: '#131b2e',
+              border: '#1e293b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    /* Mobile-optimized smooth scroll and touch response */
-    body {
+    /* iOS Momentum Scrolling & Touch Feedback */
+    * {
       -webkit-tap-highlight-color: transparent;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      box-sizing: border-box;
     }
-    .hide-scrollbar::-webkit-scrollbar {
-      display: none;
+    body {
+      background-color: #080c15;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     }
-    .hide-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    .glass-nav {
+      background: rgba(11, 17, 32, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
-    .active-nav {
-      color: #38bdf8 !important;
+    .glass-card {
+      background: linear-gradient(135deg, rgba(19, 27, 46, 0.9) 0%, rgba(15, 23, 42, 0.75) 100%);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
     }
-    .active-nav svg {
-      stroke: #38bdf8 !important;
+    .glow-brand {
+      box-shadow: 0 0 25px -5px rgba(14, 165, 233, 0.35);
     }
+    .glow-emerald {
+      box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.35);
+    }
+    .glow-amber {
+      box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.35);
+    }
+    
+    /* Animated Sound Wave Bars */
+    .sound-wave-bar {
+      animation: soundWave 1.2s ease-in-out infinite alternate;
+    }
+    @keyframes soundWave {
+      0% { height: 4px; }
+      100% { height: 20px; }
+    }
+
+    /* Pulse animation */
     @keyframes pulse-ring {
       0% { transform: scale(0.95); opacity: 0.8; }
-      50% { transform: scale(1.05); opacity: 0.4; }
+      50% { transform: scale(1.08); opacity: 0.3; }
       100% { transform: scale(0.95); opacity: 0.8; }
     }
     .pulse-ring {
       animation: pulse-ring 2s infinite ease-in-out;
     }
+
+    /* Timer Arc Progress */
+    .circle-progress {
+      transition: stroke-dashoffset 0.3s ease;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
   </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen pb-24 select-none">
+<body class="text-slate-100 min-h-screen pb-28 antialiased selection:bg-brand-500 selection:text-white">
 
-  <!-- TOP HEADER -->
-  <header class="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 px-4 py-3 flex items-center justify-between">
-    <div class="flex items-center space-x-2">
-      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 to-indigo-600 flex items-center justify-center font-bold text-white text-sm shadow-lg shadow-sky-500/20">
-        B1
+  <!-- ============================================================== -->
+  <!-- TOP STATUS & APP BAR -->
+  <!-- ============================================================== -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-slate-800/80 px-4 py-3">
+    <div class="max-w-md mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="relative">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-600 to-emerald-400 p-[1.5px] shadow-lg shadow-sky-500/20">
+            <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center font-extrabold text-sm text-sky-400 tracking-tighter">
+              B1
+            </div>
+          </div>
+          <span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h1 class="font-extrabold text-sm tracking-tight text-white leading-tight">SELT Pass Master</h1>
+            <span class="text-[10px] font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30 px-1.5 py-0.2 rounded-full">UKVI</span>
+          </div>
+          <p class="text-[11px] text-slate-400 font-medium flex items-center gap-1">
+            <span>Health & Care Visa</span>
+            <span class="text-slate-600">•</span>
+            <span class="text-emerald-400 font-semibold">Pass: 50%</span>
+          </p>
+        </div>
       </div>
-      <div>
-        <h1 class="font-bold text-sm tracking-tight text-white leading-tight">SELT Pass Master</h1>
-        <p class="text-[11px] text-sky-400 font-medium leading-none">UK Health & Care Visa • 48h Cram</p>
-      </div>
-    </div>
-    <div class="flex items-center space-x-2">
-      <button onclick="toggleVoiceAccent()" id="voiceToggleBtn" class="px-2 py-1 bg-slate-800 border border-slate-700 rounded-md text-[11px] text-slate-300 flex items-center gap-1 active:bg-slate-700">
-        <i data-lucide="volume-2" class="w-3.5 h-3.5 text-sky-400"></i>
-        <span id="voiceLabel">UK Voice</span>
+
+      <!-- Quick Audio Accent Toggle -->
+      <button onclick="toggleVoiceTester()" class="px-2.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-xs font-semibold text-slate-200 flex items-center gap-1.5 active:scale-95 transition">
+        <svg class="w-3.5 h-3.5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"/>
+        </svg>
+        <span id="voiceHeaderLabel">Test Audio</span>
       </button>
     </div>
   </header>
 
-  <!-- QUICK 48H SURVIVAL BANNER -->
-  <div class="bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-red-500/20 border-b border-amber-500/30 px-4 py-2 flex items-center justify-between">
-    <div class="flex items-center space-x-2">
-      <i data-lucide="zap" class="w-4 h-4 text-amber-400 shrink-0"></i>
-      <span class="text-xs text-amber-200 font-medium">Goal: <strong>50% Pass Mark</strong>. Do not panic!</span>
+  <!-- ============================================================== -->
+  <!-- MAIN CONTAINER (Max width for mobile perfection) -->
+  <!-- ============================================================== -->
+  <main class="max-w-md mx-auto px-4 pt-3 space-y-4">
+
+    <!-- 48-HOUR EMERGENCY BANNER CARD -->
+    <div class="rounded-2xl p-3.5 bg-gradient-to-r from-sky-950/70 via-indigo-950/50 to-slate-900 border border-sky-500/30 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-sky-500/10 rounded-full blur-2xl pointer-events-none"></div>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 font-bold text-xs shrink-0">
+            ⚡
+          </div>
+          <div>
+            <div class="text-xs font-bold text-white tracking-tight flex items-center gap-1">
+              48-Hour Exam Mode
+              <span class="text-[10px] font-normal text-amber-300 bg-amber-500/20 px-1.5 rounded">High Yield</span>
+            </div>
+            <p class="text-[11px] text-slate-300">You need <strong>50% in each skill</strong> to pass. Zero stress.</p>
+          </div>
+        </div>
+        <button onclick="switchTab('plan')" class="px-2.5 py-1 bg-sky-500/20 hover:bg-sky-500/30 border border-sky-400/30 rounded-lg text-xs font-semibold text-sky-300 shrink-0 active:scale-95 transition">
+          View Plan &rarr;
+        </button>
+      </div>
+
+      <!-- Quick 4-Skill Readiness Progress -->
+      <div class="grid grid-cols-4 gap-2 pt-3 mt-2.5 border-t border-slate-800/80 text-center">
+        <div onclick="switchTab('speaking')" class="cursor-pointer bg-slate-900/60 p-1.5 rounded-lg border border-slate-800 hover:border-sky-500/50 transition">
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Speaking</div>
+          <div class="text-xs font-extrabold text-sky-400">12 mins</div>
+        </div>
+        <div onclick="switchTab('writing')" class="cursor-pointer bg-slate-900/60 p-1.5 rounded-lg border border-slate-800 hover:border-purple-500/50 transition">
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Writing</div>
+          <div class="text-xs font-extrabold text-purple-400">2 Tasks</div>
+        </div>
+        <div onclick="switchTab('lr')" class="cursor-pointer bg-slate-900/60 p-1.5 rounded-lg border border-slate-800 hover:border-emerald-500/50 transition">
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Listening</div>
+          <div class="text-xs font-extrabold text-emerald-400">Traps</div>
+        </div>
+        <div onclick="switchTab('lr')" class="cursor-pointer bg-slate-900/60 p-1.5 rounded-lg border border-slate-800 hover:border-amber-500/50 transition">
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Reading</div>
+          <div class="text-xs font-extrabold text-amber-400">Synonyms</div>
+        </div>
+      </div>
     </div>
-    <button onclick="switchTab('plan')" class="text-xs text-amber-300 underline font-semibold shrink-0">2-Day Plan</button>
-  </div>
 
-  <!-- MAIN TAB CONTENT CONTAINER -->
-  <main class="max-w-md mx-auto px-4 py-4 space-y-4">
 
-    <!-- ========================================== -->
+    <!-- ============================================================== -->
     <!-- TAB 1: SPEAKING SIMULATOR -->
-    <!-- ========================================== -->
+    <!-- ============================================================== -->
     <div id="tab-speaking" class="tab-pane space-y-4">
+      
+      <!-- Section Header -->
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-lg font-bold text-white flex items-center gap-2">
-            <i data-lucide="mic" class="w-5 h-5 text-sky-400"></i> Speaking Simulator
+          <h2 class="text-base font-extrabold text-white flex items-center gap-2">
+            <span class="w-6 h-6 rounded-md bg-sky-500/20 text-sky-400 flex items-center justify-center text-xs font-bold">1</span>
+            Speaking Simulator
           </h2>
-          <p class="text-xs text-slate-400">Simulate real 1-on-1 interlocutor interview (~12 mins)</p>
+          <p class="text-xs text-slate-400">1-on-1 interlocutor interview (~12 minutes)</p>
         </div>
-        <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Target: 50%</span>
+        <span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-sky-500/10 text-sky-300 border border-sky-500/30 font-mono">
+          4 Parts
+        </span>
       </div>
 
-      <!-- Speaking Sub-Navigation -->
-      <div class="flex bg-slate-800 p-1 rounded-xl border border-slate-700 text-xs font-medium">
-        <button onclick="setSpeakingPart(1)" id="sp-btn-1" class="flex-1 py-1.5 rounded-lg text-center bg-sky-500 text-white shadow">Part 1: Personal</button>
-        <button onclick="setSpeakingPart(2)" id="sp-btn-2" class="flex-1 py-1.5 rounded-lg text-center text-slate-300">Part 2: Roleplay</button>
-        <button onclick="setSpeakingPart(3)" id="sp-btn-3" class="flex-1 py-1.5 rounded-lg text-center text-slate-300">Part 3: Discussion</button>
-        <button onclick="setSpeakingPart(4)" id="sp-btn-4" class="flex-1 py-1.5 rounded-lg text-center text-slate-300">Part 4: 90s Talk</button>
+      <!-- Segmented Navigation Control -->
+      <div class="grid grid-cols-4 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-semibold text-slate-400">
+        <button onclick="setSpeakingPart(1)" id="sp-btn-1" class="py-2 rounded-lg text-center bg-gradient-to-r from-sky-500 to-sky-600 text-white shadow-md shadow-sky-500/20 font-bold transition">Part 1</button>
+        <button onclick="setSpeakingPart(2)" id="sp-btn-2" class="py-2 rounded-lg text-center hover:text-white transition">Part 2</button>
+        <button onclick="setSpeakingPart(3)" id="sp-btn-3" class="py-2 rounded-lg text-center hover:text-white transition">Part 3</button>
+        <button onclick="setSpeakingPart(4)" id="sp-btn-4" class="py-2 rounded-lg text-center hover:text-white transition">Part 4</button>
       </div>
 
-      <!-- SPEAKING PART 1 -->
+      <!-- SPEAKING PART 1: PERSONAL & SPELLING -->
       <div id="sp-part-1" class="space-y-3">
-        <div class="bg-slate-800/80 border border-slate-700/80 rounded-xl p-3.5 space-y-2">
+        <div class="glass-card rounded-2xl p-4 space-y-2.5">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-semibold text-sky-300">Part 1: Personal Info & Spelling</span>
-            <span class="text-[10px] text-slate-400">~3 mins</span>
+            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Part 1 • Personal & Spelling</span>
+            <span class="text-xs text-slate-400 font-mono">~3 mins</span>
           </div>
-          <p class="text-xs text-slate-300">
-            The examiner will ask your name, ask you to <strong>spell your surname</strong>, and ask 2–3 questions about your routine or work.
+          <p class="text-xs text-slate-300 leading-relaxed">
+            The examiner will ask your name, ask you to <strong>spell your surname</strong> letter-by-letter, and ask 2–3 questions about your routine or care work.
           </p>
-          <div class="bg-amber-900/30 border border-amber-700/50 rounded-lg p-2.5 text-xs text-amber-200 flex gap-2 items-start">
-            <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+          <div class="bg-amber-950/40 border border-amber-600/30 rounded-xl p-3 text-xs text-amber-200 flex gap-2.5 items-start">
+            <span class="text-amber-400 text-sm">⚠️</span>
             <div>
-              <strong>Spelling Trap:</strong> Candidates often hesitate on English letters! Practice: <em>A, E, I, O, U, G, J, Y, W</em>.
+              <strong>Spelling Trap:</strong> Candidates lose easy marks by confusing letters. Practice pronunciation of vowels (A, E, I, O, U) and tricky letters (G vs J, Y, W).
             </div>
           </div>
         </div>
 
         <!-- Question Cards List -->
-        <div id="part1Questions" class="space-y-2.5">
+        <div id="part1Questions" class="space-y-3">
           <!-- Populated by JS -->
         </div>
       </div>
 
-      <!-- SPEAKING PART 2 (ROLEPLAY) -->
+      <!-- SPEAKING PART 2: SITUATIONAL ROLEPLAY -->
       <div id="sp-part-2" class="space-y-3 hidden">
-        <div class="bg-slate-800/80 border border-slate-700/80 rounded-xl p-3.5 space-y-2">
+        <div class="glass-card rounded-2xl p-4 space-y-2.5">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-semibold text-sky-300">Part 2: Situational Role-Play</span>
-            <span class="text-[10px] text-slate-400">~2 mins</span>
+            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Part 2 • Situational Roleplays</span>
+            <span class="text-xs text-slate-400 font-mono">~2 mins</span>
           </div>
-          <p class="text-xs text-slate-300">
-            The examiner sets up a real-world everyday situation. You initiate or respond naturally.
+          <p class="text-xs text-slate-300 leading-relaxed">
+            The examiner acts as your care supervisor or colleague. You must start or respond to everyday situations with polite English.
           </p>
-          <div class="bg-blue-900/30 border border-blue-700/50 rounded-lg p-2.5 text-xs text-blue-200">
-            <strong>Formula:</strong> 1. Greet politely &rarr; 2. State the issue &rarr; 3. Propose a solution or ask for help.
+          <div class="bg-sky-950/40 border border-sky-500/30 rounded-xl p-3 text-xs text-sky-200">
+            <strong>The 3-Step Formula:</strong><br>
+            1. Polite Greeting ("Hello, could I speak with you?")<br>
+            2. State Problem clearly ("I have an urgent family matter...")<br>
+            3. Offer Solution ("Maria agreed to cover my shift...")
           </div>
         </div>
         <div id="part2Cards" class="space-y-3">
@@ -136,18 +266,18 @@
         </div>
       </div>
 
-      <!-- SPEAKING PART 3 (COLLABORATION) -->
+      <!-- SPEAKING PART 3: SHARED DECISION -->
       <div id="sp-part-3" class="space-y-3 hidden">
-        <div class="bg-slate-800/80 border border-slate-700/80 rounded-xl p-3.5 space-y-2">
+        <div class="glass-card rounded-2xl p-4 space-y-2.5">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-semibold text-sky-300">Part 3: Shared Decision Making</span>
-            <span class="text-[10px] text-slate-400">~3 mins</span>
+            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Part 3 • Shared Discussion</span>
+            <span class="text-xs text-slate-400 font-mono">~3 mins</span>
           </div>
-          <p class="text-xs text-slate-300">
-            You and the examiner look at a set of options (e.g. activities for care residents) and discuss what to choose together.
+          <p class="text-xs text-slate-300 leading-relaxed">
+            You and the interlocutor will look at options and decide on something together (e.g., care home activity, healthy menu).
           </p>
-          <div class="bg-emerald-900/30 border border-emerald-700/50 rounded-lg p-2.5 text-xs text-emerald-200">
-            <strong>Golden Rule:</strong> Ask the examiner's opinion! Don't talk alone. Use: <em>"What do you think about...?", "Shall we also consider...?"</em>
+          <div class="bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3 text-xs text-emerald-200">
+            <strong>Top Tip:</strong> Don't give a monologue! Always ask the examiner: <em>"What is your opinion on that?", "Do you agree that music is better?"</em>
           </div>
         </div>
         <div id="part3Cards" class="space-y-3">
@@ -155,60 +285,63 @@
         </div>
       </div>
 
-      <!-- SPEAKING PART 4 (1.5 MIN PRESENTATION WITH TIMER) -->
+      <!-- SPEAKING PART 4: 90s TALK WITH CIRCULAR TIMER -->
       <div id="sp-part-4" class="space-y-3 hidden">
-        <div class="bg-slate-800/80 border border-slate-700/80 rounded-xl p-3.5 space-y-2">
+        <div class="glass-card rounded-2xl p-4 space-y-2.5">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-semibold text-sky-300">Part 4: 1.5-Min Topic Talk</span>
-            <span class="text-[10px] text-slate-400">~4 mins</span>
+            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Part 4 • 90-Second Speech</span>
+            <span class="text-xs text-slate-400 font-mono">~4 mins</span>
           </div>
-          <p class="text-xs text-slate-300">
-            You get a topic card + <strong>30 seconds</strong> to make notes + you must speak for <strong>1.5 minutes</strong> uninterrupted.
+          <p class="text-xs text-slate-300 leading-relaxed">
+            You have <strong>30 seconds</strong> to prepare notes on a card, then speak for <strong>75 to 90 seconds</strong> uninterrupted.
           </p>
-          <div class="bg-indigo-900/30 border border-indigo-700/50 rounded-lg p-2.5 text-xs text-indigo-200">
+          <div class="bg-indigo-950/40 border border-indigo-500/30 rounded-xl p-3 text-xs text-indigo-200">
             <strong>The P.R.E.E.P Strategy:</strong><br>
-            • <strong>P</strong>oint: Introduce your topic.<br>
-            • <strong>R</strong>eason: Explain why it's important.<br>
-            • <strong>E</strong>xample: Give a personal story or detail.<br>
-            • <strong>E</strong>ffect / Feeling: How it affected you.<br>
-            • <strong>P</strong>oint Summary: Wrap up with 1 sentence.
+            <strong>P</strong>oint (Topic) &rarr; <strong>R</strong>eason (Why) &rarr; <strong>E</strong>xample (Story) &rarr; <strong>E</strong>ffect (Impact) &rarr; <strong>P</strong>oint wrap-up.
           </div>
         </div>
 
-        <!-- Topic Selector & Active Topic Card -->
-        <div class="bg-slate-800 border border-slate-700 rounded-xl p-4 space-y-3">
-          <label class="text-xs font-semibold text-slate-300 block">Select Practice Topic:</label>
-          <select id="part4TopicSelect" onchange="loadPart4Topic()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-sky-500">
+        <!-- Topic Card -->
+        <div class="glass-card rounded-2xl p-4 space-y-3">
+          <label class="text-xs font-bold text-slate-300 uppercase tracking-wider block">Choose Topic to Practice:</label>
+          <select id="part4TopicSelect" onchange="loadPart4Topic()" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-sky-500 font-medium">
             <option value="0">1. A person who inspires you (Family / Healthcare hero)</option>
             <option value="1">2. A memorable challenge you faced and overcame</option>
-            <option value="2">3. Why maintaining good health and routine is important</option>
+            <option value="2">3. Why maintaining good health & routine is important</option>
             <option value="3">4. A favorite place in your hometown and why</option>
           </select>
 
-          <div id="part4TopicBox" class="bg-slate-900/90 rounded-lg p-3 border border-slate-700/60 text-xs text-slate-200 space-y-2">
+          <div id="part4TopicBox" class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800 text-xs text-slate-200 space-y-2">
             <!-- Populated by JS -->
           </div>
 
-          <!-- Interactive Exam Timers -->
-          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3 text-center">
-            <div class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold" id="timerStatusLabel">
-              Ready to Practice
-            </div>
-            <div class="text-4xl font-extrabold tracking-tight text-sky-400 font-mono" id="timerDisplay">
-              00:30
-            </div>
-            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-              <div id="timerProgressBar" class="bg-sky-500 h-full w-full transition-all duration-300"></div>
+          <!-- Circular Graphic Countdown Timer -->
+          <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 text-center space-y-3 relative overflow-hidden">
+            <div class="text-[11px] font-bold text-slate-400 tracking-wider uppercase" id="timerStatusLabel">
+              Ready for Simulation
             </div>
 
-            <div class="flex gap-2 pt-1">
-              <button onclick="startPrepTimer()" id="prepTimerBtn" class="flex-1 py-2.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 active:scale-95 transition">
-                <i data-lucide="clock" class="w-3.5 h-3.5"></i> 30s Prep Timer
+            <!-- SVG Circular Gauge -->
+            <div class="relative w-36 h-36 mx-auto flex items-center justify-center">
+              <svg class="w-36 h-36" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="8" class="text-slate-800 fill-none"/>
+                <circle id="timerCircleProgress" cx="50" cy="50" r="42" stroke="currentColor" stroke-width="8" stroke-dasharray="264" stroke-dashoffset="0" stroke-linecap="round" class="text-sky-400 fill-none circle-progress transition-all duration-300"/>
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <span id="timerDisplay" class="text-3xl font-extrabold font-mono text-white tracking-tight">00:30</span>
+                <span id="timerSubtext" class="text-[10px] text-slate-400 font-semibold uppercase">Prep Time</span>
+              </div>
+            </div>
+
+            <!-- Timer Action Buttons -->
+            <div class="flex gap-2 pt-2">
+              <button onclick="startPrepTimer()" id="prepTimerBtn" class="flex-1 py-3 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white rounded-xl text-xs font-bold shadow-lg shadow-amber-600/20 active:scale-95 transition">
+                30s Prep
               </button>
-              <button onclick="startSpeakTimer()" id="speakTimerBtn" class="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 active:scale-95 transition">
-                <i data-lucide="mic" class="w-3.5 h-3.5"></i> 90s Speak Timer
+              <button onclick="startSpeakTimer()" id="speakTimerBtn" class="flex-1 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white rounded-xl text-xs font-bold shadow-lg shadow-emerald-600/20 active:scale-95 transition">
+                90s Speak
               </button>
-              <button onclick="resetTimers()" class="px-3 py-2.5 bg-slate-800 text-slate-300 rounded-lg text-xs font-semibold active:scale-95">
+              <button onclick="resetTimers()" class="px-4 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-semibold active:scale-95 transition">
                 Reset
               </button>
             </div>
@@ -216,577 +349,552 @@
         </div>
       </div>
 
-      <!-- VOICE RECORDER WIDGET (Works on phone browser via mic) -->
-      <div class="bg-slate-800/90 border border-slate-700 rounded-xl p-3.5 space-y-2.5">
+      <!-- IN-BROWSER VOICE RECORDER (Works on mobile phones) -->
+      <div class="glass-card rounded-2xl p-4 space-y-3 border border-red-500/20">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-semibold text-slate-200 flex items-center gap-1.5">
-            <i data-lucide="radio" class="w-4 h-4 text-red-400"></i> Self-Record & Review
-          </span>
-          <span id="recordTimer" class="text-xs font-mono text-slate-400">00:00</span>
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
+            <span class="text-xs font-bold text-white uppercase tracking-wider">Voice Recorder & Playback</span>
+          </div>
+          <span id="recordTimer" class="text-xs font-mono font-bold text-red-400">00:00</span>
         </div>
-        <p class="text-[11px] text-slate-400 leading-relaxed">
-          Record your answer and play it back to check if your voice was clear, loud enough, and didn't stop.
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Record yourself answering out loud. Listen back to check if your voice was audible, fluent, and confident.
         </p>
-        <div class="flex gap-2 items-center">
-          <button id="toggleRecordBtn" onclick="toggleRecording()" class="flex-1 py-2 bg-red-600 hover:bg-red-500 active:bg-red-700 text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5">
-            <i data-lucide="circle-dot" class="w-3.5 h-3.5"></i> <span id="recordBtnText">Record My Answer</span>
-          </button>
-        </div>
-        <div id="audioPlaybackContainer" class="hidden pt-1">
-          <audio id="audioPlayback" controls class="w-full h-8"></audio>
+
+        <button id="toggleRecordBtn" onclick="toggleRecording()" class="w-full py-3 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 active:scale-95 text-white rounded-xl text-xs font-bold shadow-lg shadow-red-600/20 flex items-center justify-center gap-2 transition">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+          </svg>
+          <span id="recordBtnText">Record My Voice</span>
+        </button>
+
+        <div id="audioPlaybackContainer" class="hidden pt-2">
+          <div class="text-[11px] text-emerald-400 font-semibold mb-1">✓ Recording Saved! Listen Below:</div>
+          <audio id="audioPlayback" controls class="w-full h-9 rounded-lg"></audio>
         </div>
       </div>
     </div>
 
 
-    <!-- ========================================== -->
-    <!-- TAB 2: WRITING STUDIO & LIVE CHECKER -->
-    <!-- ========================================== -->
+    <!-- ============================================================== -->
+    <!-- TAB 2: WRITING STUDIO -->
+    <!-- ============================================================== -->
     <div id="tab-writing" class="tab-pane space-y-4 hidden">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-lg font-bold text-white flex items-center gap-2">
-            <i data-lucide="pen-tool" class="w-5 h-5 text-sky-400"></i> Writing Studio
+          <h2 class="text-base font-extrabold text-white flex items-center gap-2">
+            <span class="w-6 h-6 rounded-md bg-purple-500/20 text-purple-400 flex items-center justify-center text-xs font-bold">2</span>
+            Writing Studio
           </h2>
-          <p class="text-xs text-slate-400">Master Task 1 & Task 2 with guaranteed templates</p>
+          <p class="text-xs text-slate-400">Master Task 1 & Task 2 (Total 70 mins)</p>
         </div>
-        <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Total: 70 mins</span>
+        <span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-purple-500/10 text-purple-300 border border-purple-500/30 font-mono">
+          50% Pass
+        </span>
       </div>
 
-      <!-- Writing Mode Selector -->
-      <div class="flex bg-slate-800 p-1 rounded-xl border border-slate-700 text-xs font-medium">
-        <button onclick="setWritingTask(1)" id="wr-btn-1" class="flex-1 py-1.5 rounded-lg text-center bg-sky-500 text-white shadow">Task 1: Email (70-100w)</button>
-        <button onclick="setWritingTask(2)" id="wr-btn-2" class="flex-1 py-1.5 rounded-lg text-center text-slate-300">Task 2: Essay/Letter (100-120w)</button>
+      <!-- Segmented Task 1 / Task 2 Selector -->
+      <div class="grid grid-cols-2 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-semibold text-slate-400">
+        <button onclick="setWritingTask(1)" id="wr-btn-1" class="py-2.5 rounded-lg text-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold shadow-md shadow-purple-600/20 transition">
+          Task 1: Email (70–100w)
+        </button>
+        <button onclick="setWritingTask(2)" id="wr-btn-2" class="py-2.5 rounded-lg text-center hover:text-white transition">
+          Task 2: Essay (100–120w)
+        </button>
       </div>
 
-      <!-- TASK 1 GUIDE & TEMPLATE -->
+      <!-- Task 1 Guide & Templates -->
       <div id="wr-task-1-guide" class="space-y-3">
-        <div class="bg-slate-800 border border-slate-700 rounded-xl p-3.5 space-y-2">
+        <div class="glass-card rounded-2xl p-4 space-y-3">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-sky-300">Task 1 Rules (Informal / Semi-Formal)</span>
-            <span class="text-[10px] bg-sky-500/20 text-sky-300 px-2 py-0.5 rounded font-mono">70 – 100 words</span>
+            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Task 1 Rules • Informal Email</span>
+            <span class="text-xs font-mono font-bold bg-sky-500/20 text-sky-300 px-2 py-0.5 rounded-md">70 – 100 words</span>
           </div>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Usually an email to a friend or colleague. You must address <strong>all 3 bullet points</strong> given in the prompt!
+            Usually an email to a friend or supervisor. You must answer <strong>all 3 bullet points</strong> in the question to get maximum task marks!
           </p>
-          <div class="bg-slate-900 rounded-lg p-2.5 text-xs space-y-1.5 border border-slate-700/60 font-mono text-slate-300">
-            <div class="text-sky-400 font-bold">The 3-Paragraph Formula:</div>
-            <div>• <strong>Greeting + Purpose:</strong> "Hi John, I hope you are well. I am writing to..."</div>
-            <div>• <strong>Body (Bullets 1 & 2):</strong> Give details using <em>because</em>, <em>also</em>, <em>however</em>.</div>
-            <div>• <strong>Closing + Sign-off:</strong> "Let me know what you think. Best regards, [Name]"</div>
+          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs space-y-1.5 font-sans">
+            <div class="text-sky-300 font-bold mb-1">The 3-Paragraph Formula:</div>
+            <div>• <strong>Paragraph 1 (Greeting & Purpose):</strong> "Hi [Name], I hope you are well. I am writing to tell you..."</div>
+            <div>• <strong>Paragraph 2 (Main details):</strong> Address points using <em>because</em>, <em>also</em>, <em>however</em>.</div>
+            <div>• <strong>Paragraph 3 (Sign off):</strong> "Let me know what you think. Best wishes, [Name]"</div>
           </div>
-          <button onclick="copyTask1Template()" class="w-full py-1.5 bg-slate-700 hover:bg-slate-600 rounded text-xs text-sky-300 font-medium flex items-center justify-center gap-1">
-            <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy Task 1 Master Template
+          <button onclick="copyTask1Template()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 active:scale-95 border border-slate-700 text-sky-300 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            📋 Load Task 1 Template (81 words - Perfect Pass)
           </button>
         </div>
       </div>
 
-      <!-- TASK 2 GUIDE & TEMPLATE -->
+      <!-- Task 2 Guide & Templates -->
       <div id="wr-task-2-guide" class="space-y-3 hidden">
-        <div class="bg-slate-800 border border-slate-700 rounded-xl p-3.5 space-y-2">
+        <div class="glass-card rounded-2xl p-4 space-y-3">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-sky-300">Task 2 Rules (Formal Letter / Article)</span>
-            <span class="text-[10px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded font-mono">100 – 120 words</span>
+            <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Task 2 Rules • Formal Article/Letter</span>
+            <span class="text-xs font-mono font-bold bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-md">100 – 120 words</span>
           </div>
           <p class="text-xs text-slate-300 leading-relaxed">
-            A formal letter or short article expressing an opinion, discussing pros/cons, or suggesting improvements.
+            A short formal composition or letter expressing your opinion on a health or community topic.
           </p>
-          <div class="bg-slate-900 rounded-lg p-2.5 text-xs space-y-1.5 border border-slate-700/60 font-mono text-slate-300">
-            <div class="text-purple-400 font-bold">The Universal 4-Paragraph Structure:</div>
-            <div>• <strong>P1: Intro (20w):</strong> "In recent years, [Topic] has become very important. In this article, I will share my opinion."</div>
-            <div>• <strong>P2: Argument 1 (35w):</strong> "Firstly, ... For example, ... As a result, ..."</div>
-            <div>• <strong>P3: Argument 2 (35w):</strong> "Furthermore, ... In addition, ..."</div>
-            <div>• <strong>P4: Conclusion (20w):</strong> "To conclude, I strongly believe that..."</div>
+          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs space-y-1.5 font-sans">
+            <div class="text-purple-300 font-bold mb-1">Universal 4-Paragraph Skeleton:</div>
+            <div>• <strong>P1 Intro:</strong> "In recent years, [Topic] has become extremely important..."</div>
+            <div>• <strong>P2 Argument 1:</strong> "Firstly, ... For example, ... As a result, ..."</div>
+            <div>• <strong>P3 Argument 2:</strong> "Furthermore, ... In addition, ..."</div>
+            <div>• <strong>P4 Conclusion:</strong> "To conclude, I strongly believe that..."</div>
           </div>
-          <button onclick="copyTask2Template()" class="w-full py-1.5 bg-slate-700 hover:bg-slate-600 rounded text-xs text-purple-300 font-medium flex items-center justify-center gap-1">
-            <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy Task 2 Universal Template
+          <button onclick="copyTask2Template()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 active:scale-95 border border-slate-700 text-purple-300 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            📋 Load Task 2 Template (108 words - Perfect Pass)
           </button>
         </div>
       </div>
 
-      <!-- INTERACTIVE WRITING WORKBENCH -->
-      <div class="bg-slate-800 border border-slate-700 rounded-xl p-4 space-y-3">
+      <!-- Live Interactive Writing Sandbox -->
+      <div class="glass-card rounded-2xl p-4 space-y-3">
         <div class="flex items-center justify-between">
-          <label class="text-xs font-semibold text-slate-200">Interactive Writing Sandbox:</label>
-          <div id="wordCountBadge" class="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-900 text-slate-400 border border-slate-700">
+          <label class="text-xs font-bold text-slate-200 uppercase tracking-wider">Interactive Live Sandbox</label>
+          <div id="wordCountBadge" class="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-800 text-slate-400">
             0 words
           </div>
         </div>
 
-        <!-- Sample Prompt Selector -->
-        <div class="flex items-center gap-2">
-          <select id="writingPromptSelect" onchange="loadWritingPrompt()" class="flex-1 bg-slate-900 border border-slate-700 text-xs text-slate-200 rounded-lg p-2 focus:outline-none focus:border-sky-500">
+        <!-- Prompt Selector -->
+        <div>
+          <select id="writingPromptSelect" onchange="loadWritingPrompt()" class="w-full bg-slate-900 border border-slate-700 text-xs text-slate-200 rounded-xl p-2.5 font-medium focus:outline-none focus:border-purple-500">
             <option value="t1-1">[Task 1] Email to friend about starting new job in UK</option>
-            <option value="t1-2">[Task 1] Email to manager requesting shift change</option>
-            <option value="t2-1">[Task 2] Article: Importance of healthy eating & exercise</option>
-            <option value="t2-2">[Task 2] Formal Letter: Suggesting improvements in a community centre</option>
+            <option value="t1-2">[Task 1] Email to manager requesting shift swap</option>
+            <option value="t2-1">[Task 2] Article: Importance of healthy lifestyle</option>
+            <option value="t2-2">[Task 2] Formal Letter: Care home garden improvements</option>
           </select>
         </div>
 
-        <div id="currentPromptDisplay" class="bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-xs text-slate-300">
+        <div id="currentPromptDisplay" class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs text-slate-300 leading-relaxed">
           <!-- Populated by JS -->
         </div>
 
-        <!-- Textarea for user writing -->
-        <div class="relative">
-          <textarea id="userWritingInput" oninput="analyzeWriting()" rows="7" placeholder="Type your response here or paste the template to customize..." class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 font-sans leading-relaxed"></textarea>
-        </div>
+        <!-- Textarea -->
+        <textarea id="userWritingInput" oninput="analyzeWriting()" rows="7" placeholder="Type your answer here or load the template above..." class="w-full bg-slate-900/90 border border-slate-700 rounded-xl p-3 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 font-sans leading-relaxed"></textarea>
 
-        <!-- Real-Time Metrics & Connector Checks -->
-        <div class="bg-slate-900/90 rounded-lg p-3 border border-slate-800 space-y-2.5">
-          <div class="flex items-center justify-between text-[11px]">
-            <span class="text-slate-400">Target Range:</span>
-            <span id="targetRangeText" class="font-semibold text-sky-400">70 – 100 words</span>
+        <!-- Live Metrics & Connectors Highlighter -->
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2.5">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-slate-400 font-medium">Target Range:</span>
+            <span id="targetRangeText" class="font-bold text-sky-400 font-mono">70 – 100 words</span>
           </div>
-          <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+
+          <!-- Progress Bar with Target Zone -->
+          <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
             <div id="wordCountBar" class="bg-slate-600 h-full w-0 transition-all duration-300"></div>
           </div>
-          <div id="wordStatusMessage" class="text-[11px] font-medium text-amber-400">
-            Start typing to see your word count and B1 connectors check.
+          <div id="wordStatusMessage" class="text-xs font-medium text-slate-400">
+            Start typing to see live word count analysis.
           </div>
 
-          <!-- B1 Connector Words Found -->
-          <div class="pt-1 border-t border-slate-800">
-            <span class="text-[11px] text-slate-400 block mb-1">B1 Connectors Detected:</span>
-            <div id="connectorsPills" class="flex flex-wrap gap-1">
-              <span class="text-[10px] text-slate-500 italic">None yet. Try adding: however, although, furthermore, therefore, for example...</span>
+          <!-- Connectors Badge -->
+          <div class="pt-2 border-t border-slate-800/80">
+            <span class="text-[11px] text-slate-400 font-semibold block mb-1.5 uppercase tracking-wider">B1 Connectors Detected:</span>
+            <div id="connectorsPills" class="flex flex-wrap gap-1.5">
+              <span class="text-[11px] text-slate-500 italic">None yet. Try using: however, although, furthermore, therefore, for example...</span>
             </div>
           </div>
         </div>
 
         <div class="flex gap-2">
-          <button onclick="clearWritingEditor()" class="flex-1 py-1.5 bg-slate-700 hover:bg-slate-600 rounded text-xs text-slate-300 font-medium">Clear</button>
-          <button onclick="saveWritingDraft()" class="flex-1 py-1.5 bg-sky-600 hover:bg-sky-500 rounded text-xs text-white font-semibold flex items-center justify-center gap-1">
-            <i data-lucide="save" class="w-3.5 h-3.5"></i> Save Draft
+          <button onclick="clearWritingEditor()" class="flex-1 py-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl text-xs text-slate-300 font-semibold transition">Clear</button>
+          <button onclick="saveWritingDraft()" class="flex-1 py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl text-xs font-bold shadow-lg shadow-purple-600/20 active:scale-95 transition">
+            Save Draft
           </button>
         </div>
       </div>
     </div>
 
 
-    <!-- ========================================== -->
+    <!-- ============================================================== -->
     <!-- TAB 3: LISTENING & READING HACKS -->
-    <!-- ========================================== -->
+    <!-- ============================================================== -->
     <div id="tab-lr" class="tab-pane space-y-4 hidden">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-lg font-bold text-white flex items-center gap-2">
-            <i data-lucide="headphones" class="w-5 h-5 text-sky-400"></i> Listening & Reading Hacks
+          <h2 class="text-base font-extrabold text-white flex items-center gap-2">
+            <span class="w-6 h-6 rounded-md bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold">3</span>
+            Listening & Reading Hacks
           </h2>
-          <p class="text-xs text-slate-400">Avoid common trap answers & pass in 50%+</p>
+          <p class="text-xs text-slate-400">Avoid the trap answers & secure 50%+</p>
         </div>
       </div>
 
-      <!-- Toggle between Listening and Reading -->
-      <div class="flex bg-slate-800 p-1 rounded-xl border border-slate-700 text-xs font-medium">
-        <button onclick="setLRSection('listening')" id="lr-btn-l" class="flex-1 py-1.5 rounded-lg text-center bg-sky-500 text-white shadow">Listening Strategies & Audio Drill</button>
-        <button onclick="setLRSection('reading')" id="lr-btn-r" class="flex-1 py-1.5 rounded-lg text-center text-slate-300">Reading Speed Hacks & Mini Test</button>
+      <!-- Segmented LR Selector -->
+      <div class="grid grid-cols-2 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-semibold text-slate-400">
+        <button onclick="setLRSection('listening')" id="lr-btn-l" class="py-2.5 rounded-lg text-center bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold shadow-md shadow-emerald-600/20 transition">
+          🎧 Listening Traps
+        </button>
+        <button onclick="setLRSection('reading')" id="lr-btn-r" class="py-2.5 rounded-lg text-center hover:text-white transition">
+          📖 Reading Synonyms
+        </button>
       </div>
 
-      <!-- LISTENING SUBSECTION -->
+      <!-- LISTENING CONTENT -->
       <div id="lr-listening-content" class="space-y-3">
-        <!-- 3 Golden Rules -->
-        <div class="bg-slate-800 border border-slate-700 rounded-xl p-3.5 space-y-2">
-          <h3 class="text-xs font-bold text-sky-300 flex items-center gap-1.5">
-            <i data-lucide="shield-alert" class="w-4 h-4 text-sky-400"></i> 3 Rules to Beat the Listening Traps
+        <div class="glass-card rounded-2xl p-4 space-y-2.5">
+          <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span>🛡️</span> 3 Rules to Beat the Listening Traps
           </h3>
-          <ul class="text-xs text-slate-300 space-y-1.5 list-disc pl-4 leading-relaxed">
-            <li><strong>The Distractor Trap:</strong> The speaker will mention Option A, but then say: <em>"Oh wait, actually...", "On second thought..."</em>. Don't pick the first word you hear!</li>
-            <li><strong>Audio Plays TWICE:</strong> First listen = get the general idea. Second listen = confirm your exact answer and check spelling.</li>
-            <li><strong>Pre-Read Questions:</strong> In the 30 seconds before audio starts, underline keywords like dates, times, and places.</li>
+          <ul class="text-xs text-slate-300 space-y-2 list-disc pl-4 leading-relaxed">
+            <li><strong>The Distractor Trap:</strong> The speaker says Option A first, then pauses and says: <em>"Actually, on second thought...", "The supervisor changed it to..."</em>. Never pick the first word you hear!</li>
+            <li><strong>Audio Plays TWICE:</strong> 1st listen: get the main answer. 2nd listen: verify spelling and exact details.</li>
+            <li><strong>Pre-Read Questions:</strong> In the 30s pause before audio starts, underline dates, times, and names.</li>
           </ul>
         </div>
 
         <!-- Interactive Audio Drill -->
-        <div class="bg-slate-800 border border-slate-700 rounded-xl p-4 space-y-3">
+        <div class="glass-card rounded-2xl p-4 space-y-3 border border-emerald-500/30">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-white">Interactive Distractor Trap Drill:</span>
-            <span class="text-[10px] text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">Audio Powered</span>
+            <span class="text-xs font-bold text-white uppercase tracking-wider">Live Distractor Drill</span>
+            <span class="text-[10px] text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded-full font-bold">Audio Ready</span>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Click "Play Audio" to hear the conversation (spoken by your phone), then choose the correct answer:
+          <p class="text-xs text-slate-300">
+            Tap the button below to listen to the dialogue, then pick the correct answer:
           </p>
 
-          <button onclick="playListeningAudioSample()" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-2">
-            <i data-lucide="play" class="w-4 h-4"></i> Play Audio Dialogue (Speech Synthesis)
+          <button onclick="playListeningAudioSample()" class="w-full py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-xs font-bold shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 active:scale-95 transition">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Play Audio Dialogue (British Examiner)
           </button>
 
-          <div class="bg-slate-900 p-3 rounded-lg border border-slate-800 text-xs space-y-2.5">
-            <div class="font-semibold text-slate-200">Question: When will the care assistant start her shift?</div>
-            <div class="space-y-1.5">
-              <label class="flex items-center space-x-2 text-slate-300 p-1.5 rounded hover:bg-slate-800 cursor-pointer">
-                <input type="radio" name="listeningSample" value="A" class="text-sky-500 focus:ring-0">
+          <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-3 text-xs">
+            <div class="font-bold text-white">Question: When will the care assistant start her shift?</div>
+            <div class="space-y-2">
+              <label class="flex items-center space-x-2.5 text-slate-300 p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-500/50 cursor-pointer">
+                <input type="radio" name="listeningSample" value="A" class="text-emerald-500 focus:ring-0">
                 <span>A) 7:00 AM on Monday</span>
               </label>
-              <label class="flex items-center space-x-2 text-slate-300 p-1.5 rounded hover:bg-slate-800 cursor-pointer">
-                <input type="radio" name="listeningSample" value="B" class="text-sky-500 focus:ring-0">
+              <label class="flex items-center space-x-2.5 text-slate-300 p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-500/50 cursor-pointer">
+                <input type="radio" name="listeningSample" value="B" class="text-emerald-500 focus:ring-0">
                 <span>B) 8:30 AM on Tuesday</span>
               </label>
-              <label class="flex items-center space-x-2 text-slate-300 p-1.5 rounded hover:bg-slate-800 cursor-pointer">
-                <input type="radio" name="listeningSample" value="C" class="text-sky-500 focus:ring-0">
+              <label class="flex items-center space-x-2.5 text-slate-300 p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-500/50 cursor-pointer">
+                <input type="radio" name="listeningSample" value="C" class="text-emerald-500 focus:ring-0">
                 <span>C) 2:00 PM on Tuesday</span>
               </label>
             </div>
-            <button onclick="checkListeningAnswer()" class="w-full py-1.5 bg-sky-600 hover:bg-sky-500 text-white rounded text-xs font-semibold">Check My Answer</button>
-            <div id="listeningFeedback" class="hidden text-xs p-2 rounded"></div>
+            <button onclick="checkListeningAnswer()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold transition">Check Answer</button>
+            <div id="listeningFeedback" class="hidden text-xs p-3 rounded-xl"></div>
           </div>
         </div>
       </div>
 
-      <!-- READING SUBSECTION -->
+      <!-- READING CONTENT -->
       <div id="lr-reading-content" class="space-y-3 hidden">
-        <!-- Reading Strategy -->
-        <div class="bg-slate-800 border border-slate-700 rounded-xl p-3.5 space-y-2">
-          <h3 class="text-xs font-bold text-sky-300 flex items-center gap-1.5">
-            <i data-lucide="book-open" class="w-4 h-4 text-sky-400"></i> Reading Hack: Keyword & Synonym Hunt
+        <div class="glass-card rounded-2xl p-4 space-y-2.5">
+          <h3 class="text-xs font-bold text-sky-400 uppercase tracking-wider">
+            Reading Hack • Keyword & Synonym Matching
           </h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            The question will <strong>NEVER</strong> use the exact same words as the text. They use synonyms!
+            LanguageCert questions <strong>never</strong> use the exact same words from the text. They always use synonyms!
           </p>
-          <div class="grid grid-cols-2 gap-2 text-[11px] font-mono bg-slate-900 p-2.5 rounded-lg border border-slate-700/60">
-            <div><span class="text-red-400">Exam word:</span> difficult</div>
+          <div class="grid grid-cols-2 gap-2 text-xs font-mono bg-slate-950 p-3 rounded-xl border border-slate-800">
+            <div><span class="text-rose-400">Exam question:</span> difficult</div>
             <div><span class="text-emerald-400">Text says:</span> challenging</div>
-            <div><span class="text-red-400">Exam word:</span> every year</div>
-            <div><span class="text-emerald-400">Text says:</span> annually</div>
-            <div><span class="text-red-400">Exam word:</span> immediately</div>
+            <div><span class="text-rose-400">Exam question:</span> immediately</div>
             <div><span class="text-emerald-400">Text says:</span> without delay</div>
+            <div><span class="text-rose-400">Exam question:</span> every year</div>
+            <div><span class="text-emerald-400">Text says:</span> annually</div>
           </div>
         </div>
 
         <!-- Interactive Reading Drill -->
-        <div class="bg-slate-800 border border-slate-700 rounded-xl p-4 space-y-3">
-          <span class="text-xs font-bold text-white block">Quick Reading Drill: Care Home Notice</span>
-          <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-xs text-slate-300 leading-relaxed font-sans">
+        <div class="glass-card rounded-2xl p-4 space-y-3">
+          <span class="text-xs font-bold text-white uppercase tracking-wider block">Care Home Notice Drill</span>
+          <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 text-xs text-slate-300 leading-relaxed font-sans">
             "All healthcare staff must record patient temperature charts before 10:00 AM. In case of unexpected delay, please notify the senior nurse supervisor immediately. Failure to update the digital log may disrupt the medication schedule."
           </div>
-          <div class="space-y-2 text-xs">
-            <div class="font-semibold text-slate-200">What should you do if you cannot complete the chart on time?</div>
-            <div class="space-y-1.5">
-              <label class="flex items-center space-x-2 text-slate-300 p-1.5 rounded hover:bg-slate-800 cursor-pointer">
+          <div class="space-y-2.5 text-xs">
+            <div class="font-bold text-white">What should you do if you cannot complete the chart on time?</div>
+            <div class="space-y-2">
+              <label class="flex items-center space-x-2.5 text-slate-300 p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-sky-500/50 cursor-pointer">
                 <input type="radio" name="readingSample" value="A" class="text-sky-500 focus:ring-0">
-                <span>A) Administer the medication yourself</span>
+                <span>A) Administer medication yourself</span>
               </label>
-              <label class="flex items-center space-x-2 text-slate-300 p-1.5 rounded hover:bg-slate-800 cursor-pointer">
+              <label class="flex items-center space-x-2.5 text-slate-300 p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-sky-500/50 cursor-pointer">
                 <input type="radio" name="readingSample" value="B" class="text-sky-500 focus:ring-0">
                 <span>B) Inform the senior nurse right away</span>
               </label>
-              <label class="flex items-center space-x-2 text-slate-300 p-1.5 rounded hover:bg-slate-800 cursor-pointer">
+              <label class="flex items-center space-x-2.5 text-slate-300 p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-sky-500/50 cursor-pointer">
                 <input type="radio" name="readingSample" value="C" class="text-sky-500 focus:ring-0">
-                <span>C) Fill it in after your lunch break</span>
+                <span>C) Fill it in after lunch break</span>
               </label>
             </div>
-            <button onclick="checkReadingAnswer()" class="w-full py-1.5 bg-sky-600 hover:bg-sky-500 text-white rounded text-xs font-semibold">Verify Answer</button>
-            <div id="readingFeedback" class="hidden text-xs p-2 rounded"></div>
+            <button onclick="checkReadingAnswer()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold transition">Verify Answer</button>
+            <div id="readingFeedback" class="hidden text-xs p-3 rounded-xl"></div>
           </div>
         </div>
       </div>
     </div>
 
 
-    <!-- ========================================== -->
+    <!-- ============================================================== -->
     <!-- TAB 4: VOCABULARY & LIFESAVER PHRASES -->
-    <!-- ========================================== -->
+    <!-- ============================================================== -->
     <div id="tab-vocab" class="tab-pane space-y-4 hidden">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-lg font-bold text-white flex items-center gap-2">
-            <i data-lucide="sparkles" class="w-5 h-5 text-sky-400"></i> B1 Lifesaver Phrases
+          <h2 class="text-base font-extrabold text-white flex items-center gap-2">
+            <span class="w-6 h-6 rounded-md bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs font-bold">4</span>
+            Lifesaver Phrases
           </h2>
           <p class="text-xs text-slate-400">Never freeze in front of the examiner</p>
         </div>
       </div>
 
       <!-- Category 1: Buying Time -->
-      <div class="bg-slate-800 border border-slate-700 rounded-xl p-3.5 space-y-2.5">
+      <div class="glass-card rounded-2xl p-4 space-y-3 border border-amber-500/20">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-bold text-amber-300">1. Phrases to Buy Time (Instead of Staying Silent!)</span>
+          <span class="text-xs font-bold text-amber-300 uppercase tracking-wider">1. Phrases to Buy Time (Avoid Silence!)</span>
         </div>
-        <p class="text-[11px] text-slate-400">If you freeze, examiners deduct marks for silence. Use these while you think:</p>
-        <div class="space-y-1.5 text-xs text-slate-200">
-          <div class="bg-slate-900 p-2 rounded border border-slate-800 flex items-center justify-between">
-            <span>"That is an interesting question, let me think..."</span>
-            <button onclick="speakText('That is an interesting question, let me think about that for a moment.')" class="text-sky-400 hover:text-sky-300"><i data-lucide="volume-2" class="w-3.5 h-3.5"></i></button>
+        <p class="text-xs text-slate-400">Examiners deduct marks for silence. Use these phrases while your brain thinks:</p>
+        <div class="space-y-2 text-xs">
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
+            <span class="text-slate-200">"That's an interesting question, let me think..."</span>
+            <button onclick="speakText('That is an interesting question, let me think about that for a moment.')" class="p-1 text-sky-400 hover:text-sky-300">🔊</button>
           </div>
-          <div class="bg-slate-900 p-2 rounded border border-slate-800 flex items-center justify-between">
-            <span>"Well, from my perspective..."</span>
-            <button onclick="speakText('Well, from my perspective, there are a few important points.')" class="text-sky-400 hover:text-sky-300"><i data-lucide="volume-2" class="w-3.5 h-3.5"></i></button>
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
+            <span class="text-slate-200">"Well, from my perspective..."</span>
+            <button onclick="speakText('Well, from my perspective, there are a few important points.')" class="p-1 text-sky-400 hover:text-sky-300">🔊</button>
           </div>
-          <div class="bg-slate-900 p-2 rounded border border-slate-800 flex items-center justify-between">
-            <span>"To be completely honest with you..."</span>
-            <button onclick="speakText('To be completely honest with you, I feel that this is very important.')" class="text-sky-400 hover:text-sky-300"><i data-lucide="volume-2" class="w-3.5 h-3.5"></i></button>
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
+            <span class="text-slate-200">"To be completely honest with you..."</span>
+            <button onclick="speakText('To be completely honest with you, I feel that this is very important.')" class="p-1 text-sky-400 hover:text-sky-300">🔊</button>
           </div>
         </div>
       </div>
 
       <!-- Category 2: Asking for Clarification -->
-      <div class="bg-slate-800 border border-slate-700 rounded-xl p-3.5 space-y-2.5">
-        <span class="text-xs font-bold text-sky-300">2. If You Didn't Understand the Question</span>
-        <p class="text-[11px] text-slate-400">Asking the examiner to repeat is 100% allowed and does NOT fail you!</p>
-        <div class="space-y-1.5 text-xs text-slate-200">
-          <div class="bg-slate-900 p-2 rounded border border-slate-800 flex items-center justify-between">
-            <span>"Could you please repeat that for me, please?"</span>
-            <button onclick="speakText('Could you please repeat that for me, please?')" class="text-sky-400"><i data-lucide="volume-2" class="w-3.5 h-3.5"></i></button>
+      <div class="glass-card rounded-2xl p-4 space-y-3">
+        <span class="text-xs font-bold text-sky-300 uppercase tracking-wider">2. Didn't Understand the Question?</span>
+        <p class="text-xs text-slate-400">Asking the examiner to repeat is 100% permitted and is standard B1 communication!</p>
+        <div class="space-y-2 text-xs">
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
+            <span class="text-slate-200">"Could you please repeat that for me?"</span>
+            <button onclick="speakText('Could you please repeat that for me, please?')" class="p-1 text-sky-400">🔊</button>
           </div>
-          <div class="bg-slate-900 p-2 rounded border border-slate-800 flex items-center justify-between">
-            <span>"Could you rephrase that, please?"</span>
-            <button onclick="speakText('Could you rephrase that, please?')" class="text-sky-400"><i data-lucide="volume-2" class="w-3.5 h-3.5"></i></button>
-          </div>
-          <div class="bg-slate-900 p-2 rounded border border-slate-800 flex items-center justify-between">
-            <span>"Sorry, did you mean...?"</span>
-            <button onclick="speakText('Sorry, did you mean my job routine or my hobbies?')" class="text-sky-400"><i data-lucide="volume-2" class="w-3.5 h-3.5"></i></button>
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
+            <span class="text-slate-200">"Could you rephrase that, please?"</span>
+            <button onclick="speakText('Could you rephrase that, please?')" class="p-1 text-sky-400">🔊</button>
           </div>
         </div>
       </div>
 
-      <!-- Category 3: High-Frequency Healthcare & Work Vocabulary -->
-      <div class="bg-slate-800 border border-slate-700 rounded-xl p-3.5 space-y-2">
-        <span class="text-xs font-bold text-emerald-300">3. Health & Care Work Essential Words</span>
+      <!-- Category 3: Healthcare Vocabulary Grid -->
+      <div class="glass-card rounded-2xl p-4 space-y-2.5">
+        <span class="text-xs font-bold text-emerald-300 uppercase tracking-wider">3. Essential Healthcare Words</span>
         <div class="grid grid-cols-2 gap-2 text-xs pt-1">
-          <div class="bg-slate-900 p-2 rounded border border-slate-800">
-            <span class="font-semibold text-sky-300">Compassionate</span>
-            <p class="text-[10px] text-slate-400">Caring and sympathetic</p>
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+            <div class="font-bold text-sky-300">Compassionate</div>
+            <div class="text-[11px] text-slate-400">Caring and sympathetic</div>
           </div>
-          <div class="bg-slate-900 p-2 rounded border border-slate-800">
-            <span class="font-semibold text-sky-300">Residents / Patients</span>
-            <p class="text-[10px] text-slate-400">People receiving care</p>
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+            <div class="font-bold text-sky-300">Residents</div>
+            <div class="text-[11px] text-slate-400">People receiving care</div>
           </div>
-          <div class="bg-slate-900 p-2 rounded border border-slate-800">
-            <span class="font-semibold text-sky-300">Assistance</span>
-            <p class="text-[10px] text-slate-400">Helping with daily needs</p>
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+            <div class="font-bold text-sky-300">Assistance</div>
+            <div class="text-[11px] text-slate-400">Helping with daily needs</div>
           </div>
-          <div class="bg-slate-900 p-2 rounded border border-slate-800">
-            <span class="font-semibold text-sky-300">Routine</span>
-            <p class="text-[10px] text-slate-400">Daily structured schedule</p>
-          </div>
-          <div class="bg-slate-900 p-2 rounded border border-slate-800">
-            <span class="font-semibold text-sky-300">Patience</span>
-            <p class="text-[10px] text-slate-400">Staying calm & supportive</p>
-          </div>
-          <div class="bg-slate-900 p-2 rounded border border-slate-800">
-            <span class="font-semibold text-sky-300">Teamwork</span>
-            <p class="text-[10px] text-slate-400">Working with colleagues</p>
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+            <div class="font-bold text-sky-300">Routine</div>
+            <div class="text-[11px] text-slate-400">Structured schedule</div>
           </div>
         </div>
       </div>
     </div>
 
 
-    <!-- ========================================== -->
+    <!-- ============================================================== -->
     <!-- TAB 5: 48-HOUR EMERGENCY CRAM PLAN -->
-    <!-- ========================================== -->
+    <!-- ============================================================== -->
     <div id="tab-plan" class="tab-pane space-y-4 hidden">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-lg font-bold text-white flex items-center gap-2">
-            <i data-lucide="calendar" class="w-5 h-5 text-amber-400"></i> 48-Hour Survival Schedule
+          <h2 class="text-base font-extrabold text-white flex items-center gap-2">
+            <span class="w-6 h-6 rounded-md bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs font-bold">5</span>
+            48-Hour Survival Schedule
           </h2>
-          <p class="text-xs text-slate-400">Exact step-by-step hours to guarantee your 50% pass</p>
+          <p class="text-xs text-slate-400">Hour-by-hour roadmap to secure your pass</p>
         </div>
       </div>
 
-      <!-- DAY 1 TIMETABLE -->
-      <div class="bg-slate-800 border border-slate-700 rounded-xl p-4 space-y-3">
-        <div class="flex items-center justify-between border-b border-slate-700 pb-2">
-          <span class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
-            <i data-lucide="check-circle" class="w-4 h-4 text-amber-400"></i> DAY 1: Foundation & Templates
-          </span>
-          <span class="text-[10px] text-slate-400 font-mono">Today</span>
+      <!-- DAY 1 -->
+      <div class="glass-card rounded-2xl p-4 space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Day 1 • Writing & Speaking Foundation</span>
+          <span class="text-xs font-mono text-slate-400">Today</span>
         </div>
-        <div class="space-y-2.5 text-xs">
-          <div class="flex gap-2.5">
-            <div class="w-14 shrink-0 font-mono text-sky-400 font-semibold">09:00 - 11:30</div>
+        <div class="space-y-3 text-xs">
+          <div class="flex gap-3">
+            <span class="w-16 font-mono font-bold text-sky-400 shrink-0">09:00–11:30</span>
             <div>
-              <div class="font-semibold text-slate-200">Writing Mastery (Task 1 & Task 2)</div>
-              <p class="text-slate-400 text-[11px]">Memorize the 3-paragraph email formula & 4-paragraph essay formula. Type 2 samples into the app.</p>
+              <div class="font-bold text-white">Writing Templates Memorization</div>
+              <p class="text-slate-400 text-[11px]">Memorize Task 1 (80w) & Task 2 (110w) formulas. Practice typing in the app sandbox.</p>
             </div>
           </div>
-          <div class="flex gap-2.5">
-            <div class="w-14 shrink-0 font-mono text-sky-400 font-semibold">12:30 - 15:00</div>
+          <div class="flex gap-3">
+            <span class="w-16 font-mono font-bold text-sky-400 shrink-0">12:30–15:00</span>
             <div>
-              <div class="font-semibold text-slate-200">Speaking Part 1 & Alphabet Spelling</div>
-              <p class="text-slate-400 text-[11px]">Practice spelling your surname out loud 20 times. Drill 8 Part 1 answers using your phone recorder.</p>
+              <div class="font-bold text-white">Speaking Part 1 & Surname Spelling</div>
+              <p class="text-slate-400 text-[11px]">Spell your surname 20 times clearly. Drill answers using the voice recorder.</p>
             </div>
           </div>
-          <div class="flex gap-2.5">
-            <div class="w-14 shrink-0 font-mono text-sky-400 font-semibold">16:00 - 18:30</div>
+          <div class="flex gap-3">
+            <span class="w-16 font-mono font-bold text-sky-400 shrink-0">16:00–18:30</span>
             <div>
-              <div class="font-semibold text-slate-200">Speaking Part 4 (The 90s Presentation)</div>
-              <p class="text-slate-400 text-[11px]">Use the built-in 30s prep & 90s timer. Practice speaking on 4 topics until you can reach 75-90 seconds without stopping.</p>
-            </div>
-          </div>
-          <div class="flex gap-2.5">
-            <div class="w-14 shrink-0 font-mono text-sky-400 font-semibold">20:00 - 21:30</div>
-            <div>
-              <div class="font-semibold text-slate-200">Speaking Part 2 & 3 Roleplays</div>
-              <p class="text-slate-400 text-[11px]">Memorize polite suggestions ("Shall we...?", "What do you think?").</p>
+              <div class="font-bold text-white">Speaking Part 4 (90s Presentation)</div>
+              <p class="text-slate-400 text-[11px]">Use the 30s prep & 90s timer. Practice speaking on 4 topics until fluent.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- DAY 2 TIMETABLE -->
-      <div class="bg-slate-800 border border-slate-700 rounded-xl p-4 space-y-3">
-        <div class="flex items-center justify-between border-b border-slate-700 pb-2">
-          <span class="text-xs font-bold text-emerald-300 flex items-center gap-1.5">
-            <i data-lucide="award" class="w-4 h-4 text-emerald-400"></i> DAY 2: Speed, Accuracy & Mock Test
-          </span>
-          <span class="text-[10px] text-slate-400 font-mono">Tomorrow</span>
+      <!-- DAY 2 -->
+      <div class="glass-card rounded-2xl p-4 space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Day 2 • Listening, Reading & Mock Run</span>
+          <span class="text-xs font-mono text-slate-400">Tomorrow</span>
         </div>
-        <div class="space-y-2.5 text-xs">
-          <div class="flex gap-2.5">
-            <div class="w-14 shrink-0 font-mono text-sky-400 font-semibold">09:00 - 11:00</div>
+        <div class="space-y-3 text-xs">
+          <div class="flex gap-3">
+            <span class="w-16 font-mono font-bold text-emerald-400 shrink-0">09:00–11:00</span>
             <div>
-              <div class="font-semibold text-slate-200">Listening Strategy & Trap Drills</div>
-              <p class="text-slate-400 text-[11px]">Practice spotting distractors. Train your brain to verify spelling on the second listening play.</p>
+              <div class="font-bold text-white">Listening Trap Practice</div>
+              <p class="text-slate-400 text-[11px]">Spot distractors. Listen to second play to confirm answers.</p>
             </div>
           </div>
-          <div class="flex gap-2.5">
-            <div class="w-14 shrink-0 font-mono text-sky-400 font-semibold">11:30 - 13:00</div>
+          <div class="flex gap-3">
+            <span class="w-16 font-mono font-bold text-emerald-400 shrink-0">14:00–16:30</span>
             <div>
-              <div class="font-semibold text-slate-200">Reading Skimming & Scanning</div>
-              <p class="text-slate-400 text-[11px]">Look for synonyms, heading matches, and avoid getting stuck on unknown words.</p>
+              <div class="font-bold text-white">Full Mock Run</div>
+              <p class="text-slate-400 text-[11px]">Timed writing of Task 1 & 2 + 1 complete speaking test.</p>
             </div>
           </div>
-          <div class="flex gap-2.5">
-            <div class="w-14 shrink-0 font-mono text-sky-400 font-semibold">14:30 - 17:00</div>
+          <div class="flex gap-3">
+            <span class="w-16 font-mono font-bold text-emerald-400 shrink-0">19:00–20:00</span>
             <div>
-              <div class="font-semibold text-slate-200">Full 4-Skill Mock Run</div>
-              <p class="text-slate-400 text-[11px]">Write 1 full Task 1 + Task 2 under 70 mins. Run full Speaking Parts 1-4 once through.</p>
-            </div>
-          </div>
-          <div class="flex gap-2.5">
-            <div class="w-14 shrink-0 font-mono text-sky-400 font-semibold">19:00 - 20:30</div>
-            <div>
-              <div class="font-semibold text-slate-200">Document Check & Rest</div>
-              <p class="text-slate-400 text-[11px]">Pack Passport, check test center address, sleep early. A relaxed mind passes B1 easily!</p>
+              <div class="font-bold text-white">Pack Documents & Early Sleep</div>
+              <p class="text-slate-400 text-[11px]">Pack original Passport and booking confirmation email.</p>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- EXAM DAY PACKLIST -->
-      <div class="bg-indigo-950/60 border border-indigo-700/60 rounded-xl p-3.5 space-y-2">
-        <span class="text-xs font-bold text-indigo-300 flex items-center gap-1.5">
-          <i data-lucide="briefcase" class="w-4 h-4"></i> What to Take to the Test Centre
-        </span>
-        <ul class="text-xs text-indigo-200 space-y-1 list-disc pl-4">
-          <li>Valid original <strong>Passport</strong> (the exact one used for booking).</li>
-          <li>Printed copy of your <strong>Booking Confirmation Email</strong>.</li>
-          <li>Arrive at least <strong>30 minutes early</strong> for photo/biometric verification.</li>
-        </ul>
       </div>
     </div>
 
   </main>
 
-  <!-- BOTTOM FIXED NAVIGATION BAR (MOBILE FIRST) -->
-  <nav class="fixed bottom-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 max-w-md mx-auto">
-    <div class="flex justify-around items-center py-2 px-1 text-slate-400">
-      <button onclick="switchTab('speaking')" id="nav-speaking" class="flex flex-col items-center gap-1 active-nav transition">
-        <i data-lucide="mic" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold">Speaking</span>
+  <!-- ============================================================== -->
+  <!-- FLOATING MODERN DOCK NAVIGATION (MOBILE FIRST) -->
+  <!-- ============================================================== -->
+  <nav class="fixed bottom-3 left-4 right-4 z-50 max-w-md mx-auto">
+    <div class="glass-nav rounded-2xl border border-slate-800/90 shadow-2xl px-2 py-2 flex justify-around items-center">
+      <button onclick="switchTab('speaking')" id="nav-speaking" class="flex flex-col items-center gap-1 text-sky-400 transition">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+        </svg>
+        <span class="text-[10px] font-bold">Speaking</span>
       </button>
-      <button onclick="switchTab('writing')" id="nav-writing" class="flex flex-col items-center gap-1 transition">
-        <i data-lucide="pen-tool" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold">Writing</span>
+
+      <button onclick="switchTab('writing')" id="nav-writing" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+        </svg>
+        <span class="text-[10px] font-bold">Writing</span>
       </button>
-      <button onclick="switchTab('lr')" id="nav-lr" class="flex flex-col items-center gap-1 transition">
-        <i data-lucide="headphones" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold">Listen/Read</span>
+
+      <button onclick="switchTab('lr')" id="nav-lr" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+        </svg>
+        <span class="text-[10px] font-bold">Drills</span>
       </button>
-      <button onclick="switchTab('vocab')" id="nav-vocab" class="flex flex-col items-center gap-1 transition">
-        <i data-lucide="sparkles" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold">Phrases</span>
+
+      <button onclick="switchTab('vocab')" id="nav-vocab" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+        </svg>
+        <span class="text-[10px] font-bold">Phrases</span>
       </button>
-      <button onclick="switchTab('plan')" id="nav-plan" class="flex flex-col items-center gap-1 transition">
-        <i data-lucide="calendar" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold">2-Day Plan</span>
+
+      <button onclick="switchTab('plan')" id="nav-plan" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        <span class="text-[10px] font-bold">Plan</span>
       </button>
     </div>
   </nav>
 
-  <!-- JAVASCRIPT LOGIC -->
+  <!-- ============================================================== -->
+  <!-- JAVASCRIPT APP LOGIC -->
+  <!-- ============================================================== -->
   <script>
-    // Initialize Lucide Icons
     document.addEventListener("DOMContentLoaded", () => {
-      lucide.createIcons();
       initQuestions();
       initWritingWorkbench();
-      initAudioRecording();
     });
 
-    // -------------------------------------------------------------
-    // NAVIGATION TABS LOGIC
-    // -------------------------------------------------------------
+    // NAVIGATION SWITCHER
     function switchTab(tabId) {
       document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
       const activePane = document.getElementById(`tab-${tabId}`);
       if (activePane) activePane.classList.remove('hidden');
 
-      // Update Nav active style
-      const navButtons = ['speaking', 'writing', 'lr', 'vocab', 'plan'];
-      navButtons.forEach(btn => {
-        const el = document.getElementById(`nav-${btn}`);
-        if (el) {
-          if (btn === tabId) {
-            el.classList.add('active-nav');
+      const tabs = ['speaking', 'writing', 'lr', 'vocab', 'plan'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`nav-${t}`);
+        if (btn) {
+          if (t === tabId) {
+            btn.className = "flex flex-col items-center gap-1 text-sky-400 font-bold transition";
           } else {
-            el.classList.remove('active-nav');
+            btn.className = "flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition";
           }
         }
       });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // -------------------------------------------------------------
-    // TEXT-TO-SPEECH (BRITISH EXAMINER VOICE)
-    // -------------------------------------------------------------
+    // AUDIO SYNTHESIS
     let preferredVoice = null;
-    let voices = [];
-
     function loadVoices() {
       if ('speechSynthesis' in window) {
-        voices = window.speechSynthesis.getVoices();
-        // Try to find British English voice first
+        const voices = window.speechSynthesis.getVoices();
         preferredVoice = voices.find(v => v.lang.includes('en-GB') || v.name.includes('UK') || v.name.includes('British')) 
                          || voices.find(v => v.lang.startsWith('en')) 
                          || null;
         if (preferredVoice) {
-          document.getElementById('voiceLabel').textContent = preferredVoice.lang.includes('GB') ? 'UK Voice' : 'EN Voice';
+          document.getElementById('voiceHeaderLabel').textContent = preferredVoice.lang.includes('GB') ? 'UK Voice' : 'EN Voice';
         }
       }
     }
-
     if ('speechSynthesis' in window) {
       window.speechSynthesis.onvoiceschanged = loadVoices;
       loadVoices();
     }
 
-    function toggleVoiceAccent() {
-      if (!('speechSynthesis' in window)) {
-        alert('Text-to-speech not supported in this browser.');
-        return;
-      }
-      speakText('Welcome to the LanguageCert SELT B1 preparation test.');
+    function toggleVoiceTester() {
+      speakText('Welcome to the LanguageCert SELT B1 test simulator.');
     }
 
     function speakText(text) {
-      if (!('speechSynthesis' in window)) {
-        alert('Audio speech not available.');
-        return;
-      }
+      if (!('speechSynthesis' in window)) return;
       window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      if (preferredVoice) utterance.voice = preferredVoice;
-      utterance.rate = 0.95; // slightly slower for exam clarity
-      utterance.pitch = 1.0;
-      window.speechSynthesis.speak(utterance);
+      const u = new SpeechSynthesisUtterance(text);
+      if (preferredVoice) u.voice = preferredVoice;
+      u.rate = 0.95;
+      window.speechSynthesis.speak(u);
     }
 
-    // -------------------------------------------------------------
-    // WEB AUDIO API SYNTHETIC CHIMES (NO EXTERNAL MP3 REQUIRED)
-    // -------------------------------------------------------------
-    function playBeep(freq = 600, duration = 0.3) {
+    // WEB AUDIO CHIMES
+    function playBeep(freq = 600, duration = 0.25) {
       try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         const osc = audioCtx.createOscillator();
@@ -794,89 +902,66 @@
         osc.connect(gain);
         gain.connect(audioCtx.destination);
         osc.frequency.value = freq;
-        gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
         osc.start();
         osc.stop(audioCtx.currentTime + duration);
-      } catch (e) {
-        console.log('AudioContext not permitted yet');
-      }
+      } catch (e) {}
     }
 
     function playSuccessChime() {
-      playBeep(523.25, 0.2); // C5
-      setTimeout(() => playBeep(659.25, 0.2), 150); // E5
-      setTimeout(() => playBeep(783.99, 0.4), 300); // G5
+      playBeep(523.25, 0.2);
+      setTimeout(() => playBeep(659.25, 0.2), 140);
+      setTimeout(() => playBeep(783.99, 0.35), 280);
     }
 
-    // -------------------------------------------------------------
-    // SPEAKING SIMULATOR DATA & LOGIC
-    // -------------------------------------------------------------
+    // SPEAKING DATA
     const p1Questions = [
       {
         q: "Can you tell me your full name, and please spell your family name?",
-        tip: "Spell clearly in English: e.g., 'S-M-I-T-H'. Speak slowly and distinctly.",
+        tip: "Spell slowly: e.g. A - D - E - B - A - Y - O.",
         sample: "My full name is John Adebayo. My family name is Adebayo: A - D - E - B - A - Y - O."
       },
       {
         q: "Why do you want to work as a health and care worker in the UK?",
-        tip: "Show passion and compassion. Mention caring for people and building a future.",
-        sample: "I have always enjoyed helping vulnerable individuals. Working in the UK allows me to offer professional care, assist elderly residents, and contribute positively to healthcare."
+        tip: "Mention compassion, helping elderly people, and career development.",
+        sample: "I have always enjoyed helping vulnerable individuals. Working in the UK allows me to offer compassionate care, assist elderly residents, and contribute positively to healthcare."
       },
       {
         q: "What do you usually do in your typical daily routine?",
-        tip: "Use present simple + time connectors: 'In the morning', 'After that', 'Finally'.",
+        tip: "Use time connectors: 'In the morning', 'After that', 'In the evening'.",
         sample: "I usually wake up around 6:30 in the morning. After having breakfast, I prepare for my shifts. In the evening, I enjoy cooking healthy food and calling my family."
       },
       {
         q: "What kind of activities do you enjoy doing during your free time?",
-        tip: "Mention 2 hobbies with reasons why you enjoy them.",
+        tip: "Give 2 hobbies with simple reasons.",
         sample: "In my free time, I really like taking long walks outdoors because it helps me relax. Furthermore, I love reading books and listening to music."
-      },
-      {
-        q: "How do you stay healthy and active?",
-        tip: "Relates directly to healthcare values: nutrition, sleep, hydration, exercise.",
-        sample: "To stay healthy, I try to drink plenty of water every day and eat fresh vegetables. In addition, I walk regularly and ensure I get at least seven hours of good sleep."
       }
     ];
 
     const p2Roleplays = [
       {
-        title: "Roleplay 1: Requesting a Shift Change with Supervisor",
-        context: "You are a care worker. You need to swap your Saturday morning shift with a colleague because of an urgent family appointment.",
-        examinerRole: "The Interlocutor plays your Care Home Supervisor.",
+        title: "Roleplay 1: Requesting Shift Change with Supervisor",
+        context: "You need to swap your Saturday morning shift with Maria due to an urgent appointment.",
         examinerLine: "Hello, you wanted to speak to me about your schedule for this weekend?",
-        candidateLine: "Hello. Yes, thank you for your time. I am wondering if it might be possible to swap my Saturday morning shift with Maria? I have an urgent doctor's appointment, but Maria has agreed to cover for me, and I will take her Sunday shift instead.",
-        tip: "Be polite: 'Would it be possible to...?', 'Thank you for your understanding'."
+        candidateLine: "Hello. Yes, thank you for your time. Would it be possible to swap my Saturday shift with Maria? I have an urgent doctor's appointment, and Maria has agreed to cover for me while I work on Sunday instead."
       },
       {
         title: "Roleplay 2: Helping an Anxious Resident's Family",
-        context: "A family member arrives at the care home worried that their father hasn't eaten his lunch.",
-        examinerRole: "The Interlocutor plays the worried family member.",
+        context: "A family member is worried that their father didn't eat his lunch.",
         examinerLine: "Excuse me, I noticed my father barely touched his meal today. Is everything alright?",
-        candidateLine: "Good afternoon. Please don't worry, your father was feeling a bit tired earlier, so we prepared some light soup for him which he enjoyed. We are monitoring him closely and will offer him another healthy snack shortly.",
-        tip: "Reassure them with compassion: 'Please don't worry', 'We are monitoring closely'."
+        candidateLine: "Good afternoon. Please don't worry, your father was feeling a bit tired earlier, so we prepared some light soup for him. We are monitoring him closely and will offer another snack shortly."
       }
     ];
 
     const p3Discussions = [
       {
         title: "Activity Day for Care Home Residents",
-        prompt: "We want to organize an enjoyable weekend activity for elderly residents. We have three ideas: 1) Indoor gardening workshop, 2) Music & singing afternoon, 3) Board games and tea. Let's decide which is best.",
+        prompt: "Options: 1) Gardening workshop, 2) Music & singing afternoon, 3) Board games and tea. Let's decide together.",
         keyPhrases: [
           "What do you think about the music session?",
           "I believe music is wonderful because almost everyone can join in.",
-          "However, board games might be challenging for residents with poor eyesight.",
-          "So, shall we agree on the music and singing afternoon?"
-        ]
-      },
-      {
-        title: "Organizing a Health & Wellbeing Week",
-        prompt: "Our team is planning a wellbeing week for colleagues. Options: Healthy cooking workshop, Daily walking group, or Stress management session.",
-        keyPhrases: [
-          "Shall we consider the stress management session first?",
-          "That's a great idea, although a walking group would also keep people active.",
-          "In my opinion, combining the walk with healthy snacks would be ideal."
+          "Shall we agree on the music and singing afternoon?"
         ]
       }
     ];
@@ -886,11 +971,11 @@
         title: "A person who inspires you (Family or Healthcare Hero)",
         notes: [
           "• Who they are and how you know them",
-          "• What qualities make them special (kindness, dedication, patience)",
-          "• An example of something memorable they did",
-          "• How they influenced your life or career"
+          "• What qualities make them special",
+          "• An example of something they did",
+          "• How they influenced your career choice"
         ],
-        sampleScript: "I would like to talk about my grandmother, who has been the biggest inspiration in my life. She worked as a community nurse for over thirty years. What makes her truly special is her boundless patience and compassion for everyone around her. Whenever someone in our neighbourhood was ill or struggling, she would visit them after work with food and care without expecting anything in return. Seeing her dedication inspired me deeply, and it is the main reason why I chose to work in healthcare. In conclusion, her kindness taught me that caring for people is the most rewarding vocation in the world."
+        sampleScript: "I would like to talk about my grandmother, who has been the biggest inspiration in my life. She worked as a community nurse for over thirty years. What makes her truly special is her boundless patience and compassion. Whenever someone in our neighbourhood was ill, she would visit them after work with food and medicine. Seeing her dedication inspired me deeply, and it is the main reason why I chose to work in healthcare. In conclusion, her kindness taught me that caring for people is the most rewarding vocation."
       },
       {
         title: "A memorable challenge you faced and overcame",
@@ -898,19 +983,19 @@
           "• What the difficult situation was",
           "• What steps you took to solve the problem",
           "• Who helped you along the way",
-          "• What important lesson you learned from the experience"
+          "• What important lesson you learned"
         ],
-        sampleScript: "I would like to share an experience when I had to adapt to a completely new working environment on short notice. When I began working in a busy clinic, we faced a sudden shortage of staff during a winter flu outbreak. At first, it felt quite overwhelming because there were many patients waiting. However, I stayed calm and prioritised urgent tasks by coordinating closely with my supervisor. We shared responsibilities clearly and supported each other throughout the day. Through this experience, I learned that clear communication and teamwork can overcome even the most stressful challenges."
+        sampleScript: "I would like to share an experience when I had to adapt to a completely new working environment. When I began working in a busy clinic, we faced a sudden shortage of staff during a winter flu outbreak. At first, it felt quite overwhelming. However, I stayed calm and prioritised urgent tasks by coordinating closely with my supervisor. Through this experience, I learned that clear communication and teamwork can overcome even the most stressful challenges."
       },
       {
-        title: "Why maintaining good health and routine is important",
+        title: "Why maintaining good health & routine is important",
         notes: [
           "• Why physical and mental health are connected",
           "• Practical habits for a healthy daily routine",
-          "• The benefits of proper nutrition, hydration, and sleep",
+          "• Proper nutrition, hydration, and sleep",
           "• How staying healthy helps you look after others"
         ],
-        sampleScript: "Maintaining good health and a regular routine is essential for a happy and productive life. In my view, physical and mental wellbeing go hand in hand. When we eat balanced meals with fresh fruits, drink sufficient water, and sleep for at least seven hours, our energy levels remain stable. Furthermore, having a predictable routine reduces stress and prevents burnout, which is particularly vital for healthcare workers. When we look after ourselves properly, we are in a much better position to provide compassionate and attentive care to others."
+        sampleScript: "Maintaining good health and a regular routine is essential for a productive life. In my view, physical and mental wellbeing go hand in hand. When we eat balanced meals, drink sufficient water, and sleep for seven hours, our energy levels remain stable. Furthermore, having a predictable routine reduces stress. When we look after ourselves properly, we are in a much better position to provide compassionate care to others."
       },
       {
         title: "A favorite place in your hometown and why",
@@ -920,66 +1005,59 @@
           "• Why it holds special memories for you",
           "• How it makes you feel whenever you visit"
         ],
-        sampleScript: "My favourite place in my hometown is a large peaceful public park located right next to the river. It has tall green trees, wide walking paths, and beautiful flower gardens. People from all generations visit the park to exercise, walk their dogs, or simply sit on the benches to read. I have many fond memories of going there with my family during weekends. Whenever I feel stressed after a long working week, visiting this park immediately makes me feel calm and refreshed."
+        sampleScript: "My favourite place in my hometown is a large peaceful public park located right next to the river. It has tall green trees, wide walking paths, and beautiful flower gardens. People from all generations visit the park to exercise or relax. Whenever I feel tired after a long working week, visiting this park immediately makes me feel refreshed."
       }
     ];
 
     function initQuestions() {
-      // Populate Part 1
-      const p1Container = document.getElementById('part1Questions');
-      p1Container.innerHTML = p1Questions.map((item, idx) => `
-        <div class="bg-slate-800/90 border border-slate-700 rounded-xl p-3 space-y-2">
+      // Part 1
+      document.getElementById('part1Questions').innerHTML = p1Questions.map((q, i) => `
+        <div class="glass-card rounded-2xl p-3.5 space-y-2">
           <div class="flex items-start justify-between gap-2">
-            <span class="text-xs font-semibold text-slate-100">${idx + 1}. "${item.q}"</span>
-            <button onclick="speakText('${item.q.replace(/'/g, "\\'")}')" class="p-1.5 bg-slate-700 hover:bg-slate-600 rounded-md text-sky-400 shrink-0">
-              <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
-            </button>
+            <span class="text-xs font-bold text-white">${i+1}. "${q.q}"</span>
+            <button onclick="speakText('${q.q.replace(/'/g, "\\'")}')" class="p-1.5 rounded-lg bg-slate-800 text-sky-400 hover:bg-slate-700 shrink-0">🔊</button>
           </div>
-          <div class="text-[11px] text-amber-300/90 font-medium">Tip: ${item.tip}</div>
-          <div class="bg-slate-900/90 p-2 rounded text-[11px] text-slate-300 border border-slate-800 flex justify-between items-start gap-2">
-            <div><strong class="text-emerald-400">Sample Answer:</strong> ${item.sample}</div>
-            <button onclick="speakText('${item.sample.replace(/'/g, "\\'")}')" class="p-1 text-slate-400 hover:text-white shrink-0">
-              <i data-lucide="play" class="w-3 h-3"></i>
-            </button>
+          <div class="text-[11px] text-amber-300 font-semibold">Tip: ${q.tip}</div>
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800/80 text-[11px] text-slate-300 flex justify-between items-start gap-2">
+            <div><strong class="text-emerald-400">Sample:</strong> ${q.sample}</div>
+            <button onclick="speakText('${q.sample.replace(/'/g, "\\'")}')" class="text-slate-400 hover:text-white shrink-0">▶</button>
           </div>
         </div>
       `).join('');
 
-      // Populate Part 2
-      const p2Container = document.getElementById('part2Cards');
-      p2Container.innerHTML = p2Roleplays.map((r, idx) => `
-        <div class="bg-slate-800/90 border border-slate-700 rounded-xl p-3.5 space-y-2.5">
-          <div class="font-bold text-xs text-sky-300">${r.title}</div>
+      // Part 2
+      document.getElementById('part2Cards').innerHTML = p2Roleplays.map((r, i) => `
+        <div class="glass-card rounded-2xl p-4 space-y-2.5">
+          <div class="text-xs font-bold text-sky-300">${r.title}</div>
           <p class="text-xs text-slate-300">${r.context}</p>
-          <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 space-y-1.5 text-xs">
-            <div class="flex items-center justify-between text-indigo-300 font-semibold">
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 space-y-1 text-xs">
+            <div class="flex items-center justify-between font-bold text-indigo-300">
               <span>Examiner asks:</span>
-              <button onclick="speakText('${r.examinerLine.replace(/'/g, "\\'")}')" class="text-sky-400"><i data-lucide="volume-2" class="w-3.5 h-3.5"></i></button>
+              <button onclick="speakText('${r.examinerLine.replace(/'/g, "\\'")}')" class="text-sky-400">🔊</button>
             </div>
             <p class="italic text-slate-300 text-[11px]">"${r.examinerLine}"</p>
           </div>
-          <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 space-y-1.5 text-xs">
-            <div class="flex items-center justify-between text-emerald-300 font-semibold">
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 space-y-1 text-xs">
+            <div class="flex items-center justify-between font-bold text-emerald-300">
               <span>Your High-Scoring Response:</span>
-              <button onclick="speakText('${r.candidateLine.replace(/'/g, "\\'")}')" class="text-emerald-400"><i data-lucide="volume-2" class="w-3.5 h-3.5"></i></button>
+              <button onclick="speakText('${r.candidateLine.replace(/'/g, "\\'")}')" class="text-emerald-400">🔊</button>
             </div>
             <p class="text-slate-200 text-[11px]">"${r.candidateLine}"</p>
           </div>
         </div>
       `).join('');
 
-      // Populate Part 3
-      const p3Container = document.getElementById('part3Cards');
-      p3Container.innerHTML = p3Discussions.map((d, idx) => `
-        <div class="bg-slate-800/90 border border-slate-700 rounded-xl p-3.5 space-y-2.5">
-          <div class="font-bold text-xs text-sky-300">${d.title}</div>
+      // Part 3
+      document.getElementById('part3Cards').innerHTML = p3Discussions.map((d, i) => `
+        <div class="glass-card rounded-2xl p-4 space-y-2.5">
+          <div class="text-xs font-bold text-sky-300">${d.title}</div>
           <p class="text-xs text-slate-300">${d.prompt}</p>
-          <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 space-y-1 text-xs">
-            <span class="text-[11px] font-semibold text-amber-300 block mb-1">Key Discussion Phrases:</span>
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 space-y-1 text-xs">
+            <span class="text-[11px] font-bold text-amber-300 block mb-1">Key Discussion Phrases:</span>
             ${d.keyPhrases.map(ph => `
               <div class="flex items-center justify-between py-0.5 text-[11px] text-slate-300">
                 <span>• "${ph}"</span>
-                <button onclick="speakText('${ph.replace(/'/g, "\\'")}')" class="text-sky-400"><i data-lucide="volume-2" class="w-3 h-3"></i></button>
+                <button onclick="speakText('${ph.replace(/'/g, "\\'")}')" class="text-sky-400">🔊</button>
               </div>
             `).join('')}
           </div>
@@ -987,77 +1065,71 @@
       `).join('');
 
       loadPart4Topic();
-      lucide.createIcons();
     }
 
-    function setSpeakingPart(partNum) {
+    function setSpeakingPart(n) {
       for (let i = 1; i <= 4; i++) {
         document.getElementById(`sp-part-${i}`).classList.add('hidden');
-        const btn = document.getElementById(`sp-btn-${i}`);
-        btn.classList.remove('bg-sky-500', 'text-white', 'shadow');
-        btn.classList.add('text-slate-300');
+        document.getElementById(`sp-btn-${i}`).className = "py-2 rounded-lg text-center hover:text-white transition";
       }
-      document.getElementById(`sp-part-${partNum}`).classList.remove('hidden');
-      const activeBtn = document.getElementById(`sp-btn-${partNum}`);
-      activeBtn.classList.add('bg-sky-500', 'text-white', 'shadow');
-      activeBtn.classList.remove('text-slate-300');
+      document.getElementById(`sp-part-${n}`).classList.remove('hidden');
+      document.getElementById(`sp-btn-${n}`).className = "py-2 rounded-lg text-center bg-gradient-to-r from-sky-500 to-sky-600 text-white shadow-md shadow-sky-500/20 font-bold transition";
     }
 
     function loadPart4Topic() {
       const idx = document.getElementById('part4TopicSelect').value;
-      const topic = p4Topics[idx];
-      const box = document.getElementById('part4TopicBox');
-      box.innerHTML = `
-        <div class="font-bold text-sky-300 text-xs">${topic.title}</div>
+      const t = p4Topics[idx];
+      document.getElementById('part4TopicBox').innerHTML = `
+        <div class="font-bold text-sky-400 text-xs">${t.title}</div>
         <div class="text-[11px] text-slate-300 space-y-0.5 pt-1">
-          ${topic.notes.map(n => `<div>${n}</div>`).join('')}
+          ${t.notes.map(n => `<div>${n}</div>`).join('')}
         </div>
-        <div class="pt-2 border-t border-slate-800">
+        <div class="pt-2 border-t border-slate-800 mt-2">
           <div class="flex items-center justify-between mb-1">
             <span class="text-[10px] uppercase font-bold text-emerald-400">Sample High-Scoring Speech (90s):</span>
-            <button onclick="speakText('${topic.sampleScript.replace(/'/g, "\\'")}')" class="text-sky-400 text-[10px] flex items-center gap-1">
-              <i data-lucide="volume-2" class="w-3 h-3"></i> Listen
+            <button onclick="speakText('${t.sampleScript.replace(/'/g, "\\'")}')" class="text-sky-400 text-[10px] font-bold flex items-center gap-1">
+              🔊 Listen
             </button>
           </div>
-          <p class="text-[11px] text-slate-300 leading-relaxed italic bg-slate-950 p-2 rounded">${topic.sampleScript}</p>
+          <p class="text-[11px] text-slate-300 italic bg-slate-900 p-2.5 rounded-lg border border-slate-800">${t.sampleScript}</p>
         </div>
       `;
-      lucide.createIcons();
     }
 
-    // -------------------------------------------------------------
-    // COUNTDOWN TIMERS (30s Prep / 90s Speak)
-    // -------------------------------------------------------------
+    // CIRCULAR TIMER LOGIC
     let countdownInterval = null;
     let totalTime = 30;
     let timeRemaining = 30;
+    const circleCircumference = 264; // 2 * PI * 42
 
     function resetTimers() {
       clearInterval(countdownInterval);
-      countdownInterval = null;
-      document.getElementById('timerStatusLabel').textContent = "Ready to Practice";
+      document.getElementById('timerStatusLabel').textContent = "Ready for Simulation";
       document.getElementById('timerDisplay').textContent = "00:30";
-      document.getElementById('timerProgressBar').style.width = "100%";
-      document.getElementById('timerProgressBar').className = "bg-sky-500 h-full transition-all duration-300";
+      document.getElementById('timerSubtext').textContent = "Prep Time";
+      const circle = document.getElementById('timerCircleProgress');
+      circle.style.strokeDashoffset = '0';
+      circle.className = "text-sky-400 fill-none circle-progress transition-all duration-300";
     }
 
     function startPrepTimer() {
       clearInterval(countdownInterval);
       totalTime = 30;
       timeRemaining = 30;
-      document.getElementById('timerStatusLabel').textContent = "30s PREPARATION TIME (MAKE NOTES)";
-      document.getElementById('timerProgressBar').className = "bg-amber-500 h-full transition-all duration-300";
+      document.getElementById('timerStatusLabel').textContent = "MAKE YOUR NOTES NOW (30 SECONDS)";
+      document.getElementById('timerSubtext').textContent = "Prep Time";
+      const circle = document.getElementById('timerCircleProgress');
+      circle.className = "text-amber-400 fill-none circle-progress transition-all duration-300";
       playBeep(440, 0.2);
 
-      updateTimerUI();
+      updateTimerDisplay();
       countdownInterval = setInterval(() => {
         timeRemaining--;
-        updateTimerUI();
+        updateTimerDisplay();
         if (timeRemaining <= 0) {
           clearInterval(countdownInterval);
           playSuccessChime();
-          document.getElementById('timerStatusLabel').textContent = "PREP FINISHED! START SPEAKING NOW!";
-          startSpeakTimer(); // Automatically transition to speaking
+          startSpeakTimer();
         }
       }, 1000);
     }
@@ -1066,43 +1138,41 @@
       clearInterval(countdownInterval);
       totalTime = 90;
       timeRemaining = 90;
-      document.getElementById('timerStatusLabel').textContent = "SPEAKING TIME (AIM FOR 75-90 SECONDS)";
-      document.getElementById('timerProgressBar').className = "bg-emerald-500 h-full transition-all duration-300";
+      document.getElementById('timerStatusLabel').textContent = "SPEAK CONTINUOUSLY (AIM FOR 75-90s)";
+      document.getElementById('timerSubtext').textContent = "Speaking";
+      const circle = document.getElementById('timerCircleProgress');
+      circle.className = "text-emerald-400 fill-none circle-progress transition-all duration-300";
       playBeep(880, 0.3);
 
-      updateTimerUI();
+      updateTimerDisplay();
       countdownInterval = setInterval(() => {
         timeRemaining--;
-        updateTimerUI();
+        updateTimerDisplay();
         if (timeRemaining <= 0) {
           clearInterval(countdownInterval);
           playSuccessChime();
-          document.getElementById('timerStatusLabel').textContent = "TIME UP! EXCELLENT JOB.";
+          document.getElementById('timerStatusLabel').textContent = "TIME COMPLETED! WELL DONE!";
         }
       }, 1000);
     }
 
-    function updateTimerUI() {
-      const minutes = Math.floor(timeRemaining / 60);
-      const seconds = timeRemaining % 60;
+    function updateTimerDisplay() {
+      const m = Math.floor(timeRemaining / 60);
+      const s = timeRemaining % 60;
       document.getElementById('timerDisplay').textContent = 
-        `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-      const percentage = (timeRemaining / totalTime) * 100;
-      document.getElementById('timerProgressBar').style.width = `${percentage}%`;
+        `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+      
+      const fraction = (totalTime - timeRemaining) / totalTime;
+      const offset = circleCircumference * fraction;
+      document.getElementById('timerCircleProgress').style.strokeDashoffset = offset;
     }
 
-    // -------------------------------------------------------------
-    // VOICE RECORDING VIA MEDIA RECORDER (BROWSER MIC)
-    // -------------------------------------------------------------
+    // VOICE RECORDER
     let mediaRecorder = null;
     let audioChunks = [];
     let isRecording = false;
     let recordTimerInterval = null;
-    let recordSeconds = 0;
-
-    function initAudioRecording() {
-      // setup will occur on user gesture to obey permissions
-    }
+    let recordSecs = 0;
 
     async function toggleRecording() {
       const btnText = document.getElementById('recordBtnText');
@@ -1119,70 +1189,62 @@
           };
 
           mediaRecorder.onstop = () => {
-            const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
-            const audioUrl = URL.createObjectURL(audioBlob);
-            const audioPlayer = document.getElementById('audioPlayback');
-            audioPlayer.src = audioUrl;
+            const blob = new Blob(audioChunks, { type: 'audio/webm' });
+            const url = URL.createObjectURL(blob);
+            document.getElementById('audioPlayback').src = url;
             document.getElementById('audioPlaybackContainer').classList.remove('hidden');
-            stream.getTracks().forEach(track => track.stop());
+            stream.getTracks().forEach(t => t.stop());
           };
 
           mediaRecorder.start();
           isRecording = true;
-          recordSeconds = 0;
+          recordSecs = 0;
           btnText.textContent = "Stop Recording";
-          document.getElementById('toggleRecordBtn').classList.add('bg-slate-700');
-          document.getElementById('toggleRecordBtn').classList.remove('bg-red-600');
+          document.getElementById('toggleRecordBtn').className = "w-full py-3 bg-slate-800 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2";
 
           recordTimerInterval = setInterval(() => {
-            recordSeconds++;
-            const m = Math.floor(recordSeconds / 60);
-            const s = recordSeconds % 60;
+            recordSecs++;
+            const m = Math.floor(recordSecs / 60);
+            const s = recordSecs % 60;
             timerLabel.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
           }, 1000);
 
-        } catch (err) {
-          alert("Microphone access could not be enabled in this browser. You can still practice speaking out loud!");
+        } catch (e) {
+          alert("Microphone permission not granted. You can still practice out loud!");
         }
       } else {
-        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-          mediaRecorder.stop();
-        }
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
         clearInterval(recordTimerInterval);
         isRecording = false;
         btnText.textContent = "Record Again";
-        document.getElementById('toggleRecordBtn').classList.remove('bg-slate-700');
-        document.getElementById('toggleRecordBtn').classList.add('bg-red-600');
+        document.getElementById('toggleRecordBtn').className = "w-full py-3 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white rounded-xl text-xs font-bold shadow-lg shadow-red-600/20 flex items-center justify-center gap-2";
       }
     }
 
-    // -------------------------------------------------------------
-    // WRITING STUDIO DATA & LIVE CHECKER
-    // -------------------------------------------------------------
-    let currentTask = 1;
+    // WRITING WORKBENCH
     const writingPrompts = {
       "t1-1": {
         task: 1,
         title: "Email to a Friend (Starting New UK Care Job)",
-        prompt: "Write an email to your friend Sarah about starting your new healthcare job in the UK.<br>In your email, you must:<br>• Explain what your new daily duties are<br>• Describe how you feel about the team<br>• Invite her to visit you next month",
+        prompt: "Write an email to your friend Sarah about starting your new healthcare job in the UK.<br>Include:<br>• Explain what your new daily duties are<br>• Describe how you feel about the team<br>• Invite her to visit you next month",
         min: 70, max: 100
       },
       "t1-2": {
         task: 1,
         title: "Email to Manager (Shift Adjustment Request)",
-        prompt: "Write an email to your care home manager, Mr. Davies.<br>In your email, you must:<br>• Explain why you need to swap your weekend shift<br>• Mention who agreed to cover your duty<br>• Offer to work extra hours the following week",
+        prompt: "Write an email to your care home manager, Mr. Davies.<br>Include:<br>• Explain why you need to swap your weekend shift<br>• Mention who agreed to cover your duty<br>• Offer to work extra hours next week",
         min: 70, max: 100
       },
       "t2-1": {
         task: 2,
-        title: "Article: Importance of Healthy Lifestyle in the Community",
-        prompt: "You see this notice in a community magazine: 'Why is healthy living important, and how can busy workers maintain good habits?'<br>Write an article expressing your opinion.<br>Include:<br>• Benefits of balanced nutrition and regular exercise<br>• Practical ways people can stay healthy despite busy schedules<br>• A concluding recommendation",
+        title: "Article: Importance of Healthy Lifestyle",
+        prompt: "Write an article for a community newsletter about why maintaining good health is vital for busy workers.<br>Include:<br>• Benefits of balanced nutrition & exercise<br>• Practical ways people can stay healthy<br>• A concluding recommendation",
         min: 100, max: 120
       },
       "t2-2": {
         task: 2,
-        title: "Formal Letter: Improving Care Home Facilities",
-        prompt: "Write a letter to the director of the care home suggesting improvements to the communal garden.<br>Include:<br>• Why the garden is valuable for residents<br>• Two specific improvements (seating, wheelchair ramps, flower beds)<br>• How this will benefit everyone's wellbeing",
+        title: "Formal Letter: Care Home Improvements",
+        prompt: "Write a letter to the director suggesting improvements to the communal garden for residents.<br>Include:<br>• Why the garden is important<br>• Two specific improvements (seating, wheelchair ramps)<br>• Expected benefits for wellbeing",
         min: 100, max: 120
       }
     };
@@ -1191,20 +1253,19 @@
       "however", "although", "therefore", "furthermore", "in addition", 
       "for example", "for instance", "in my opinion", "on the other hand",
       "because", "as a result", "firstly", "secondly", "to conclude",
-      "in conclusion", "moreover", "meanwhile", "besides"
+      "in conclusion", "moreover"
     ];
 
-    function setWritingTask(taskNum) {
-      currentTask = taskNum;
-      if (taskNum === 1) {
-        document.getElementById('wr-btn-1').className = "flex-1 py-1.5 rounded-lg text-center bg-sky-500 text-white shadow";
-        document.getElementById('wr-btn-2').className = "flex-1 py-1.5 rounded-lg text-center text-slate-300";
+    function setWritingTask(t) {
+      if (t === 1) {
+        document.getElementById('wr-btn-1').className = "py-2.5 rounded-lg text-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold shadow-md shadow-purple-600/20 transition";
+        document.getElementById('wr-btn-2').className = "py-2.5 rounded-lg text-center hover:text-white transition";
         document.getElementById('wr-task-1-guide').classList.remove('hidden');
         document.getElementById('wr-task-2-guide').classList.add('hidden');
         document.getElementById('writingPromptSelect').value = "t1-1";
       } else {
-        document.getElementById('wr-btn-2').className = "flex-1 py-1.5 rounded-lg text-center bg-sky-500 text-white shadow";
-        document.getElementById('wr-btn-1').className = "flex-1 py-1.5 rounded-lg text-center text-slate-300";
+        document.getElementById('wr-btn-2').className = "py-2.5 rounded-lg text-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold shadow-md shadow-purple-600/20 transition";
+        document.getElementById('wr-btn-1').className = "py-2.5 rounded-lg text-center hover:text-white transition";
         document.getElementById('wr-task-2-guide').classList.remove('hidden');
         document.getElementById('wr-task-1-guide').classList.add('hidden');
         document.getElementById('writingPromptSelect').value = "t2-1";
@@ -1214,7 +1275,7 @@
 
     function initWritingWorkbench() {
       loadWritingPrompt();
-      const saved = localStorage.getItem('selt_writing_draft');
+      const saved = localStorage.getItem('selt_b1_draft');
       if (saved) {
         document.getElementById('userWritingInput').value = saved;
         analyzeWriting();
@@ -1224,9 +1285,8 @@
     function loadWritingPrompt() {
       const key = document.getElementById('writingPromptSelect').value;
       const data = writingPrompts[key];
-      currentTask = data.task;
       document.getElementById('currentPromptDisplay').innerHTML = `
-        <div class="font-bold text-sky-400 mb-1">${data.title}</div>
+        <div class="font-bold text-purple-400 mb-1">${data.title}</div>
         <div>${data.prompt}</div>
       `;
       document.getElementById('targetRangeText').textContent = `${data.min} – ${data.max} words`;
@@ -1236,54 +1296,51 @@
     function analyzeWriting() {
       const text = document.getElementById('userWritingInput').value.trim();
       const words = text ? text.split(/\s+/).filter(w => w.length > 0) : [];
-      const wordCount = words.length;
+      const count = words.length;
 
       const badge = document.getElementById('wordCountBadge');
       const bar = document.getElementById('wordCountBar');
       const statusMsg = document.getElementById('wordStatusMessage');
 
-      badge.textContent = `${wordCount} words`;
-
+      badge.textContent = `${count} words`;
       const key = document.getElementById('writingPromptSelect').value;
       const target = writingPrompts[key];
 
-      // Word range logic
-      const percentage = Math.min((wordCount / target.max) * 100, 100);
-      bar.style.width = `${percentage}%`;
+      const pct = Math.min((count / target.max) * 100, 100);
+      bar.style.width = `${pct}%`;
 
-      if (wordCount === 0) {
-        badge.className = "text-xs font-bold px-2 py-0.5 rounded-md bg-slate-900 text-slate-400 border border-slate-700";
+      if (count === 0) {
+        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-800 text-slate-400";
         bar.className = "bg-slate-600 h-full transition-all duration-300";
-        statusMsg.textContent = "Start typing or copy a template above.";
-        statusMsg.className = "text-[11px] font-medium text-slate-400";
-      } else if (wordCount < target.min) {
-        badge.className = "text-xs font-bold px-2 py-0.5 rounded-md bg-red-900/50 text-red-300 border border-red-700";
-        bar.className = "bg-red-500 h-full transition-all duration-300";
-        statusMsg.textContent = `Too short (${wordCount} words). Add ${target.min - wordCount} more words to reach target!`;
-        statusMsg.className = "text-[11px] font-medium text-red-400";
-      } else if (wordCount <= target.max) {
-        badge.className = "text-xs font-bold px-2 py-0.5 rounded-md bg-emerald-900/50 text-emerald-300 border border-emerald-700";
+        statusMsg.textContent = "Start typing or load a template above.";
+        statusMsg.className = "text-xs font-medium text-slate-400";
+      } else if (count < target.min) {
+        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-rose-950/70 text-rose-300 border border-rose-800";
+        bar.className = "bg-rose-500 h-full transition-all duration-300";
+        statusMsg.textContent = `Too short (${count} words). Need ${target.min - count} more words to reach target!`;
+        statusMsg.className = "text-xs font-semibold text-rose-400";
+      } else if (count <= target.max) {
+        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-emerald-950/70 text-emerald-300 border border-emerald-800";
         bar.className = "bg-emerald-500 h-full transition-all duration-300";
-        statusMsg.textContent = `Perfect length (${wordCount} words)! Exactly in the B1 target zone.`;
-        statusMsg.className = "text-[11px] font-medium text-emerald-400";
+        statusMsg.textContent = `Target zone (${count} words)! Ideal length for B1 pass.`;
+        statusMsg.className = "text-xs font-semibold text-emerald-400";
       } else {
-        badge.className = "text-xs font-bold px-2 py-0.5 rounded-md bg-amber-900/50 text-amber-300 border border-amber-700";
+        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-amber-950/70 text-amber-300 border border-amber-800";
         bar.className = "bg-amber-500 h-full transition-all duration-300";
-        statusMsg.textContent = `Caution (${wordCount} words). Try not to exceed ${target.max} words too much.`;
-        statusMsg.className = "text-[11px] font-medium text-amber-400";
+        statusMsg.textContent = `Over limit (${count} words). Try not to exceed ${target.max} words.`;
+        statusMsg.className = "text-xs font-semibold text-amber-400";
       }
 
-      // Check connectors
-      const lowerText = text.toLowerCase();
-      const detected = b1ConnectorsList.filter(c => lowerText.includes(c));
-      const pillsContainer = document.getElementById('connectorsPills');
-
+      // Check Connectors
+      const lower = text.toLowerCase();
+      const detected = b1ConnectorsList.filter(c => lower.includes(c));
+      const pills = document.getElementById('connectorsPills');
       if (detected.length > 0) {
-        pillsContainer.innerHTML = detected.map(c => `
-          <span class="text-[10px] bg-sky-900/70 border border-sky-600/60 text-sky-200 px-1.5 py-0.5 rounded font-mono">${c}</span>
+        pills.innerHTML = detected.map(c => `
+          <span class="text-[10px] bg-purple-900/60 border border-purple-500/50 text-purple-200 px-2 py-0.5 rounded-md font-mono">${c}</span>
         `).join('');
       } else {
-        pillsContainer.innerHTML = `<span class="text-[10px] text-slate-500 italic">None yet. Try adding: however, although, furthermore, therefore, for example...</span>`;
+        pills.innerHTML = `<span class="text-[10px] text-slate-500 italic">None yet. Try using: however, although, furthermore, therefore, for example...</span>`;
       }
     }
 
@@ -1300,7 +1357,6 @@ Best wishes,
 Alex`;
       document.getElementById('userWritingInput').value = template;
       analyzeWriting();
-      alert("Task 1 template loaded into editor! (81 words - Perfect Pass Length)");
     }
 
     function copyTask2Template() {
@@ -1313,11 +1369,10 @@ In addition, people with busy work schedules can prepare simple meals at home in
 To conclude, I strongly believe that small daily habits lead to long-term health and happiness.`;
       document.getElementById('userWritingInput').value = template;
       analyzeWriting();
-      alert("Task 2 universal template loaded into editor! (108 words - Perfect Pass Length)");
     }
 
     function clearWritingEditor() {
-      if (confirm("Clear the writing area?")) {
+      if (confirm("Clear text?")) {
         document.getElementById('userWritingInput').value = "";
         analyzeWriting();
       }
@@ -1325,22 +1380,20 @@ To conclude, I strongly believe that small daily habits lead to long-term health
 
     function saveWritingDraft() {
       const text = document.getElementById('userWritingInput').value;
-      localStorage.setItem('selt_writing_draft', text);
-      alert("Draft saved on your device!");
+      localStorage.setItem('selt_b1_draft', text);
+      alert("Draft saved!");
     }
 
-    // -------------------------------------------------------------
-    // LISTENING & READING INTERACTIVE CHECKS
-    // -------------------------------------------------------------
+    // LISTENING & READING DRILLS
     function setLRSection(sec) {
       if (sec === 'listening') {
-        document.getElementById('lr-btn-l').className = "flex-1 py-1.5 rounded-lg text-center bg-sky-500 text-white shadow";
-        document.getElementById('lr-btn-r').className = "flex-1 py-1.5 rounded-lg text-center text-slate-300";
+        document.getElementById('lr-btn-l').className = "py-2.5 rounded-lg text-center bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold shadow-md shadow-emerald-600/20 transition";
+        document.getElementById('lr-btn-r').className = "py-2.5 rounded-lg text-center hover:text-white transition";
         document.getElementById('lr-listening-content').classList.remove('hidden');
         document.getElementById('lr-reading-content').classList.add('hidden');
       } else {
-        document.getElementById('lr-btn-r').className = "flex-1 py-1.5 rounded-lg text-center bg-sky-500 text-white shadow";
-        document.getElementById('lr-btn-l').className = "flex-1 py-1.5 rounded-lg text-center text-slate-300";
+        document.getElementById('lr-btn-r').className = "py-2.5 rounded-lg text-center bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold shadow-md shadow-emerald-600/20 transition";
+        document.getElementById('lr-btn-l').className = "py-2.5 rounded-lg text-center hover:text-white transition";
         document.getElementById('lr-reading-content').classList.remove('hidden');
         document.getElementById('lr-listening-content').classList.add('hidden');
       }
@@ -1352,44 +1405,44 @@ To conclude, I strongly believe that small daily habits lead to long-term health
     }
 
     function checkListeningAnswer() {
-      const selected = document.querySelector('input[name="listeningSample"]:checked');
-      const feedback = document.getElementById('listeningFeedback');
-      feedback.classList.remove('hidden');
+      const sel = document.querySelector('input[name="listeningSample"]:checked');
+      const fb = document.getElementById('listeningFeedback');
+      fb.classList.remove('hidden');
 
-      if (!selected) {
-        feedback.className = "text-xs p-2 rounded bg-amber-900/50 text-amber-200 border border-amber-700";
-        feedback.textContent = "Please select an answer first.";
+      if (!sel) {
+        fb.className = "text-xs p-3 rounded-xl bg-amber-950 text-amber-200 border border-amber-800";
+        fb.textContent = "Please choose an option first.";
         return;
       }
 
-      if (selected.value === 'B') {
+      if (sel.value === 'B') {
         playSuccessChime();
-        feedback.className = "text-xs p-2 rounded bg-emerald-900/60 text-emerald-200 border border-emerald-700";
-        feedback.innerHTML = "<strong>Correct! (8:30 AM on Tuesday)</strong><br>Notice how 7:00 AM on Monday was a <em>distractor trap</em> that the speaker corrected with 'However...'!";
+        fb.className = "text-xs p-3 rounded-xl bg-emerald-950 text-emerald-200 border border-emerald-800";
+        fb.innerHTML = "<strong>Correct! (8:30 AM on Tuesday)</strong><br>Notice how 7:00 AM on Monday was a <em>distractor trap</em> corrected by 'However...'!";
       } else {
-        feedback.className = "text-xs p-2 rounded bg-red-900/60 text-red-200 border border-red-700";
-        feedback.innerHTML = "<strong>Incorrect.</strong> You fell for the distractor! The speaker mentioned Monday 7 AM first, but corrected it to: <em>'So I will actually come in at 8:30 AM on Tuesday'</em>.";
+        fb.className = "text-xs p-3 rounded-xl bg-rose-950 text-rose-200 border border-rose-800";
+        fb.innerHTML = "<strong>Incorrect.</strong> You fell for the distractor! The speaker mentioned Monday first, but corrected it: <em>'So I will actually come in at 8:30 AM on Tuesday'</em>.";
       }
     }
 
     function checkReadingAnswer() {
-      const selected = document.querySelector('input[name="readingSample"]:checked');
-      const feedback = document.getElementById('readingFeedback');
-      feedback.classList.remove('hidden');
+      const sel = document.querySelector('input[name="readingSample"]:checked');
+      const fb = document.getElementById('readingFeedback');
+      fb.classList.remove('hidden');
 
-      if (!selected) {
-        feedback.className = "text-xs p-2 rounded bg-amber-900/50 text-amber-200 border border-amber-700";
-        feedback.textContent = "Please select an option first.";
+      if (!sel) {
+        fb.className = "text-xs p-3 rounded-xl bg-amber-950 text-amber-200 border border-amber-800";
+        fb.textContent = "Please select an answer.";
         return;
       }
 
-      if (selected.value === 'B') {
+      if (sel.value === 'B') {
         playSuccessChime();
-        feedback.className = "text-xs p-2 rounded bg-emerald-900/60 text-emerald-200 border border-emerald-700";
-        feedback.innerHTML = "<strong>Correct! (B: Inform the senior nurse right away)</strong><br>Text says: <em>'notify the senior nurse supervisor immediately'</em>. 'Notify' = 'Inform', 'Immediately' = 'Right away'!";
+        fb.className = "text-xs p-3 rounded-xl bg-emerald-950 text-emerald-200 border border-emerald-800";
+        fb.innerHTML = "<strong>Correct! (B: Inform the senior nurse right away)</strong><br>Text says: <em>'notify the senior nurse supervisor immediately'</em>. 'Notify' = 'Inform', 'Immediately' = 'Right away'!";
       } else {
-        feedback.className = "text-xs p-2 rounded bg-red-900/60 text-red-200 border border-red-700";
-        feedback.innerHTML = "<strong>Incorrect.</strong> Look at the sentence: <em>'please notify the senior nurse supervisor immediately'</em>.";
+        fb.className = "text-xs p-3 rounded-xl bg-rose-950 text-rose-200 border border-rose-800";
+        fb.innerHTML = "<strong>Incorrect.</strong> Look at the sentence: <em>'please notify the senior nurse supervisor immediately'</em>.";
       }
     }
   </script>
