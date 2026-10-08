@@ -1,45 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="theme-color" content="#090d16">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#ffffff">
   <title>SELT B1 Pass Master | UK Health & Care Visa</title>
   
-  <!-- Inter & Plus Jakarta Sans Fonts -->
+  <!-- Inter & Geist Fonts (Agentix Typography) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['Geist', 'Inter', 'system-ui', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
-            brand: {
-              50: '#f0f9ff',
-              100: '#e0f2fe',
-              400: '#38bdf8',
-              500: '#0ea5e9',
-              600: '#0284c7',
-              700: '#0369a1',
-            },
-            surface: {
-              50: '#141c2e',
-              100: '#0f172a',
-              200: '#0b1120',
-              card: '#131b2e',
-              border: '#1e293b'
+            agentix: {
+              orange: '#FF7A00',
+              darkOrange: '#EA580C',
+              lightOrange: '#FFF7ED',
+              dark: '#121212',
+              card: '#18181B',
+              gray: '#52525B',
+              border: '#E4E4E7'
             }
+          },
+          backgroundImage: {
+            'cta-gradient': 'linear-gradient(135deg, #FF6B00 0%, #FF2E93 50%, #C837AB 100%)',
+            'hero-glow': 'radial-gradient(circle at center, rgba(255, 107, 0, 0.18) 0%, rgba(255, 46, 147, 0.10) 50%, transparent 80%)'
           }
         }
       }
@@ -47,55 +45,42 @@
   </script>
 
   <style>
-    /* iOS Momentum Scrolling & Touch Feedback */
     * {
       -webkit-tap-highlight-color: transparent;
       box-sizing: border-box;
     }
     body {
-      background-color: #080c15;
+      background-color: #FAFAFA;
+      color: #09090B;
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     }
-    .glass-nav {
-      background: rgba(11, 17, 32, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
-    .glass-card {
-      background: linear-gradient(135deg, rgba(19, 27, 46, 0.9) 0%, rgba(15, 23, 42, 0.75) 100%);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-    }
-    .glow-brand {
-      box-shadow: 0 0 25px -5px rgba(14, 165, 233, 0.35);
-    }
-    .glow-emerald {
-      box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.35);
-    }
-    .glow-amber {
-      box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.35);
-    }
     
-    /* Animated Sound Wave Bars */
-    .sound-wave-bar {
-      animation: soundWave 1.2s ease-in-out infinite alternate;
-    }
-    @keyframes soundWave {
-      0% { height: 4px; }
-      100% { height: 20px; }
-    }
-
-    /* Pulse animation */
-    @keyframes pulse-ring {
-      0% { transform: scale(0.95); opacity: 0.8; }
-      50% { transform: scale(1.08); opacity: 0.3; }
-      100% { transform: scale(0.95); opacity: 0.8; }
-    }
-    .pulse-ring {
-      animation: pulse-ring 2s infinite ease-in-out;
+    /* Agentix Subtle Grid Pattern */
+    .grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
     }
 
-    /* Timer Arc Progress */
+    /* Ambient Hero Glow */
+    .agentix-glow {
+      background: radial-gradient(circle, rgba(255, 122, 0, 0.16) 0%, rgba(255, 46, 147, 0.08) 50%, transparent 75%);
+    }
+
+    /* Card Shadows & Glass */
+    .agentix-card {
+      background: #FFFFFF;
+      border: 1px solid #E4E4E7;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+    }
+    .agentix-glass {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* Circular SVG Timer */
     .circle-progress {
       transition: stroke-dashoffset 0.3s ease;
       transform: rotate(-90deg);
@@ -103,92 +88,92 @@
     }
   </style>
 </head>
-<body class="text-slate-100 min-h-screen pb-28 antialiased selection:bg-brand-500 selection:text-white">
+<body class="min-h-screen pb-28 antialiased selection:bg-[#FF7A00] selection:text-white grid-pattern">
 
   <!-- ============================================================== -->
-  <!-- TOP STATUS & APP BAR -->
+  <!-- TOP NAVBAR (AGENTIX DESIGN) -->
   <!-- ============================================================== -->
-  <header class="sticky top-0 z-40 glass-nav border-b border-slate-800/80 px-4 py-3">
+  <header class="sticky top-0 z-40 agentix-glass border-b border-zinc-200/80 px-4 py-3">
     <div class="max-w-md mx-auto flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <div class="relative">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-600 to-emerald-400 p-[1.5px] shadow-lg shadow-sky-500/20">
-            <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center font-extrabold text-sm text-sky-400 tracking-tighter">
-              B1
-            </div>
-          </div>
-          <span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-          </span>
+      
+      <!-- Agentix Logo & App Name -->
+      <div class="flex items-center space-x-2.5">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#FF6B00] to-[#FFA337] flex items-center justify-center shadow-md shadow-orange-500/20 shrink-0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path 
+              d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 9.5 19.5 7.5 17 7.5C14.5 7.5 13.5 9.5 13.5 11.5C13.5 13.5 14.5 15 16 15C17.5 15 18 13.8 18 13.8" 
+              stroke="white" 
+              stroke-width="2.4" 
+              stroke-linecap="round" 
+              stroke-linejoin="round"
+            />
+            <circle cx="12" cy="12" r="2.2" fill="white" />
+          </svg>
         </div>
         <div>
           <div class="flex items-center gap-1.5">
-            <h1 class="font-extrabold text-sm tracking-tight text-white leading-tight">SELT Pass Master</h1>
-            <span class="text-[10px] font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30 px-1.5 py-0.2 rounded-full">UKVI</span>
+            <h1 class="font-display font-bold text-sm tracking-tight text-zinc-950 leading-tight">SELT Pass Master</h1>
+            <span class="text-[10px] font-bold bg-orange-100/70 text-[#FF7A00] border border-orange-200 px-1.5 py-0.5 rounded-full">B1</span>
           </div>
-          <p class="text-[11px] text-slate-400 font-medium flex items-center gap-1">
-            <span>Health & Care Visa</span>
-            <span class="text-slate-600">•</span>
-            <span class="text-emerald-400 font-semibold">Pass: 50%</span>
-          </p>
+          <p class="text-[11px] text-zinc-500 font-medium">Health & Care Visa • 50% Pass</p>
         </div>
       </div>
 
-      <!-- Quick Audio Accent Toggle -->
-      <button onclick="toggleVoiceTester()" class="px-2.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-xs font-semibold text-slate-200 flex items-center gap-1.5 active:scale-95 transition">
-        <svg class="w-3.5 h-3.5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"/>
-        </svg>
-        <span id="voiceHeaderLabel">Test Audio</span>
+      <!-- Audio Accent Tester -->
+      <button onclick="toggleVoiceTester()" class="px-3 py-1.5 rounded-full bg-white hover:bg-orange-50 border border-zinc-200 hover:border-orange-200 text-xs font-semibold text-zinc-800 flex items-center gap-1.5 shadow-sm active:scale-95 transition">
+        <span class="text-[#FF7A00]">🔊</span>
+        <span id="voiceHeaderLabel" class="text-[11px]">UK Voice</span>
       </button>
     </div>
   </header>
 
   <!-- ============================================================== -->
-  <!-- MAIN CONTAINER (Max width for mobile perfection) -->
+  <!-- MAIN MOBILE CONTAINER -->
   <!-- ============================================================== -->
-  <main class="max-w-md mx-auto px-4 pt-3 space-y-4">
+  <main class="max-w-md mx-auto px-4 pt-4 space-y-4 relative">
+    
+    <!-- Ambient Glow Element -->
+    <div class="absolute top-10 left-1/2 -translate-x-1/2 w-72 h-44 agentix-glow rounded-full blur-3xl pointer-events-none -z-10"></div>
 
-    <!-- 48-HOUR EMERGENCY BANNER CARD -->
-    <div class="rounded-2xl p-3.5 bg-gradient-to-r from-sky-950/70 via-indigo-950/50 to-slate-900 border border-sky-500/30 shadow-xl relative overflow-hidden">
-      <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-sky-500/10 rounded-full blur-2xl pointer-events-none"></div>
+    <!-- AGENTIX HERO / 48H SURVIVAL BANNER -->
+    <div class="agentix-card rounded-3xl p-4 space-y-3 relative overflow-hidden">
       <div class="flex items-center justify-between">
-        <div class="flex items-center space-x-2.5">
-          <div class="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 font-bold text-xs shrink-0">
-            ⚡
-          </div>
-          <div>
-            <div class="text-xs font-bold text-white tracking-tight flex items-center gap-1">
-              48-Hour Exam Mode
-              <span class="text-[10px] font-normal text-amber-300 bg-amber-500/20 px-1.5 rounded">High Yield</span>
-            </div>
-            <p class="text-[11px] text-slate-300">You need <strong>50% in each skill</strong> to pass. Zero stress.</p>
-          </div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/60 text-xs font-semibold text-orange-700">
+          <span class="bg-[#FF6B00] text-white text-[10px] px-1.5 py-0.2 rounded-md font-bold uppercase tracking-wider">48H</span>
+          <span>Emergency Prep</span>
         </div>
-        <button onclick="switchTab('plan')" class="px-2.5 py-1 bg-sky-500/20 hover:bg-sky-500/30 border border-sky-400/30 rounded-lg text-xs font-semibold text-sky-300 shrink-0 active:scale-95 transition">
-          View Plan &rarr;
-        </button>
+        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
+          Pass Mark: 50%
+        </span>
       </div>
 
-      <!-- Quick 4-Skill Readiness Progress -->
-      <div class="grid grid-cols-4 gap-2 pt-3 mt-2.5 border-t border-slate-800/80 text-center">
-        <div onclick="switchTab('speaking')" class="cursor-pointer bg-slate-900/60 p-1.5 rounded-lg border border-slate-800 hover:border-sky-500/50 transition">
-          <div class="text-[10px] text-slate-400 uppercase font-semibold">Speaking</div>
-          <div class="text-xs font-extrabold text-sky-400">12 mins</div>
-        </div>
-        <div onclick="switchTab('writing')" class="cursor-pointer bg-slate-900/60 p-1.5 rounded-lg border border-slate-800 hover:border-purple-500/50 transition">
-          <div class="text-[10px] text-slate-400 uppercase font-semibold">Writing</div>
-          <div class="text-xs font-extrabold text-purple-400">2 Tasks</div>
-        </div>
-        <div onclick="switchTab('lr')" class="cursor-pointer bg-slate-900/60 p-1.5 rounded-lg border border-slate-800 hover:border-emerald-500/50 transition">
-          <div class="text-[10px] text-slate-400 uppercase font-semibold">Listening</div>
-          <div class="text-xs font-extrabold text-emerald-400">Traps</div>
-        </div>
-        <div onclick="switchTab('lr')" class="cursor-pointer bg-slate-900/60 p-1.5 rounded-lg border border-slate-800 hover:border-amber-500/50 transition">
-          <div class="text-[10px] text-slate-400 uppercase font-semibold">Reading</div>
-          <div class="text-xs font-extrabold text-amber-400">Synonyms</div>
-        </div>
+      <div>
+        <h2 class="text-lg font-display font-bold text-zinc-950 tracking-tight leading-snug">
+          Pass Your LanguageCert B1 Test
+        </h2>
+        <p class="text-xs text-zinc-600 leading-relaxed pt-0.5">
+          Everything structured for the UK Health & Care Visa. Focus only on high-yield templates and exam traps.
+        </p>
+      </div>
+
+      <!-- Quick 4-Skills Navigation Cards -->
+      <div class="grid grid-cols-4 gap-2 pt-1 text-center">
+        <button onclick="switchTab('speaking')" class="bg-zinc-50 hover:bg-orange-50/70 p-2 rounded-2xl border border-zinc-200/80 hover:border-orange-300 transition text-left active:scale-95">
+          <div class="text-[10px] text-zinc-400 font-semibold uppercase">Speaking</div>
+          <div class="text-xs font-bold text-[#FF7A00]">12 mins</div>
+        </button>
+        <button onclick="switchTab('writing')" class="bg-zinc-50 hover:bg-orange-50/70 p-2 rounded-2xl border border-zinc-200/80 hover:border-orange-300 transition text-left active:scale-95">
+          <div class="text-[10px] text-zinc-400 font-semibold uppercase">Writing</div>
+          <div class="text-xs font-bold text-zinc-900">2 Tasks</div>
+        </button>
+        <button onclick="switchTab('lr')" class="bg-zinc-50 hover:bg-orange-50/70 p-2 rounded-2xl border border-zinc-200/80 hover:border-orange-300 transition text-left active:scale-95">
+          <div class="text-[10px] text-zinc-400 font-semibold uppercase">Listen</div>
+          <div class="text-xs font-bold text-zinc-900">Traps</div>
+        </button>
+        <button onclick="switchTab('plan')" class="bg-zinc-50 hover:bg-orange-50/70 p-2 rounded-2xl border border-zinc-200/80 hover:border-orange-300 transition text-left active:scale-95">
+          <div class="text-[10px] text-zinc-400 font-semibold uppercase">Plan</div>
+          <div class="text-xs font-bold text-[#FF7A00]">2 Days</div>
+        </button>
       </div>
     </div>
 
@@ -198,66 +183,64 @@
     <!-- ============================================================== -->
     <div id="tab-speaking" class="tab-pane space-y-4">
       
-      <!-- Section Header -->
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-base font-extrabold text-white flex items-center gap-2">
-            <span class="w-6 h-6 rounded-md bg-sky-500/20 text-sky-400 flex items-center justify-center text-xs font-bold">1</span>
+          <h2 class="text-base font-display font-bold text-zinc-950 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-xs font-bold border border-orange-200">1</span>
             Speaking Simulator
           </h2>
-          <p class="text-xs text-slate-400">1-on-1 interlocutor interview (~12 minutes)</p>
+          <p class="text-xs text-zinc-500">Real interlocutor interview practice (~12 mins)</p>
         </div>
-        <span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-sky-500/10 text-sky-300 border border-sky-500/30 font-mono">
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-zinc-100 text-zinc-700 border border-zinc-200">
           4 Parts
         </span>
       </div>
 
-      <!-- Segmented Navigation Control -->
-      <div class="grid grid-cols-4 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-semibold text-slate-400">
-        <button onclick="setSpeakingPart(1)" id="sp-btn-1" class="py-2 rounded-lg text-center bg-gradient-to-r from-sky-500 to-sky-600 text-white shadow-md shadow-sky-500/20 font-bold transition">Part 1</button>
-        <button onclick="setSpeakingPart(2)" id="sp-btn-2" class="py-2 rounded-lg text-center hover:text-white transition">Part 2</button>
-        <button onclick="setSpeakingPart(3)" id="sp-btn-3" class="py-2 rounded-lg text-center hover:text-white transition">Part 3</button>
-        <button onclick="setSpeakingPart(4)" id="sp-btn-4" class="py-2 rounded-lg text-center hover:text-white transition">Part 4</button>
+      <!-- Agentix Segmented Pill Selector -->
+      <div class="grid grid-cols-4 bg-zinc-100 p-1 rounded-full text-xs font-semibold text-zinc-600">
+        <button onclick="setSpeakingPart(1)" id="sp-btn-1" class="py-2 rounded-full text-center bg-[#FF7A00] text-white shadow-md shadow-orange-500/20 font-bold transition">Part 1</button>
+        <button onclick="setSpeakingPart(2)" id="sp-btn-2" class="py-2 rounded-full text-center hover:text-zinc-950 transition">Part 2</button>
+        <button onclick="setSpeakingPart(3)" id="sp-btn-3" class="py-2 rounded-full text-center hover:text-zinc-950 transition">Part 3</button>
+        <button onclick="setSpeakingPart(4)" id="sp-btn-4" class="py-2 rounded-full text-center hover:text-zinc-950 transition">Part 4</button>
       </div>
 
-      <!-- SPEAKING PART 1: PERSONAL & SPELLING -->
+      <!-- PART 1: PERSONAL & SPELLING -->
       <div id="sp-part-1" class="space-y-3">
-        <div class="glass-card rounded-2xl p-4 space-y-2.5">
+        <div class="agentix-card rounded-3xl p-4 space-y-2.5">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Part 1 • Personal & Spelling</span>
-            <span class="text-xs text-slate-400 font-mono">~3 mins</span>
+            <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider">Part 1 • Personal Info & Surname Spelling</span>
+            <span class="text-xs font-mono text-zinc-400">~3 mins</span>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            The examiner will ask your name, ask you to <strong>spell your surname</strong> letter-by-letter, and ask 2–3 questions about your routine or care work.
+          <p class="text-xs text-zinc-600 leading-relaxed">
+            The examiner will ask your name, ask you to <strong>spell your surname</strong> out loud, and ask 2–3 questions about your routine or care work.
           </p>
-          <div class="bg-amber-950/40 border border-amber-600/30 rounded-xl p-3 text-xs text-amber-200 flex gap-2.5 items-start">
-            <span class="text-amber-400 text-sm">⚠️</span>
+          <div class="bg-amber-50 border border-amber-200/80 rounded-2xl p-3 text-xs text-amber-900 flex gap-2.5 items-start">
+            <span class="text-amber-600 text-sm">⚠️</span>
             <div>
               <strong>Spelling Trap:</strong> Candidates lose easy marks by confusing letters. Practice pronunciation of vowels (A, E, I, O, U) and tricky letters (G vs J, Y, W).
             </div>
           </div>
         </div>
 
-        <!-- Question Cards List -->
         <div id="part1Questions" class="space-y-3">
           <!-- Populated by JS -->
         </div>
       </div>
 
-      <!-- SPEAKING PART 2: SITUATIONAL ROLEPLAY -->
+      <!-- PART 2: ROLEPLAYS -->
       <div id="sp-part-2" class="space-y-3 hidden">
-        <div class="glass-card rounded-2xl p-4 space-y-2.5">
+        <div class="agentix-card rounded-3xl p-4 space-y-2.5">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Part 2 • Situational Roleplays</span>
-            <span class="text-xs text-slate-400 font-mono">~2 mins</span>
+            <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider">Part 2 • Situational Roleplays</span>
+            <span class="text-xs font-mono text-zinc-400">~2 mins</span>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            The examiner acts as your care supervisor or colleague. You must start or respond to everyday situations with polite English.
+          <p class="text-xs text-zinc-600 leading-relaxed">
+            The examiner acts as your care supervisor or colleague. You must start or respond politely.
           </p>
-          <div class="bg-sky-950/40 border border-sky-500/30 rounded-xl p-3 text-xs text-sky-200">
+          <div class="bg-orange-50 border border-orange-200/70 rounded-2xl p-3 text-xs text-orange-900">
             <strong>The 3-Step Formula:</strong><br>
             1. Polite Greeting ("Hello, could I speak with you?")<br>
-            2. State Problem clearly ("I have an urgent family matter...")<br>
+            2. State Problem ("I have an urgent appointment...")<br>
             3. Offer Solution ("Maria agreed to cover my shift...")
           </div>
         </div>
@@ -266,17 +249,17 @@
         </div>
       </div>
 
-      <!-- SPEAKING PART 3: SHARED DECISION -->
+      <!-- PART 3: SHARED DECISION -->
       <div id="sp-part-3" class="space-y-3 hidden">
-        <div class="glass-card rounded-2xl p-4 space-y-2.5">
+        <div class="agentix-card rounded-3xl p-4 space-y-2.5">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Part 3 • Shared Discussion</span>
-            <span class="text-xs text-slate-400 font-mono">~3 mins</span>
+            <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider">Part 3 • Shared Discussion</span>
+            <span class="text-xs font-mono text-zinc-400">~3 mins</span>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            You and the interlocutor will look at options and decide on something together (e.g., care home activity, healthy menu).
+          <p class="text-xs text-zinc-600 leading-relaxed">
+            Discuss options together with the interlocutor (e.g. care resident activities).
           </p>
-          <div class="bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3 text-xs text-emerald-200">
+          <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-3 text-xs text-emerald-900">
             <strong>Top Tip:</strong> Don't give a monologue! Always ask the examiner: <em>"What is your opinion on that?", "Do you agree that music is better?"</em>
           </div>
         </div>
@@ -285,63 +268,63 @@
         </div>
       </div>
 
-      <!-- SPEAKING PART 4: 90s TALK WITH CIRCULAR TIMER -->
+      <!-- PART 4: 90s PRESENTATION WITH CIRCULAR GAUGE -->
       <div id="sp-part-4" class="space-y-3 hidden">
-        <div class="glass-card rounded-2xl p-4 space-y-2.5">
+        <div class="agentix-card rounded-3xl p-4 space-y-2.5">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Part 4 • 90-Second Speech</span>
-            <span class="text-xs text-slate-400 font-mono">~4 mins</span>
+            <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider">Part 4 • 90-Second Speech</span>
+            <span class="text-xs font-mono text-zinc-400">~4 mins</span>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            You have <strong>30 seconds</strong> to prepare notes on a card, then speak for <strong>75 to 90 seconds</strong> uninterrupted.
+          <p class="text-xs text-zinc-600 leading-relaxed">
+            You get <strong>30 seconds</strong> to make notes, then speak for <strong>75 to 90 seconds</strong> uninterrupted.
           </p>
-          <div class="bg-indigo-950/40 border border-indigo-500/30 rounded-xl p-3 text-xs text-indigo-200">
+          <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-3 text-xs text-indigo-900">
             <strong>The P.R.E.E.P Strategy:</strong><br>
             <strong>P</strong>oint (Topic) &rarr; <strong>R</strong>eason (Why) &rarr; <strong>E</strong>xample (Story) &rarr; <strong>E</strong>ffect (Impact) &rarr; <strong>P</strong>oint wrap-up.
           </div>
         </div>
 
-        <!-- Topic Card -->
-        <div class="glass-card rounded-2xl p-4 space-y-3">
-          <label class="text-xs font-bold text-slate-300 uppercase tracking-wider block">Choose Topic to Practice:</label>
-          <select id="part4TopicSelect" onchange="loadPart4Topic()" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-sky-500 font-medium">
+        <!-- Topic Card & Timer -->
+        <div class="agentix-card rounded-3xl p-4 space-y-3">
+          <label class="text-xs font-bold text-zinc-800 uppercase tracking-wider block">Choose Topic to Practice:</label>
+          <select id="part4TopicSelect" onchange="loadPart4Topic()" class="w-full bg-zinc-50 border border-zinc-200 rounded-2xl p-3 text-xs text-zinc-900 font-medium focus:outline-none focus:border-[#FF7A00]">
             <option value="0">1. A person who inspires you (Family / Healthcare hero)</option>
             <option value="1">2. A memorable challenge you faced and overcame</option>
             <option value="2">3. Why maintaining good health & routine is important</option>
             <option value="3">4. A favorite place in your hometown and why</option>
           </select>
 
-          <div id="part4TopicBox" class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800 text-xs text-slate-200 space-y-2">
+          <div id="part4TopicBox" class="bg-zinc-50 rounded-2xl p-3.5 border border-zinc-200 text-xs text-zinc-800 space-y-2">
             <!-- Populated by JS -->
           </div>
 
           <!-- Circular Graphic Countdown Timer -->
-          <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 text-center space-y-3 relative overflow-hidden">
-            <div class="text-[11px] font-bold text-slate-400 tracking-wider uppercase" id="timerStatusLabel">
+          <div class="bg-zinc-50 p-5 rounded-3xl border border-zinc-200 text-center space-y-3 relative overflow-hidden">
+            <div class="text-[11px] font-bold text-zinc-500 tracking-wider uppercase" id="timerStatusLabel">
               Ready for Simulation
             </div>
 
-            <!-- SVG Circular Gauge -->
+            <!-- SVG Circular Gauge (Agentix Orange Stroke) -->
             <div class="relative w-36 h-36 mx-auto flex items-center justify-center">
               <svg class="w-36 h-36" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="8" class="text-slate-800 fill-none"/>
-                <circle id="timerCircleProgress" cx="50" cy="50" r="42" stroke="currentColor" stroke-width="8" stroke-dasharray="264" stroke-dashoffset="0" stroke-linecap="round" class="text-sky-400 fill-none circle-progress transition-all duration-300"/>
+                <circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="8" class="text-zinc-200 fill-none"/>
+                <circle id="timerCircleProgress" cx="50" cy="50" r="42" stroke="currentColor" stroke-width="8" stroke-dasharray="264" stroke-dashoffset="0" stroke-linecap="round" class="text-[#FF7A00] fill-none circle-progress transition-all duration-300"/>
               </svg>
               <div class="absolute inset-0 flex flex-col items-center justify-center">
-                <span id="timerDisplay" class="text-3xl font-extrabold font-mono text-white tracking-tight">00:30</span>
-                <span id="timerSubtext" class="text-[10px] text-slate-400 font-semibold uppercase">Prep Time</span>
+                <span id="timerDisplay" class="text-3xl font-display font-extrabold font-mono text-zinc-950 tracking-tight">00:30</span>
+                <span id="timerSubtext" class="text-[10px] text-zinc-500 font-semibold uppercase">Prep Time</span>
               </div>
             </div>
 
-            <!-- Timer Action Buttons -->
+            <!-- Action Buttons -->
             <div class="flex gap-2 pt-2">
-              <button onclick="startPrepTimer()" id="prepTimerBtn" class="flex-1 py-3 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white rounded-xl text-xs font-bold shadow-lg shadow-amber-600/20 active:scale-95 transition">
+              <button onclick="startPrepTimer()" id="prepTimerBtn" class="flex-1 py-3 bg-white hover:bg-orange-50 border border-zinc-200 text-zinc-900 rounded-full text-xs font-bold shadow-sm active:scale-95 transition">
                 30s Prep
               </button>
-              <button onclick="startSpeakTimer()" id="speakTimerBtn" class="flex-1 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white rounded-xl text-xs font-bold shadow-lg shadow-emerald-600/20 active:scale-95 transition">
+              <button onclick="startSpeakTimer()" id="speakTimerBtn" class="flex-1 py-3 bg-[#FF7A00] hover:bg-[#EA580C] text-white rounded-full text-xs font-bold shadow-lg shadow-orange-500/25 active:scale-95 transition">
                 90s Speak
               </button>
-              <button onclick="resetTimers()" class="px-4 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-semibold active:scale-95 transition">
+              <button onclick="resetTimers()" class="px-4 py-3 bg-zinc-200 hover:bg-zinc-300 text-zinc-700 rounded-full text-xs font-semibold active:scale-95 transition">
                 Reset
               </button>
             </div>
@@ -349,20 +332,20 @@
         </div>
       </div>
 
-      <!-- IN-BROWSER VOICE RECORDER (Works on mobile phones) -->
-      <div class="glass-card rounded-2xl p-4 space-y-3 border border-red-500/20">
+      <!-- IN-BROWSER VOICE RECORDER -->
+      <div class="agentix-card rounded-3xl p-4 space-y-3 border-orange-200 bg-orange-50/20">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
-            <div class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
-            <span class="text-xs font-bold text-white uppercase tracking-wider">Voice Recorder & Playback</span>
+            <div class="w-3 h-3 rounded-full bg-[#FF7A00] animate-pulse"></div>
+            <span class="text-xs font-bold text-zinc-900 uppercase tracking-wider">Voice Recorder & Playback</span>
           </div>
-          <span id="recordTimer" class="text-xs font-mono font-bold text-red-400">00:00</span>
+          <span id="recordTimer" class="text-xs font-mono font-bold text-[#FF7A00]">00:00</span>
         </div>
-        <p class="text-xs text-slate-400 leading-relaxed">
-          Record yourself answering out loud. Listen back to check if your voice was audible, fluent, and confident.
+        <p class="text-xs text-zinc-600 leading-relaxed">
+          Record your speech on your phone. Play it back to verify loudness, speed, and clear pronunciation.
         </p>
 
-        <button id="toggleRecordBtn" onclick="toggleRecording()" class="w-full py-3 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 active:scale-95 text-white rounded-xl text-xs font-bold shadow-lg shadow-red-600/20 flex items-center justify-center gap-2 transition">
+        <button id="toggleRecordBtn" onclick="toggleRecording()" class="w-full py-3.5 bg-gradient-to-r from-[#FF6B00] via-[#FF2E93] to-[#C837AB] hover:opacity-95 active:scale-95 text-white rounded-full text-xs font-bold shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 transition">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
           </svg>
@@ -370,7 +353,7 @@
         </button>
 
         <div id="audioPlaybackContainer" class="hidden pt-2">
-          <div class="text-[11px] text-emerald-400 font-semibold mb-1">✓ Recording Saved! Listen Below:</div>
+          <div class="text-[11px] text-emerald-700 font-semibold mb-1">✓ Recording Saved! Listen Below:</div>
           <audio id="audioPlayback" controls class="w-full h-9 rounded-lg"></audio>
         </div>
       </div>
@@ -383,125 +366,121 @@
     <div id="tab-writing" class="tab-pane space-y-4 hidden">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-base font-extrabold text-white flex items-center gap-2">
-            <span class="w-6 h-6 rounded-md bg-purple-500/20 text-purple-400 flex items-center justify-center text-xs font-bold">2</span>
+          <h2 class="text-base font-display font-bold text-zinc-950 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-xs font-bold border border-orange-200">2</span>
             Writing Studio
           </h2>
-          <p class="text-xs text-slate-400">Master Task 1 & Task 2 (Total 70 mins)</p>
+          <p class="text-xs text-zinc-500">Master Task 1 & Task 2 (Total 70 mins)</p>
         </div>
-        <span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-purple-500/10 text-purple-300 border border-purple-500/30 font-mono">
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-zinc-100 text-zinc-700 border border-zinc-200">
           50% Pass
         </span>
       </div>
 
-      <!-- Segmented Task 1 / Task 2 Selector -->
-      <div class="grid grid-cols-2 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-semibold text-slate-400">
-        <button onclick="setWritingTask(1)" id="wr-btn-1" class="py-2.5 rounded-lg text-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold shadow-md shadow-purple-600/20 transition">
+      <!-- Segmented Task Selector -->
+      <div class="grid grid-cols-2 bg-zinc-100 p-1 rounded-full text-xs font-semibold text-zinc-600">
+        <button onclick="setWritingTask(1)" id="wr-btn-1" class="py-2.5 rounded-full text-center bg-[#FF7A00] text-white font-bold shadow-md shadow-orange-500/20 transition">
           Task 1: Email (70–100w)
         </button>
-        <button onclick="setWritingTask(2)" id="wr-btn-2" class="py-2.5 rounded-lg text-center hover:text-white transition">
+        <button onclick="setWritingTask(2)" id="wr-btn-2" class="py-2.5 rounded-full text-center hover:text-zinc-950 transition">
           Task 2: Essay (100–120w)
         </button>
       </div>
 
-      <!-- Task 1 Guide & Templates -->
+      <!-- TASK 1 -->
       <div id="wr-task-1-guide" class="space-y-3">
-        <div class="glass-card rounded-2xl p-4 space-y-3">
+        <div class="agentix-card rounded-3xl p-4 space-y-3">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Task 1 Rules • Informal Email</span>
-            <span class="text-xs font-mono font-bold bg-sky-500/20 text-sky-300 px-2 py-0.5 rounded-md">70 – 100 words</span>
+            <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider">Task 1 Rules • Informal Email</span>
+            <span class="text-xs font-mono font-bold bg-orange-100 text-[#FF7A00] px-2.5 py-0.5 rounded-full">70 – 100 words</span>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Usually an email to a friend or supervisor. You must answer <strong>all 3 bullet points</strong> in the question to get maximum task marks!
+          <p class="text-xs text-zinc-600 leading-relaxed">
+            Usually an email to a friend or supervisor. Address <strong>all 3 bullet points</strong> in the question to get maximum marks!
           </p>
-          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs space-y-1.5 font-sans">
-            <div class="text-sky-300 font-bold mb-1">The 3-Paragraph Formula:</div>
-            <div>• <strong>Paragraph 1 (Greeting & Purpose):</strong> "Hi [Name], I hope you are well. I am writing to tell you..."</div>
-            <div>• <strong>Paragraph 2 (Main details):</strong> Address points using <em>because</em>, <em>also</em>, <em>however</em>.</div>
-            <div>• <strong>Paragraph 3 (Sign off):</strong> "Let me know what you think. Best wishes, [Name]"</div>
+          <div class="bg-zinc-50 p-3.5 rounded-2xl border border-zinc-200 text-xs space-y-1.5 font-sans">
+            <div class="text-[#FF7A00] font-bold mb-1">The 3-Paragraph Formula:</div>
+            <div>• <strong>P1 (Greeting & Purpose):</strong> "Hi [Name], I hope you are well. I am writing to tell you..."</div>
+            <div>• <strong>P2 (Main Details):</strong> Address points using <em>because</em>, <em>also</em>, <em>however</em>.</div>
+            <div>• <strong>P3 (Sign off):</strong> "Let me know what you think. Best wishes, [Name]"</div>
           </div>
-          <button onclick="copyTask1Template()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 active:scale-95 border border-slate-700 text-sky-300 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition">
+          <button onclick="copyTask1Template()" class="w-full py-3 bg-white hover:bg-orange-50 border border-zinc-200 text-[#FF7A00] rounded-full text-xs font-bold shadow-sm active:scale-95 transition">
             📋 Load Task 1 Template (81 words - Perfect Pass)
           </button>
         </div>
       </div>
 
-      <!-- Task 2 Guide & Templates -->
+      <!-- TASK 2 -->
       <div id="wr-task-2-guide" class="space-y-3 hidden">
-        <div class="glass-card rounded-2xl p-4 space-y-3">
+        <div class="agentix-card rounded-3xl p-4 space-y-3">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Task 2 Rules • Formal Article/Letter</span>
-            <span class="text-xs font-mono font-bold bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-md">100 – 120 words</span>
+            <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider">Task 2 Rules • Formal Article/Letter</span>
+            <span class="text-xs font-mono font-bold bg-orange-100 text-[#FF7A00] px-2.5 py-0.5 rounded-full">100 – 120 words</span>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            A short formal composition or letter expressing your opinion on a health or community topic.
+          <p class="text-xs text-zinc-600 leading-relaxed">
+            Formal composition expressing your opinion on a health or community topic.
           </p>
-          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs space-y-1.5 font-sans">
-            <div class="text-purple-300 font-bold mb-1">Universal 4-Paragraph Skeleton:</div>
+          <div class="bg-zinc-50 p-3.5 rounded-2xl border border-zinc-200 text-xs space-y-1.5 font-sans">
+            <div class="text-[#FF7A00] font-bold mb-1">Universal 4-Paragraph Skeleton:</div>
             <div>• <strong>P1 Intro:</strong> "In recent years, [Topic] has become extremely important..."</div>
             <div>• <strong>P2 Argument 1:</strong> "Firstly, ... For example, ... As a result, ..."</div>
             <div>• <strong>P3 Argument 2:</strong> "Furthermore, ... In addition, ..."</div>
             <div>• <strong>P4 Conclusion:</strong> "To conclude, I strongly believe that..."</div>
           </div>
-          <button onclick="copyTask2Template()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 active:scale-95 border border-slate-700 text-purple-300 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition">
+          <button onclick="copyTask2Template()" class="w-full py-3 bg-white hover:bg-orange-50 border border-zinc-200 text-[#FF7A00] rounded-full text-xs font-bold shadow-sm active:scale-95 transition">
             📋 Load Task 2 Template (108 words - Perfect Pass)
           </button>
         </div>
       </div>
 
-      <!-- Live Interactive Writing Sandbox -->
-      <div class="glass-card rounded-2xl p-4 space-y-3">
+      <!-- WRITING SANDBOX -->
+      <div class="agentix-card rounded-3xl p-4 space-y-3">
         <div class="flex items-center justify-between">
-          <label class="text-xs font-bold text-slate-200 uppercase tracking-wider">Interactive Live Sandbox</label>
-          <div id="wordCountBadge" class="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-800 text-slate-400">
+          <label class="text-xs font-bold text-zinc-900 uppercase tracking-wider">Interactive Live Sandbox</label>
+          <div id="wordCountBadge" class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600">
             0 words
           </div>
         </div>
 
-        <!-- Prompt Selector -->
-        <div>
-          <select id="writingPromptSelect" onchange="loadWritingPrompt()" class="w-full bg-slate-900 border border-slate-700 text-xs text-slate-200 rounded-xl p-2.5 font-medium focus:outline-none focus:border-purple-500">
-            <option value="t1-1">[Task 1] Email to friend about starting new job in UK</option>
-            <option value="t1-2">[Task 1] Email to manager requesting shift swap</option>
-            <option value="t2-1">[Task 2] Article: Importance of healthy lifestyle</option>
-            <option value="t2-2">[Task 2] Formal Letter: Care home garden improvements</option>
-          </select>
-        </div>
+        <select id="writingPromptSelect" onchange="loadWritingPrompt()" class="w-full bg-zinc-50 border border-zinc-200 text-xs text-zinc-900 rounded-2xl p-3 font-medium focus:outline-none focus:border-[#FF7A00]">
+          <option value="t1-1">[Task 1] Email to friend about starting new job in UK</option>
+          <option value="t1-2">[Task 1] Email to manager requesting shift swap</option>
+          <option value="t2-1">[Task 2] Article: Importance of healthy lifestyle</option>
+          <option value="t2-2">[Task 2] Formal Letter: Care home garden improvements</option>
+        </select>
 
-        <div id="currentPromptDisplay" class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs text-slate-300 leading-relaxed">
+        <div id="currentPromptDisplay" class="bg-zinc-50 p-3 rounded-2xl border border-zinc-200 text-xs text-zinc-700 leading-relaxed">
           <!-- Populated by JS -->
         </div>
 
-        <!-- Textarea -->
-        <textarea id="userWritingInput" oninput="analyzeWriting()" rows="7" placeholder="Type your answer here or load the template above..." class="w-full bg-slate-900/90 border border-slate-700 rounded-xl p-3 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 font-sans leading-relaxed"></textarea>
+        <textarea id="userWritingInput" oninput="analyzeWriting()" rows="7" placeholder="Type your answer here or load the template above..." class="w-full bg-white border border-zinc-200 rounded-2xl p-3.5 text-xs text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-[#FF7A00] font-sans leading-relaxed shadow-sm"></textarea>
 
-        <!-- Live Metrics & Connectors Highlighter -->
-        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2.5">
+        <!-- Live Metrics & Connectors -->
+        <div class="bg-zinc-50 p-3.5 rounded-2xl border border-zinc-200 space-y-2.5">
           <div class="flex items-center justify-between text-xs">
-            <span class="text-slate-400 font-medium">Target Range:</span>
-            <span id="targetRangeText" class="font-bold text-sky-400 font-mono">70 – 100 words</span>
+            <span class="text-zinc-500 font-medium">Target Range:</span>
+            <span id="targetRangeText" class="font-bold text-[#FF7A00] font-mono">70 – 100 words</span>
           </div>
 
-          <!-- Progress Bar with Target Zone -->
-          <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
-            <div id="wordCountBar" class="bg-slate-600 h-full w-0 transition-all duration-300"></div>
+          <!-- Progress Bar -->
+          <div class="w-full bg-zinc-200 h-2.5 rounded-full overflow-hidden">
+            <div id="wordCountBar" class="bg-zinc-400 h-full w-0 transition-all duration-300"></div>
           </div>
-          <div id="wordStatusMessage" class="text-xs font-medium text-slate-400">
+          <div id="wordStatusMessage" class="text-xs font-medium text-zinc-500">
             Start typing to see live word count analysis.
           </div>
 
           <!-- Connectors Badge -->
-          <div class="pt-2 border-t border-slate-800/80">
-            <span class="text-[11px] text-slate-400 font-semibold block mb-1.5 uppercase tracking-wider">B1 Connectors Detected:</span>
+          <div class="pt-2 border-t border-zinc-200">
+            <span class="text-[11px] text-zinc-500 font-semibold block mb-1.5 uppercase tracking-wider">B1 Connectors Detected:</span>
             <div id="connectorsPills" class="flex flex-wrap gap-1.5">
-              <span class="text-[11px] text-slate-500 italic">None yet. Try using: however, although, furthermore, therefore, for example...</span>
+              <span class="text-[11px] text-zinc-400 italic">None yet. Try: however, although, furthermore, therefore, for example...</span>
             </div>
           </div>
         </div>
 
         <div class="flex gap-2">
-          <button onclick="clearWritingEditor()" class="flex-1 py-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl text-xs text-slate-300 font-semibold transition">Clear</button>
-          <button onclick="saveWritingDraft()" class="flex-1 py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl text-xs font-bold shadow-lg shadow-purple-600/20 active:scale-95 transition">
+          <button onclick="clearWritingEditor()" class="flex-1 py-3 bg-zinc-100 hover:bg-zinc-200 rounded-full text-xs text-zinc-700 font-semibold transition">Clear</button>
+          <button onclick="saveWritingDraft()" class="flex-1 py-3 bg-[#FF7A00] hover:bg-[#EA580C] text-white rounded-full text-xs font-bold shadow-lg shadow-orange-500/25 active:scale-95 transition">
             Save Draft
           </button>
         </div>
@@ -515,48 +494,46 @@
     <div id="tab-lr" class="tab-pane space-y-4 hidden">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-base font-extrabold text-white flex items-center gap-2">
-            <span class="w-6 h-6 rounded-md bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold">3</span>
+          <h2 class="text-base font-display font-bold text-zinc-950 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-xs font-bold border border-orange-200">3</span>
             Listening & Reading Hacks
           </h2>
-          <p class="text-xs text-slate-400">Avoid the trap answers & secure 50%+</p>
+          <p class="text-xs text-zinc-500">Beat the trap answers & pass in 50%+</p>
         </div>
       </div>
 
-      <!-- Segmented LR Selector -->
-      <div class="grid grid-cols-2 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-semibold text-slate-400">
-        <button onclick="setLRSection('listening')" id="lr-btn-l" class="py-2.5 rounded-lg text-center bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold shadow-md shadow-emerald-600/20 transition">
+      <div class="grid grid-cols-2 bg-zinc-100 p-1 rounded-full text-xs font-semibold text-zinc-600">
+        <button onclick="setLRSection('listening')" id="lr-btn-l" class="py-2.5 rounded-full text-center bg-[#FF7A00] text-white font-bold shadow-md shadow-orange-500/20 transition">
           🎧 Listening Traps
         </button>
-        <button onclick="setLRSection('reading')" id="lr-btn-r" class="py-2.5 rounded-lg text-center hover:text-white transition">
+        <button onclick="setLRSection('reading')" id="lr-btn-r" class="py-2.5 rounded-full text-center hover:text-zinc-950 transition">
           📖 Reading Synonyms
         </button>
       </div>
 
-      <!-- LISTENING CONTENT -->
+      <!-- LISTENING -->
       <div id="lr-listening-content" class="space-y-3">
-        <div class="glass-card rounded-2xl p-4 space-y-2.5">
-          <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
-            <span>🛡️</span> 3 Rules to Beat the Listening Traps
+        <div class="agentix-card rounded-3xl p-4 space-y-2.5">
+          <h3 class="text-xs font-bold text-orange-600 uppercase tracking-wider flex items-center gap-1.5">
+            <span>🛡️</span> 3 Rules to Beat Listening Traps
           </h3>
-          <ul class="text-xs text-slate-300 space-y-2 list-disc pl-4 leading-relaxed">
-            <li><strong>The Distractor Trap:</strong> The speaker says Option A first, then pauses and says: <em>"Actually, on second thought...", "The supervisor changed it to..."</em>. Never pick the first word you hear!</li>
-            <li><strong>Audio Plays TWICE:</strong> 1st listen: get the main answer. 2nd listen: verify spelling and exact details.</li>
-            <li><strong>Pre-Read Questions:</strong> In the 30s pause before audio starts, underline dates, times, and names.</li>
+          <ul class="text-xs text-zinc-600 space-y-2 list-disc pl-4 leading-relaxed">
+            <li><strong>The Distractor Trap:</strong> The speaker says Option A first, then pauses: <em>"Actually, on second thought...", "The supervisor changed it to..."</em>. Never pick the first word you hear!</li>
+            <li><strong>Audio Plays TWICE:</strong> 1st listen: general answer. 2nd listen: verify spelling and exact time.</li>
+            <li><strong>Pre-Read Questions:</strong> In the 30s pause, underline dates and keywords.</li>
           </ul>
         </div>
 
-        <!-- Interactive Audio Drill -->
-        <div class="glass-card rounded-2xl p-4 space-y-3 border border-emerald-500/30">
+        <div class="agentix-card rounded-3xl p-4 space-y-3 border-orange-200">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-white uppercase tracking-wider">Live Distractor Drill</span>
-            <span class="text-[10px] text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded-full font-bold">Audio Ready</span>
+            <span class="text-xs font-bold text-zinc-900 uppercase tracking-wider">Live Distractor Drill</span>
+            <span class="text-[10px] text-orange-700 bg-orange-100 px-2.5 py-0.5 rounded-full font-bold">Audio Ready</span>
           </div>
-          <p class="text-xs text-slate-300">
-            Tap the button below to listen to the dialogue, then pick the correct answer:
+          <p class="text-xs text-zinc-600">
+            Tap the button to listen to the dialogue, then choose the correct option:
           </p>
 
-          <button onclick="playListeningAudioSample()" class="w-full py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-xs font-bold shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 active:scale-95 transition">
+          <button onclick="playListeningAudioSample()" class="w-full py-3.5 bg-gradient-to-r from-[#FF6B00] via-[#FF2E93] to-[#C837AB] hover:opacity-95 text-white rounded-full text-xs font-bold shadow-lg shadow-orange-500/25 flex items-center justify-center gap-2 active:scale-95 transition">
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -564,71 +541,70 @@
             Play Audio Dialogue (British Examiner)
           </button>
 
-          <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-3 text-xs">
-            <div class="font-bold text-white">Question: When will the care assistant start her shift?</div>
+          <div class="bg-zinc-50 p-3.5 rounded-2xl border border-zinc-200 space-y-3 text-xs">
+            <div class="font-bold text-zinc-900">Question: When will the care assistant start her shift?</div>
             <div class="space-y-2">
-              <label class="flex items-center space-x-2.5 text-slate-300 p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-500/50 cursor-pointer">
-                <input type="radio" name="listeningSample" value="A" class="text-emerald-500 focus:ring-0">
+              <label class="flex items-center space-x-2.5 text-zinc-700 p-2.5 rounded-xl bg-white border border-zinc-200 hover:border-orange-300 cursor-pointer">
+                <input type="radio" name="listeningSample" value="A" class="text-[#FF7A00] focus:ring-0">
                 <span>A) 7:00 AM on Monday</span>
               </label>
-              <label class="flex items-center space-x-2.5 text-slate-300 p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-500/50 cursor-pointer">
-                <input type="radio" name="listeningSample" value="B" class="text-emerald-500 focus:ring-0">
+              <label class="flex items-center space-x-2.5 text-zinc-700 p-2.5 rounded-xl bg-white border border-zinc-200 hover:border-orange-300 cursor-pointer">
+                <input type="radio" name="listeningSample" value="B" class="text-[#FF7A00] focus:ring-0">
                 <span>B) 8:30 AM on Tuesday</span>
               </label>
-              <label class="flex items-center space-x-2.5 text-slate-300 p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-500/50 cursor-pointer">
-                <input type="radio" name="listeningSample" value="C" class="text-emerald-500 focus:ring-0">
+              <label class="flex items-center space-x-2.5 text-zinc-700 p-2.5 rounded-xl bg-white border border-zinc-200 hover:border-orange-300 cursor-pointer">
+                <input type="radio" name="listeningSample" value="C" class="text-[#FF7A00] focus:ring-0">
                 <span>C) 2:00 PM on Tuesday</span>
               </label>
             </div>
-            <button onclick="checkListeningAnswer()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold transition">Check Answer</button>
-            <div id="listeningFeedback" class="hidden text-xs p-3 rounded-xl"></div>
+            <button onclick="checkListeningAnswer()" class="w-full py-2.5 bg-zinc-900 hover:bg-zinc-800 text-white rounded-full text-xs font-bold transition">Check Answer</button>
+            <div id="listeningFeedback" class="hidden text-xs p-3 rounded-2xl"></div>
           </div>
         </div>
       </div>
 
-      <!-- READING CONTENT -->
+      <!-- READING -->
       <div id="lr-reading-content" class="space-y-3 hidden">
-        <div class="glass-card rounded-2xl p-4 space-y-2.5">
-          <h3 class="text-xs font-bold text-sky-400 uppercase tracking-wider">
+        <div class="agentix-card rounded-3xl p-4 space-y-2.5">
+          <h3 class="text-xs font-bold text-orange-600 uppercase tracking-wider">
             Reading Hack • Keyword & Synonym Matching
           </h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            LanguageCert questions <strong>never</strong> use the exact same words from the text. They always use synonyms!
+          <p class="text-xs text-zinc-600 leading-relaxed">
+            LanguageCert questions <strong>never</strong> use the exact same words. They use synonyms!
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs font-mono bg-slate-950 p-3 rounded-xl border border-slate-800">
-            <div><span class="text-rose-400">Exam question:</span> difficult</div>
-            <div><span class="text-emerald-400">Text says:</span> challenging</div>
-            <div><span class="text-rose-400">Exam question:</span> immediately</div>
-            <div><span class="text-emerald-400">Text says:</span> without delay</div>
-            <div><span class="text-rose-400">Exam question:</span> every year</div>
-            <div><span class="text-emerald-400">Text says:</span> annually</div>
+          <div class="grid grid-cols-2 gap-2 text-xs font-mono bg-zinc-50 p-3.5 rounded-2xl border border-zinc-200">
+            <div><span class="text-rose-600">Question:</span> difficult</div>
+            <div><span class="text-emerald-700">Text says:</span> challenging</div>
+            <div><span class="text-rose-600">Question:</span> immediately</div>
+            <div><span class="text-emerald-700">Text says:</span> without delay</div>
+            <div><span class="text-rose-600">Question:</span> every year</div>
+            <div><span class="text-emerald-700">Text says:</span> annually</div>
           </div>
         </div>
 
-        <!-- Interactive Reading Drill -->
-        <div class="glass-card rounded-2xl p-4 space-y-3">
-          <span class="text-xs font-bold text-white uppercase tracking-wider block">Care Home Notice Drill</span>
-          <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 text-xs text-slate-300 leading-relaxed font-sans">
+        <div class="agentix-card rounded-3xl p-4 space-y-3">
+          <span class="text-xs font-bold text-zinc-900 uppercase tracking-wider block">Care Home Notice Drill</span>
+          <div class="bg-zinc-50 p-3.5 rounded-2xl border border-zinc-200 text-xs text-zinc-700 leading-relaxed font-sans">
             "All healthcare staff must record patient temperature charts before 10:00 AM. In case of unexpected delay, please notify the senior nurse supervisor immediately. Failure to update the digital log may disrupt the medication schedule."
           </div>
           <div class="space-y-2.5 text-xs">
-            <div class="font-bold text-white">What should you do if you cannot complete the chart on time?</div>
+            <div class="font-bold text-zinc-900">What should you do if you cannot complete the chart on time?</div>
             <div class="space-y-2">
-              <label class="flex items-center space-x-2.5 text-slate-300 p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-sky-500/50 cursor-pointer">
-                <input type="radio" name="readingSample" value="A" class="text-sky-500 focus:ring-0">
+              <label class="flex items-center space-x-2.5 text-zinc-700 p-2.5 rounded-xl bg-white border border-zinc-200 hover:border-orange-300 cursor-pointer">
+                <input type="radio" name="readingSample" value="A" class="text-[#FF7A00] focus:ring-0">
                 <span>A) Administer medication yourself</span>
               </label>
-              <label class="flex items-center space-x-2.5 text-slate-300 p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-sky-500/50 cursor-pointer">
-                <input type="radio" name="readingSample" value="B" class="text-sky-500 focus:ring-0">
+              <label class="flex items-center space-x-2.5 text-zinc-700 p-2.5 rounded-xl bg-white border border-zinc-200 hover:border-orange-300 cursor-pointer">
+                <input type="radio" name="readingSample" value="B" class="text-[#FF7A00] focus:ring-0">
                 <span>B) Inform the senior nurse right away</span>
               </label>
-              <label class="flex items-center space-x-2.5 text-slate-300 p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-sky-500/50 cursor-pointer">
-                <input type="radio" name="readingSample" value="C" class="text-sky-500 focus:ring-0">
+              <label class="flex items-center space-x-2.5 text-zinc-700 p-2.5 rounded-xl bg-white border border-zinc-200 hover:border-orange-300 cursor-pointer">
+                <input type="radio" name="readingSample" value="C" class="text-[#FF7A00] focus:ring-0">
                 <span>C) Fill it in after lunch break</span>
               </label>
             </div>
-            <button onclick="checkReadingAnswer()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold transition">Verify Answer</button>
-            <div id="readingFeedback" class="hidden text-xs p-3 rounded-xl"></div>
+            <button onclick="checkReadingAnswer()" class="w-full py-2.5 bg-zinc-900 hover:bg-zinc-800 text-white rounded-full text-xs font-bold transition">Verify Answer</button>
+            <div id="readingFeedback" class="hidden text-xs p-3 rounded-2xl"></div>
           </div>
         </div>
       </div>
@@ -636,76 +612,71 @@
 
 
     <!-- ============================================================== -->
-    <!-- TAB 4: VOCABULARY & LIFESAVER PHRASES -->
+    <!-- TAB 4: LIFESAVER PHRASES -->
     <!-- ============================================================== -->
     <div id="tab-vocab" class="tab-pane space-y-4 hidden">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-base font-extrabold text-white flex items-center gap-2">
-            <span class="w-6 h-6 rounded-md bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs font-bold">4</span>
+          <h2 class="text-base font-display font-bold text-zinc-950 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-xs font-bold border border-orange-200">4</span>
             Lifesaver Phrases
           </h2>
-          <p class="text-xs text-slate-400">Never freeze in front of the examiner</p>
+          <p class="text-xs text-zinc-500">Never freeze in front of the examiner</p>
         </div>
       </div>
 
-      <!-- Category 1: Buying Time -->
-      <div class="glass-card rounded-2xl p-4 space-y-3 border border-amber-500/20">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-bold text-amber-300 uppercase tracking-wider">1. Phrases to Buy Time (Avoid Silence!)</span>
-        </div>
-        <p class="text-xs text-slate-400">Examiners deduct marks for silence. Use these phrases while your brain thinks:</p>
+      <div class="agentix-card rounded-3xl p-4 space-y-3">
+        <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider block">1. Phrases to Buy Time (Avoid Silence!)</span>
+        <p class="text-xs text-zinc-500">Silence loses marks. Use these natural phrases to give your brain 5 seconds to think:</p>
         <div class="space-y-2 text-xs">
-          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
-            <span class="text-slate-200">"That's an interesting question, let me think..."</span>
-            <button onclick="speakText('That is an interesting question, let me think about that for a moment.')" class="p-1 text-sky-400 hover:text-sky-300">🔊</button>
+          <div class="bg-zinc-50 p-2.5 rounded-2xl border border-zinc-200 flex items-center justify-between">
+            <span class="text-zinc-800">"That's an interesting question, let me think..."</span>
+            <button onclick="speakText('That is an interesting question, let me think about that for a moment.')" class="p-1 text-[#FF7A00]">🔊</button>
           </div>
-          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
-            <span class="text-slate-200">"Well, from my perspective..."</span>
-            <button onclick="speakText('Well, from my perspective, there are a few important points.')" class="p-1 text-sky-400 hover:text-sky-300">🔊</button>
+          <div class="bg-zinc-50 p-2.5 rounded-2xl border border-zinc-200 flex items-center justify-between">
+            <span class="text-zinc-800">"Well, from my perspective..."</span>
+            <button onclick="speakText('Well, from my perspective, there are a few important points.')" class="p-1 text-[#FF7A00]">🔊</button>
           </div>
-          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
-            <span class="text-slate-200">"To be completely honest with you..."</span>
-            <button onclick="speakText('To be completely honest with you, I feel that this is very important.')" class="p-1 text-sky-400 hover:text-sky-300">🔊</button>
+          <div class="bg-zinc-50 p-2.5 rounded-2xl border border-zinc-200 flex items-center justify-between">
+            <span class="text-zinc-800">"To be completely honest with you..."</span>
+            <button onclick="speakText('To be completely honest with you, I feel that this is very important.')" class="p-1 text-[#FF7A00]">🔊</button>
           </div>
         </div>
       </div>
 
-      <!-- Category 2: Asking for Clarification -->
-      <div class="glass-card rounded-2xl p-4 space-y-3">
-        <span class="text-xs font-bold text-sky-300 uppercase tracking-wider">2. Didn't Understand the Question?</span>
-        <p class="text-xs text-slate-400">Asking the examiner to repeat is 100% permitted and is standard B1 communication!</p>
+      <div class="agentix-card rounded-3xl p-4 space-y-3">
+        <span class="text-xs font-bold text-zinc-900 uppercase tracking-wider block">2. Didn't Understand the Question?</span>
+        <p class="text-xs text-zinc-500">Asking the examiner to repeat is 100% permitted and gets normal marks:</p>
         <div class="space-y-2 text-xs">
-          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
-            <span class="text-slate-200">"Could you please repeat that for me?"</span>
-            <button onclick="speakText('Could you please repeat that for me, please?')" class="p-1 text-sky-400">🔊</button>
+          <div class="bg-zinc-50 p-2.5 rounded-2xl border border-zinc-200 flex items-center justify-between">
+            <span class="text-zinc-800">"Could you please repeat that for me?"</span>
+            <button onclick="speakText('Could you please repeat that for me, please?')" class="p-1 text-[#FF7A00]">🔊</button>
           </div>
-          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
-            <span class="text-slate-200">"Could you rephrase that, please?"</span>
-            <button onclick="speakText('Could you rephrase that, please?')" class="p-1 text-sky-400">🔊</button>
+          <div class="bg-zinc-50 p-2.5 rounded-2xl border border-zinc-200 flex items-center justify-between">
+            <span class="text-zinc-800">"Could you rephrase that, please?"</span>
+            <button onclick="speakText('Could you rephrase that, please?')" class="p-1 text-[#FF7A00]">🔊</button>
           </div>
         </div>
       </div>
 
-      <!-- Category 3: Healthcare Vocabulary Grid -->
-      <div class="glass-card rounded-2xl p-4 space-y-2.5">
-        <span class="text-xs font-bold text-emerald-300 uppercase tracking-wider">3. Essential Healthcare Words</span>
+      <div class="agentix-card rounded-3xl p-4 space-y-2.5">
+        <span class="text-xs font-bold text-zinc-900 uppercase tracking-wider block">3. Essential Healthcare Words</span>
         <div class="grid grid-cols-2 gap-2 text-xs pt-1">
-          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
-            <div class="font-bold text-sky-300">Compassionate</div>
-            <div class="text-[11px] text-slate-400">Caring and sympathetic</div>
+          <div class="bg-zinc-50 p-2.5 rounded-2xl border border-zinc-200">
+            <div class="font-bold text-[#FF7A00]">Compassionate</div>
+            <div class="text-[11px] text-zinc-500">Caring and sympathetic</div>
           </div>
-          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
-            <div class="font-bold text-sky-300">Residents</div>
-            <div class="text-[11px] text-slate-400">People receiving care</div>
+          <div class="bg-zinc-50 p-2.5 rounded-2xl border border-zinc-200">
+            <div class="font-bold text-[#FF7A00]">Residents</div>
+            <div class="text-[11px] text-zinc-500">People receiving care</div>
           </div>
-          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
-            <div class="font-bold text-sky-300">Assistance</div>
-            <div class="text-[11px] text-slate-400">Helping with daily needs</div>
+          <div class="bg-zinc-50 p-2.5 rounded-2xl border border-zinc-200">
+            <div class="font-bold text-[#FF7A00]">Assistance</div>
+            <div class="text-[11px] text-zinc-500">Helping with daily needs</div>
           </div>
-          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
-            <div class="font-bold text-sky-300">Routine</div>
-            <div class="text-[11px] text-slate-400">Structured schedule</div>
+          <div class="bg-zinc-50 p-2.5 rounded-2xl border border-zinc-200">
+            <div class="font-bold text-[#FF7A00]">Routine</div>
+            <div class="text-[11px] text-zinc-500">Structured schedule</div>
           </div>
         </div>
       </div>
@@ -713,76 +684,76 @@
 
 
     <!-- ============================================================== -->
-    <!-- TAB 5: 48-HOUR EMERGENCY CRAM PLAN -->
+    <!-- TAB 5: 48-HOUR SURVIVAL SCHEDULE -->
     <!-- ============================================================== -->
     <div id="tab-plan" class="tab-pane space-y-4 hidden">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-base font-extrabold text-white flex items-center gap-2">
-            <span class="w-6 h-6 rounded-md bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs font-bold">5</span>
+          <h2 class="text-base font-display font-bold text-zinc-950 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-xs font-bold border border-orange-200">5</span>
             48-Hour Survival Schedule
           </h2>
-          <p class="text-xs text-slate-400">Hour-by-hour roadmap to secure your pass</p>
+          <p class="text-xs text-zinc-500">Step-by-step hours to guarantee your pass</p>
         </div>
       </div>
 
       <!-- DAY 1 -->
-      <div class="glass-card rounded-2xl p-4 space-y-3">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-          <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Day 1 • Writing & Speaking Foundation</span>
-          <span class="text-xs font-mono text-slate-400">Today</span>
+      <div class="agentix-card rounded-3xl p-4 space-y-3">
+        <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
+          <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider">Day 1 • Foundation & Templates</span>
+          <span class="text-xs font-mono text-zinc-400">Today</span>
         </div>
         <div class="space-y-3 text-xs">
           <div class="flex gap-3">
-            <span class="w-16 font-mono font-bold text-sky-400 shrink-0">09:00–11:30</span>
+            <span class="w-16 font-mono font-bold text-[#FF7A00] shrink-0">09:00–11:30</span>
             <div>
-              <div class="font-bold text-white">Writing Templates Memorization</div>
-              <p class="text-slate-400 text-[11px]">Memorize Task 1 (80w) & Task 2 (110w) formulas. Practice typing in the app sandbox.</p>
+              <div class="font-bold text-zinc-900">Writing Templates Memorization</div>
+              <p class="text-zinc-500 text-[11px]">Memorize Task 1 (80w) & Task 2 (110w) formulas. Practice typing in the app sandbox.</p>
             </div>
           </div>
           <div class="flex gap-3">
-            <span class="w-16 font-mono font-bold text-sky-400 shrink-0">12:30–15:00</span>
+            <span class="w-16 font-mono font-bold text-[#FF7A00] shrink-0">12:30–15:00</span>
             <div>
-              <div class="font-bold text-white">Speaking Part 1 & Surname Spelling</div>
-              <p class="text-slate-400 text-[11px]">Spell your surname 20 times clearly. Drill answers using the voice recorder.</p>
+              <div class="font-bold text-zinc-900">Speaking Part 1 & Surname Spelling</div>
+              <p class="text-zinc-500 text-[11px]">Spell your surname 20 times clearly. Drill answers using the voice recorder.</p>
             </div>
           </div>
           <div class="flex gap-3">
-            <span class="w-16 font-mono font-bold text-sky-400 shrink-0">16:00–18:30</span>
+            <span class="w-16 font-mono font-bold text-[#FF7A00] shrink-0">16:00–18:30</span>
             <div>
-              <div class="font-bold text-white">Speaking Part 4 (90s Presentation)</div>
-              <p class="text-slate-400 text-[11px]">Use the 30s prep & 90s timer. Practice speaking on 4 topics until fluent.</p>
+              <div class="font-bold text-zinc-900">Speaking Part 4 (90s Presentation)</div>
+              <p class="text-zinc-500 text-[11px]">Use the 30s prep & 90s timer. Practice speaking on 4 topics until fluent.</p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- DAY 2 -->
-      <div class="glass-card rounded-2xl p-4 space-y-3">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-          <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Day 2 • Listening, Reading & Mock Run</span>
-          <span class="text-xs font-mono text-slate-400">Tomorrow</span>
+      <div class="agentix-card rounded-3xl p-4 space-y-3">
+        <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
+          <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Day 2 • Drills & Mock Run</span>
+          <span class="text-xs font-mono text-zinc-400">Tomorrow</span>
         </div>
         <div class="space-y-3 text-xs">
           <div class="flex gap-3">
-            <span class="w-16 font-mono font-bold text-emerald-400 shrink-0">09:00–11:00</span>
+            <span class="w-16 font-mono font-bold text-emerald-600 shrink-0">09:00–11:00</span>
             <div>
-              <div class="font-bold text-white">Listening Trap Practice</div>
-              <p class="text-slate-400 text-[11px]">Spot distractors. Listen to second play to confirm answers.</p>
+              <div class="font-bold text-zinc-900">Listening Trap Practice</div>
+              <p class="text-zinc-500 text-[11px]">Spot distractors. Listen to second play to confirm answers.</p>
             </div>
           </div>
           <div class="flex gap-3">
-            <span class="w-16 font-mono font-bold text-emerald-400 shrink-0">14:00–16:30</span>
+            <span class="w-16 font-mono font-bold text-emerald-600 shrink-0">14:00–16:30</span>
             <div>
-              <div class="font-bold text-white">Full Mock Run</div>
-              <p class="text-slate-400 text-[11px]">Timed writing of Task 1 & 2 + 1 complete speaking test.</p>
+              <div class="font-bold text-zinc-900">Full Mock Run</div>
+              <p class="text-zinc-500 text-[11px]">Timed writing of Task 1 & 2 + 1 complete speaking test.</p>
             </div>
           </div>
           <div class="flex gap-3">
-            <span class="w-16 font-mono font-bold text-emerald-400 shrink-0">19:00–20:00</span>
+            <span class="w-16 font-mono font-bold text-emerald-600 shrink-0">19:00–20:00</span>
             <div>
-              <div class="font-bold text-white">Pack Documents & Early Sleep</div>
-              <p class="text-slate-400 text-[11px]">Pack original Passport and booking confirmation email.</p>
+              <div class="font-bold text-zinc-900">Pack Documents & Early Sleep</div>
+              <p class="text-zinc-500 text-[11px]">Pack original Passport and booking confirmation email.</p>
             </div>
           </div>
         </div>
@@ -792,49 +763,49 @@
   </main>
 
   <!-- ============================================================== -->
-  <!-- FLOATING MODERN DOCK NAVIGATION (MOBILE FIRST) -->
+  <!-- AGENTIX FLOATING DOCK (MOBILE NAV) -->
   <!-- ============================================================== -->
   <nav class="fixed bottom-3 left-4 right-4 z-50 max-w-md mx-auto">
-    <div class="glass-nav rounded-2xl border border-slate-800/90 shadow-2xl px-2 py-2 flex justify-around items-center">
-      <button onclick="switchTab('speaking')" id="nav-speaking" class="flex flex-col items-center gap-1 text-sky-400 transition">
+    <div class="agentix-glass rounded-full border border-zinc-200/90 shadow-xl px-4 py-2.5 flex justify-around items-center">
+      <button onclick="switchTab('speaking')" id="nav-speaking" class="flex flex-col items-center gap-1 text-[#FF7A00] font-bold transition">
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
         </svg>
-        <span class="text-[10px] font-bold">Speaking</span>
+        <span class="text-[10px] tracking-tight">Speaking</span>
       </button>
 
-      <button onclick="switchTab('writing')" id="nav-writing" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition">
+      <button onclick="switchTab('writing')" id="nav-writing" class="flex flex-col items-center gap-1 text-zinc-400 hover:text-zinc-900 transition">
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
         </svg>
-        <span class="text-[10px] font-bold">Writing</span>
+        <span class="text-[10px] tracking-tight font-medium">Writing</span>
       </button>
 
-      <button onclick="switchTab('lr')" id="nav-lr" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition">
+      <button onclick="switchTab('lr')" id="nav-lr" class="flex flex-col items-center gap-1 text-zinc-400 hover:text-zinc-900 transition">
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
         </svg>
-        <span class="text-[10px] font-bold">Drills</span>
+        <span class="text-[10px] tracking-tight font-medium">Drills</span>
       </button>
 
-      <button onclick="switchTab('vocab')" id="nav-vocab" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition">
+      <button onclick="switchTab('vocab')" id="nav-vocab" class="flex flex-col items-center gap-1 text-zinc-400 hover:text-zinc-900 transition">
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
         </svg>
-        <span class="text-[10px] font-bold">Phrases</span>
+        <span class="text-[10px] tracking-tight font-medium">Phrases</span>
       </button>
 
-      <button onclick="switchTab('plan')" id="nav-plan" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition">
+      <button onclick="switchTab('plan')" id="nav-plan" class="flex flex-col items-center gap-1 text-zinc-400 hover:text-zinc-900 transition">
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
         </svg>
-        <span class="text-[10px] font-bold">Plan</span>
+        <span class="text-[10px] tracking-tight font-medium">Plan</span>
       </button>
     </div>
   </nav>
 
   <!-- ============================================================== -->
-  <!-- JAVASCRIPT APP LOGIC -->
+  <!-- JAVASCRIPT LOGIC -->
   <!-- ============================================================== -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -842,7 +813,6 @@
       initWritingWorkbench();
     });
 
-    // NAVIGATION SWITCHER
     function switchTab(tabId) {
       document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
       const activePane = document.getElementById(`tab-${tabId}`);
@@ -853,9 +823,9 @@
         const btn = document.getElementById(`nav-${t}`);
         if (btn) {
           if (t === tabId) {
-            btn.className = "flex flex-col items-center gap-1 text-sky-400 font-bold transition";
+            btn.className = "flex flex-col items-center gap-1 text-[#FF7A00] font-bold transition";
           } else {
-            btn.className = "flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition";
+            btn.className = "flex flex-col items-center gap-1 text-zinc-400 hover:text-zinc-900 font-medium transition";
           }
         }
       });
@@ -893,7 +863,7 @@
       window.speechSynthesis.speak(u);
     }
 
-    // WEB AUDIO CHIMES
+    // AUDIO CHIMES
     function playBeep(freq = 600, duration = 0.25) {
       try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -915,7 +885,7 @@
       setTimeout(() => playBeep(783.99, 0.35), 280);
     }
 
-    // SPEAKING DATA
+    // DATA
     const p1Questions = [
       {
         q: "Can you tell me your full name, and please spell your family name?",
@@ -924,7 +894,7 @@
       },
       {
         q: "Why do you want to work as a health and care worker in the UK?",
-        tip: "Mention compassion, helping elderly people, and career development.",
+        tip: "Mention compassion, helping elderly people, and building a professional career.",
         sample: "I have always enjoyed helping vulnerable individuals. Working in the UK allows me to offer compassionate care, assist elderly residents, and contribute positively to healthcare."
       },
       {
@@ -1012,52 +982,52 @@
     function initQuestions() {
       // Part 1
       document.getElementById('part1Questions').innerHTML = p1Questions.map((q, i) => `
-        <div class="glass-card rounded-2xl p-3.5 space-y-2">
+        <div class="agentix-card rounded-3xl p-3.5 space-y-2">
           <div class="flex items-start justify-between gap-2">
-            <span class="text-xs font-bold text-white">${i+1}. "${q.q}"</span>
-            <button onclick="speakText('${q.q.replace(/'/g, "\\'")}')" class="p-1.5 rounded-lg bg-slate-800 text-sky-400 hover:bg-slate-700 shrink-0">🔊</button>
+            <span class="text-xs font-bold text-zinc-900">${i+1}. "${q.q}"</span>
+            <button onclick="speakText('${q.q.replace(/'/g, "\\'")}')" class="p-1.5 rounded-full bg-zinc-100 text-[#FF7A00] hover:bg-orange-50 shrink-0">🔊</button>
           </div>
-          <div class="text-[11px] text-amber-300 font-semibold">Tip: ${q.tip}</div>
-          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800/80 text-[11px] text-slate-300 flex justify-between items-start gap-2">
-            <div><strong class="text-emerald-400">Sample:</strong> ${q.sample}</div>
-            <button onclick="speakText('${q.sample.replace(/'/g, "\\'")}')" class="text-slate-400 hover:text-white shrink-0">▶</button>
+          <div class="text-[11px] text-orange-700 font-semibold">Tip: ${q.tip}</div>
+          <div class="bg-zinc-50 p-2.5 rounded-2xl border border-zinc-200 text-[11px] text-zinc-700 flex justify-between items-start gap-2">
+            <div><strong class="text-emerald-700">Sample:</strong> ${q.sample}</div>
+            <button onclick="speakText('${q.sample.replace(/'/g, "\\'")}')" class="text-zinc-400 hover:text-zinc-900 shrink-0">▶</button>
           </div>
         </div>
       `).join('');
 
       // Part 2
       document.getElementById('part2Cards').innerHTML = p2Roleplays.map((r, i) => `
-        <div class="glass-card rounded-2xl p-4 space-y-2.5">
-          <div class="text-xs font-bold text-sky-300">${r.title}</div>
-          <p class="text-xs text-slate-300">${r.context}</p>
-          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 space-y-1 text-xs">
-            <div class="flex items-center justify-between font-bold text-indigo-300">
+        <div class="agentix-card rounded-3xl p-4 space-y-2.5">
+          <div class="text-xs font-bold text-[#FF7A00]">${r.title}</div>
+          <p class="text-xs text-zinc-600">${r.context}</p>
+          <div class="bg-zinc-50 p-3 rounded-2xl border border-zinc-200 space-y-1 text-xs">
+            <div class="flex items-center justify-between font-bold text-indigo-700">
               <span>Examiner asks:</span>
-              <button onclick="speakText('${r.examinerLine.replace(/'/g, "\\'")}')" class="text-sky-400">🔊</button>
+              <button onclick="speakText('${r.examinerLine.replace(/'/g, "\\'")}')" class="text-[#FF7A00]">🔊</button>
             </div>
-            <p class="italic text-slate-300 text-[11px]">"${r.examinerLine}"</p>
+            <p class="italic text-zinc-600 text-[11px]">"${r.examinerLine}"</p>
           </div>
-          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 space-y-1 text-xs">
-            <div class="flex items-center justify-between font-bold text-emerald-300">
+          <div class="bg-zinc-50 p-3 rounded-2xl border border-zinc-200 space-y-1 text-xs">
+            <div class="flex items-center justify-between font-bold text-emerald-700">
               <span>Your High-Scoring Response:</span>
-              <button onclick="speakText('${r.candidateLine.replace(/'/g, "\\'")}')" class="text-emerald-400">🔊</button>
+              <button onclick="speakText('${r.candidateLine.replace(/'/g, "\\'")}')" class="text-emerald-600">🔊</button>
             </div>
-            <p class="text-slate-200 text-[11px]">"${r.candidateLine}"</p>
+            <p class="text-zinc-800 text-[11px]">"${r.candidateLine}"</p>
           </div>
         </div>
       `).join('');
 
       // Part 3
       document.getElementById('part3Cards').innerHTML = p3Discussions.map((d, i) => `
-        <div class="glass-card rounded-2xl p-4 space-y-2.5">
-          <div class="text-xs font-bold text-sky-300">${d.title}</div>
-          <p class="text-xs text-slate-300">${d.prompt}</p>
-          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 space-y-1 text-xs">
-            <span class="text-[11px] font-bold text-amber-300 block mb-1">Key Discussion Phrases:</span>
+        <div class="agentix-card rounded-3xl p-4 space-y-2.5">
+          <div class="text-xs font-bold text-[#FF7A00]">${d.title}</div>
+          <p class="text-xs text-zinc-600">${d.prompt}</p>
+          <div class="bg-zinc-50 p-3 rounded-2xl border border-zinc-200 space-y-1 text-xs">
+            <span class="text-[11px] font-bold text-orange-700 block mb-1">Key Discussion Phrases:</span>
             ${d.keyPhrases.map(ph => `
-              <div class="flex items-center justify-between py-0.5 text-[11px] text-slate-300">
+              <div class="flex items-center justify-between py-0.5 text-[11px] text-zinc-700">
                 <span>• "${ph}"</span>
-                <button onclick="speakText('${ph.replace(/'/g, "\\'")}')" class="text-sky-400">🔊</button>
+                <button onclick="speakText('${ph.replace(/'/g, "\\'")}')" class="text-[#FF7A00]">🔊</button>
               </div>
             `).join('')}
           </div>
@@ -1070,37 +1040,37 @@
     function setSpeakingPart(n) {
       for (let i = 1; i <= 4; i++) {
         document.getElementById(`sp-part-${i}`).classList.add('hidden');
-        document.getElementById(`sp-btn-${i}`).className = "py-2 rounded-lg text-center hover:text-white transition";
+        document.getElementById(`sp-btn-${i}`).className = "py-2 rounded-full text-center hover:text-zinc-950 transition";
       }
       document.getElementById(`sp-part-${n}`).classList.remove('hidden');
-      document.getElementById(`sp-btn-${n}`).className = "py-2 rounded-lg text-center bg-gradient-to-r from-sky-500 to-sky-600 text-white shadow-md shadow-sky-500/20 font-bold transition";
+      document.getElementById(`sp-btn-${n}`).className = "py-2 rounded-full text-center bg-[#FF7A00] text-white shadow-md shadow-orange-500/20 font-bold transition";
     }
 
     function loadPart4Topic() {
       const idx = document.getElementById('part4TopicSelect').value;
       const t = p4Topics[idx];
       document.getElementById('part4TopicBox').innerHTML = `
-        <div class="font-bold text-sky-400 text-xs">${t.title}</div>
-        <div class="text-[11px] text-slate-300 space-y-0.5 pt-1">
+        <div class="font-bold text-[#FF7A00] text-xs">${t.title}</div>
+        <div class="text-[11px] text-zinc-600 space-y-0.5 pt-1">
           ${t.notes.map(n => `<div>${n}</div>`).join('')}
         </div>
-        <div class="pt-2 border-t border-slate-800 mt-2">
+        <div class="pt-2 border-t border-zinc-200 mt-2">
           <div class="flex items-center justify-between mb-1">
-            <span class="text-[10px] uppercase font-bold text-emerald-400">Sample High-Scoring Speech (90s):</span>
-            <button onclick="speakText('${t.sampleScript.replace(/'/g, "\\'")}')" class="text-sky-400 text-[10px] font-bold flex items-center gap-1">
+            <span class="text-[10px] uppercase font-bold text-emerald-700">Sample High-Scoring Speech (90s):</span>
+            <button onclick="speakText('${t.sampleScript.replace(/'/g, "\\'")}')" class="text-[#FF7A00] text-[10px] font-bold flex items-center gap-1">
               🔊 Listen
             </button>
           </div>
-          <p class="text-[11px] text-slate-300 italic bg-slate-900 p-2.5 rounded-lg border border-slate-800">${t.sampleScript}</p>
+          <p class="text-[11px] text-zinc-700 italic bg-white p-2.5 rounded-xl border border-zinc-200">${t.sampleScript}</p>
         </div>
       `;
     }
 
-    // CIRCULAR TIMER LOGIC
+    // CIRCULAR TIMER
     let countdownInterval = null;
     let totalTime = 30;
     let timeRemaining = 30;
-    const circleCircumference = 264; // 2 * PI * 42
+    const circleCircumference = 264;
 
     function resetTimers() {
       clearInterval(countdownInterval);
@@ -1109,7 +1079,7 @@
       document.getElementById('timerSubtext').textContent = "Prep Time";
       const circle = document.getElementById('timerCircleProgress');
       circle.style.strokeDashoffset = '0';
-      circle.className = "text-sky-400 fill-none circle-progress transition-all duration-300";
+      circle.className = "text-[#FF7A00] fill-none circle-progress transition-all duration-300";
     }
 
     function startPrepTimer() {
@@ -1119,7 +1089,7 @@
       document.getElementById('timerStatusLabel').textContent = "MAKE YOUR NOTES NOW (30 SECONDS)";
       document.getElementById('timerSubtext').textContent = "Prep Time";
       const circle = document.getElementById('timerCircleProgress');
-      circle.className = "text-amber-400 fill-none circle-progress transition-all duration-300";
+      circle.className = "text-[#EA580C] fill-none circle-progress transition-all duration-300";
       playBeep(440, 0.2);
 
       updateTimerDisplay();
@@ -1141,7 +1111,7 @@
       document.getElementById('timerStatusLabel').textContent = "SPEAK CONTINUOUSLY (AIM FOR 75-90s)";
       document.getElementById('timerSubtext').textContent = "Speaking";
       const circle = document.getElementById('timerCircleProgress');
-      circle.className = "text-emerald-400 fill-none circle-progress transition-all duration-300";
+      circle.className = "text-emerald-500 fill-none circle-progress transition-all duration-300";
       playBeep(880, 0.3);
 
       updateTimerDisplay();
@@ -1200,7 +1170,7 @@
           isRecording = true;
           recordSecs = 0;
           btnText.textContent = "Stop Recording";
-          document.getElementById('toggleRecordBtn').className = "w-full py-3 bg-slate-800 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2";
+          document.getElementById('toggleRecordBtn').className = "w-full py-3.5 bg-zinc-800 text-white rounded-full text-xs font-bold flex items-center justify-center gap-2";
 
           recordTimerInterval = setInterval(() => {
             recordSecs++;
@@ -1217,7 +1187,7 @@
         clearInterval(recordTimerInterval);
         isRecording = false;
         btnText.textContent = "Record Again";
-        document.getElementById('toggleRecordBtn').className = "w-full py-3 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white rounded-xl text-xs font-bold shadow-lg shadow-red-600/20 flex items-center justify-center gap-2";
+        document.getElementById('toggleRecordBtn').className = "w-full py-3.5 bg-gradient-to-r from-[#FF6B00] via-[#FF2E93] to-[#C837AB] hover:opacity-95 text-white rounded-full text-xs font-bold shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2";
       }
     }
 
@@ -1258,14 +1228,14 @@
 
     function setWritingTask(t) {
       if (t === 1) {
-        document.getElementById('wr-btn-1').className = "py-2.5 rounded-lg text-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold shadow-md shadow-purple-600/20 transition";
-        document.getElementById('wr-btn-2').className = "py-2.5 rounded-lg text-center hover:text-white transition";
+        document.getElementById('wr-btn-1').className = "py-2.5 rounded-full text-center bg-[#FF7A00] text-white font-bold shadow-md shadow-orange-500/20 transition";
+        document.getElementById('wr-btn-2').className = "py-2.5 rounded-full text-center hover:text-zinc-950 transition";
         document.getElementById('wr-task-1-guide').classList.remove('hidden');
         document.getElementById('wr-task-2-guide').classList.add('hidden');
         document.getElementById('writingPromptSelect').value = "t1-1";
       } else {
-        document.getElementById('wr-btn-2').className = "py-2.5 rounded-lg text-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold shadow-md shadow-purple-600/20 transition";
-        document.getElementById('wr-btn-1').className = "py-2.5 rounded-lg text-center hover:text-white transition";
+        document.getElementById('wr-btn-2').className = "py-2.5 rounded-full text-center bg-[#FF7A00] text-white font-bold shadow-md shadow-orange-500/20 transition";
+        document.getElementById('wr-btn-1').className = "py-2.5 rounded-full text-center hover:text-zinc-950 transition";
         document.getElementById('wr-task-2-guide').classList.remove('hidden');
         document.getElementById('wr-task-1-guide').classList.add('hidden');
         document.getElementById('writingPromptSelect').value = "t2-1";
@@ -1275,7 +1245,7 @@
 
     function initWritingWorkbench() {
       loadWritingPrompt();
-      const saved = localStorage.getItem('selt_b1_draft');
+      const saved = localStorage.getItem('selt_b1_agentix_draft');
       if (saved) {
         document.getElementById('userWritingInput').value = saved;
         analyzeWriting();
@@ -1286,7 +1256,7 @@
       const key = document.getElementById('writingPromptSelect').value;
       const data = writingPrompts[key];
       document.getElementById('currentPromptDisplay').innerHTML = `
-        <div class="font-bold text-purple-400 mb-1">${data.title}</div>
+        <div class="font-bold text-[#FF7A00] mb-1">${data.title}</div>
         <div>${data.prompt}</div>
       `;
       document.getElementById('targetRangeText').textContent = `${data.min} – ${data.max} words`;
@@ -1310,37 +1280,36 @@
       bar.style.width = `${pct}%`;
 
       if (count === 0) {
-        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-800 text-slate-400";
-        bar.className = "bg-slate-600 h-full transition-all duration-300";
+        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600";
+        bar.className = "bg-zinc-300 h-full transition-all duration-300";
         statusMsg.textContent = "Start typing or load a template above.";
-        statusMsg.className = "text-xs font-medium text-slate-400";
+        statusMsg.className = "text-xs font-medium text-zinc-500";
       } else if (count < target.min) {
-        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-rose-950/70 text-rose-300 border border-rose-800";
+        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200";
         bar.className = "bg-rose-500 h-full transition-all duration-300";
         statusMsg.textContent = `Too short (${count} words). Need ${target.min - count} more words to reach target!`;
-        statusMsg.className = "text-xs font-semibold text-rose-400";
+        statusMsg.className = "text-xs font-semibold text-rose-600";
       } else if (count <= target.max) {
-        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-emerald-950/70 text-emerald-300 border border-emerald-800";
+        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200";
         bar.className = "bg-emerald-500 h-full transition-all duration-300";
         statusMsg.textContent = `Target zone (${count} words)! Ideal length for B1 pass.`;
-        statusMsg.className = "text-xs font-semibold text-emerald-400";
+        statusMsg.className = "text-xs font-semibold text-emerald-600";
       } else {
-        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-amber-950/70 text-amber-300 border border-amber-800";
+        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200";
         bar.className = "bg-amber-500 h-full transition-all duration-300";
         statusMsg.textContent = `Over limit (${count} words). Try not to exceed ${target.max} words.`;
-        statusMsg.className = "text-xs font-semibold text-amber-400";
+        statusMsg.className = "text-xs font-semibold text-amber-600";
       }
 
-      // Check Connectors
       const lower = text.toLowerCase();
       const detected = b1ConnectorsList.filter(c => lower.includes(c));
       const pills = document.getElementById('connectorsPills');
       if (detected.length > 0) {
         pills.innerHTML = detected.map(c => `
-          <span class="text-[10px] bg-purple-900/60 border border-purple-500/50 text-purple-200 px-2 py-0.5 rounded-md font-mono">${c}</span>
+          <span class="text-[10px] bg-orange-50 border border-orange-200 text-orange-700 px-2 py-0.5 rounded-full font-mono">${c}</span>
         `).join('');
       } else {
-        pills.innerHTML = `<span class="text-[10px] text-slate-500 italic">None yet. Try using: however, although, furthermore, therefore, for example...</span>`;
+        pills.innerHTML = `<span class="text-[11px] text-zinc-400 italic">None yet. Try: however, although, furthermore, therefore, for example...</span>`;
       }
     }
 
@@ -1380,20 +1349,19 @@ To conclude, I strongly believe that small daily habits lead to long-term health
 
     function saveWritingDraft() {
       const text = document.getElementById('userWritingInput').value;
-      localStorage.setItem('selt_b1_draft', text);
+      localStorage.setItem('selt_b1_agentix_draft', text);
       alert("Draft saved!");
     }
 
-    // LISTENING & READING DRILLS
     function setLRSection(sec) {
       if (sec === 'listening') {
-        document.getElementById('lr-btn-l').className = "py-2.5 rounded-lg text-center bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold shadow-md shadow-emerald-600/20 transition";
-        document.getElementById('lr-btn-r').className = "py-2.5 rounded-lg text-center hover:text-white transition";
+        document.getElementById('lr-btn-l').className = "py-2.5 rounded-full text-center bg-[#FF7A00] text-white font-bold shadow-md shadow-orange-500/20 transition";
+        document.getElementById('lr-btn-r').className = "py-2.5 rounded-full text-center hover:text-zinc-950 transition";
         document.getElementById('lr-listening-content').classList.remove('hidden');
         document.getElementById('lr-reading-content').classList.add('hidden');
       } else {
-        document.getElementById('lr-btn-r').className = "py-2.5 rounded-lg text-center bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold shadow-md shadow-emerald-600/20 transition";
-        document.getElementById('lr-btn-l').className = "py-2.5 rounded-lg text-center hover:text-white transition";
+        document.getElementById('lr-btn-r').className = "py-2.5 rounded-full text-center bg-[#FF7A00] text-white font-bold shadow-md shadow-orange-500/20 transition";
+        document.getElementById('lr-btn-l').className = "py-2.5 rounded-full text-center hover:text-zinc-950 transition";
         document.getElementById('lr-reading-content').classList.remove('hidden');
         document.getElementById('lr-listening-content').classList.add('hidden');
       }
@@ -1410,17 +1378,17 @@ To conclude, I strongly believe that small daily habits lead to long-term health
       fb.classList.remove('hidden');
 
       if (!sel) {
-        fb.className = "text-xs p-3 rounded-xl bg-amber-950 text-amber-200 border border-amber-800";
+        fb.className = "text-xs p-3 rounded-2xl bg-amber-50 text-amber-800 border border-amber-200";
         fb.textContent = "Please choose an option first.";
         return;
       }
 
       if (sel.value === 'B') {
         playSuccessChime();
-        fb.className = "text-xs p-3 rounded-xl bg-emerald-950 text-emerald-200 border border-emerald-800";
+        fb.className = "text-xs p-3 rounded-2xl bg-emerald-50 text-emerald-800 border border-emerald-200";
         fb.innerHTML = "<strong>Correct! (8:30 AM on Tuesday)</strong><br>Notice how 7:00 AM on Monday was a <em>distractor trap</em> corrected by 'However...'!";
       } else {
-        fb.className = "text-xs p-3 rounded-xl bg-rose-950 text-rose-200 border border-rose-800";
+        fb.className = "text-xs p-3 rounded-2xl bg-rose-50 text-rose-800 border border-rose-200";
         fb.innerHTML = "<strong>Incorrect.</strong> You fell for the distractor! The speaker mentioned Monday first, but corrected it: <em>'So I will actually come in at 8:30 AM on Tuesday'</em>.";
       }
     }
@@ -1431,17 +1399,17 @@ To conclude, I strongly believe that small daily habits lead to long-term health
       fb.classList.remove('hidden');
 
       if (!sel) {
-        fb.className = "text-xs p-3 rounded-xl bg-amber-950 text-amber-200 border border-amber-800";
+        fb.className = "text-xs p-3 rounded-2xl bg-amber-50 text-amber-800 border border-amber-200";
         fb.textContent = "Please select an answer.";
         return;
       }
 
       if (sel.value === 'B') {
         playSuccessChime();
-        fb.className = "text-xs p-3 rounded-xl bg-emerald-950 text-emerald-200 border border-emerald-800";
+        fb.className = "text-xs p-3 rounded-2xl bg-emerald-50 text-emerald-800 border border-emerald-200";
         fb.innerHTML = "<strong>Correct! (B: Inform the senior nurse right away)</strong><br>Text says: <em>'notify the senior nurse supervisor immediately'</em>. 'Notify' = 'Inform', 'Immediately' = 'Right away'!";
       } else {
-        fb.className = "text-xs p-3 rounded-xl bg-rose-950 text-rose-200 border border-rose-800";
+        fb.className = "text-xs p-3 rounded-2xl bg-rose-50 text-rose-800 border border-rose-200";
         fb.innerHTML = "<strong>Incorrect.</strong> Look at the sentence: <em>'please notify the senior nurse supervisor immediately'</em>.";
       }
     }
