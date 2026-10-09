@@ -52,6 +52,8 @@
     body {
       background-color: #FAFAFA;
       color: #09090B;
+      font-size: 15px; /* Comfortable base font size */
+      line-height: 1.5;
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     }
     
@@ -70,11 +72,11 @@
     .agentix-card {
       background: #FFFFFF;
       border: 1px solid #E4E4E7;
-      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
     }
     
     .agentix-glass {
-      background: rgba(255, 255, 255, 0.90);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
     }
@@ -86,16 +88,16 @@
     }
   </style>
 </head>
-<body class="min-h-screen pb-28 antialiased selection:bg-[#FF7A00] selection:text-white grid-pattern">
+<body class="min-h-screen pb-32 antialiased selection:bg-[#FF7A00] selection:text-white grid-pattern">
 
   <!-- ============================================================== -->
   <!-- TOP NAVBAR -->
   <!-- ============================================================== -->
-  <header class="sticky top-0 z-40 agentix-glass border-b border-zinc-200/80 px-4 py-3">
+  <header class="sticky top-0 z-40 agentix-glass border-b border-zinc-200/80 px-4 py-3.5">
     <div class="max-w-md mx-auto flex items-center justify-between">
-      <div class="flex items-center space-x-2.5">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#FF6B00] to-[#FFA337] flex items-center justify-center shadow-md shadow-orange-500/20 shrink-0">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#FF6B00] to-[#FFA337] flex items-center justify-center shadow-md shadow-orange-500/20 shrink-0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path 
               d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 9.5 19.5 7.5 17 7.5C14.5 7.5 13.5 9.5 13.5 11.5C13.5 13.5 14.5 15 16 15C17.5 15 18 13.8 18 13.8" 
               stroke="white" 
@@ -107,17 +109,17 @@
           </svg>
         </div>
         <div>
-          <div class="flex items-center gap-1.5">
-            <h1 class="font-display font-bold text-sm tracking-tight text-zinc-950 leading-tight">SELT B2 Communicator</h1>
-            <span class="text-[10px] font-bold bg-[#FF7A00] text-white px-1.5 py-0.2 rounded-md">UKVI</span>
+          <div class="flex items-center gap-2">
+            <h1 class="font-display font-bold text-base tracking-tight text-zinc-950 leading-tight">SELT B2 Communicator</h1>
+            <span class="text-xs font-bold bg-[#FF7A00] text-white px-2 py-0.5 rounded-md">UKVI</span>
           </div>
-          <p class="text-[11px] text-zinc-500 font-medium">LanguageCert • 4-Skills Dynamic Engine</p>
+          <p class="text-xs text-zinc-500 font-medium">LanguageCert • 4-Skills Dynamic Engine</p>
         </div>
       </div>
 
-      <button onclick="toggleVoiceTester()" class="px-3 py-1.5 rounded-full bg-white hover:bg-orange-50 border border-zinc-200 hover:border-orange-200 text-xs font-semibold text-zinc-800 flex items-center gap-1.5 shadow-sm active:scale-95 transition">
+      <button onclick="toggleVoiceTester()" class="px-3.5 py-2 rounded-full bg-white hover:bg-orange-50 border border-zinc-200 hover:border-orange-200 text-xs sm:text-sm font-semibold text-zinc-800 flex items-center gap-1.5 shadow-sm active:scale-95 transition">
         <span class="text-[#FF7A00]">🔊</span>
-        <span id="voiceHeaderLabel" class="text-[11px]">UK Voice</span>
+        <span id="voiceHeaderLabel">UK Voice</span>
       </button>
     </div>
   </header>
@@ -125,93 +127,93 @@
   <!-- ============================================================== -->
   <!-- MAIN MOBILE CONTAINER -->
   <!-- ============================================================== -->
-  <main class="max-w-md mx-auto px-4 pt-4 space-y-4 relative">
+  <main class="max-w-md mx-auto px-4 pt-4 space-y-5 relative">
     
     <div class="absolute top-10 left-1/2 -translate-x-1/2 w-72 h-44 agentix-glow rounded-full blur-3xl pointer-events-none -z-10"></div>
 
     <!-- STATS & DYNAMIC SESSION BANNER -->
-    <div class="agentix-card rounded-3xl p-4 space-y-3 relative overflow-hidden">
+    <div class="agentix-card rounded-3xl p-5 space-y-3.5 relative overflow-hidden">
       <div class="flex items-center justify-between">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/60 text-xs font-semibold text-orange-700">
-          <span class="bg-[#FF6B00] text-white text-[10px] px-1.5 py-0.2 rounded-md font-bold uppercase tracking-wider">B2</span>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/60 text-xs font-semibold text-orange-700">
+          <span class="bg-[#FF6B00] text-white text-xs px-1.5 py-0.5 rounded-md font-bold uppercase tracking-wider">B2</span>
           <span>Official Communicator</span>
         </div>
         <div class="flex items-center gap-2">
-          <span class="text-xs font-bold text-zinc-600 bg-zinc-100 border border-zinc-200 px-2 py-0.5 rounded-full">
+          <span class="text-xs font-bold text-zinc-700 bg-zinc-100 border border-zinc-200 px-2.5 py-1 rounded-full">
             Pass: 50% / 100
           </span>
         </div>
       </div>
 
       <div>
-        <h2 class="text-lg font-display font-bold text-zinc-950 tracking-tight leading-snug">
+        <h2 class="text-xl font-display font-bold text-zinc-950 tracking-tight leading-snug">
           Active B2 Exam Simulator
         </h2>
-        <p class="text-xs text-zinc-600 leading-relaxed pt-0.5">
+        <p class="text-sm text-zinc-600 leading-relaxed pt-1">
           Dynamic practice with continuous question generation, authentic LanguageCert exam questions, and answer analysis.
         </p>
       </div>
 
       <!-- Quick 4-Skills Navigation -->
       <div class="grid grid-cols-4 gap-2 pt-1 text-center">
-        <button onclick="switchTab('speaking')" class="bg-zinc-50 hover:bg-orange-50/70 p-2 rounded-2xl border border-zinc-200/80 hover:border-orange-300 transition text-left active:scale-95">
-          <div class="text-[10px] text-zinc-400 font-semibold uppercase">Speaking</div>
-          <div class="text-xs font-bold text-[#FF7A00]">13–15m</div>
+        <button onclick="switchTab('speaking')" class="bg-zinc-50 hover:bg-orange-50/70 p-2.5 rounded-2xl border border-zinc-200/80 hover:border-orange-300 transition text-left active:scale-95">
+          <div class="text-xs text-zinc-400 font-semibold uppercase">Speaking</div>
+          <div class="text-sm font-bold text-[#FF7A00]">13–15m</div>
         </button>
-        <button onclick="switchTab('writing')" class="bg-zinc-50 hover:bg-orange-50/70 p-2 rounded-2xl border border-zinc-200/80 hover:border-orange-300 transition text-left active:scale-95">
-          <div class="text-[10px] text-zinc-400 font-semibold uppercase">Writing</div>
-          <div class="text-xs font-bold text-zinc-900">100–200w</div>
+        <button onclick="switchTab('writing')" class="bg-zinc-50 hover:bg-orange-50/70 p-2.5 rounded-2xl border border-zinc-200/80 hover:border-orange-300 transition text-left active:scale-95">
+          <div class="text-xs text-zinc-400 font-semibold uppercase">Writing</div>
+          <div class="text-sm font-bold text-zinc-900">100–200w</div>
         </button>
-        <button onclick="switchTab('listening')" class="bg-zinc-50 hover:bg-orange-50/70 p-2 rounded-2xl border border-zinc-200/80 hover:border-orange-300 transition text-left active:scale-95">
-          <div class="text-[10px] text-zinc-400 font-semibold uppercase">Listening</div>
-          <div class="text-xs font-bold text-zinc-900">26 Qs</div>
+        <button onclick="switchTab('listening')" class="bg-zinc-50 hover:bg-orange-50/70 p-2.5 rounded-2xl border border-zinc-200/80 hover:border-orange-300 transition text-left active:scale-95">
+          <div class="text-xs text-zinc-400 font-semibold uppercase">Listening</div>
+          <div class="text-sm font-bold text-zinc-900">26 Qs</div>
         </button>
-        <button onclick="switchTab('reading')" class="bg-zinc-50 hover:bg-orange-50/70 p-2 rounded-2xl border border-zinc-200/80 hover:border-orange-300 transition text-left active:scale-95">
-          <div class="text-[10px] text-zinc-400 font-semibold uppercase">Reading</div>
-          <div class="text-xs font-bold text-[#FF7A00]">26 Qs</div>
+        <button onclick="switchTab('reading')" class="bg-zinc-50 hover:bg-orange-50/70 p-2.5 rounded-2xl border border-zinc-200/80 hover:border-orange-300 transition text-left active:scale-95">
+          <div class="text-xs text-zinc-400 font-semibold uppercase">Reading</div>
+          <div class="text-sm font-bold text-[#FF7A00]">26 Qs</div>
         </button>
       </div>
     </div>
 
 
     <!-- ============================================================== -->
-    <!-- TAB 1: SPEAKING SIMULATOR (VIRTUAL INTERLOCUTOR & B2 TIMER) -->
+    <!-- TAB 1: SPEAKING SIMULATOR -->
     <!-- ============================================================== -->
     <div id="tab-speaking" class="tab-pane space-y-4">
       
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-base font-display font-bold text-zinc-950 flex items-center gap-2">
-            <span class="w-6 h-6 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-xs font-bold border border-orange-200">1</span>
+          <h2 class="text-lg font-display font-bold text-zinc-950 flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-sm font-bold border border-orange-200">1</span>
             Speaking Simulator
           </h2>
-          <p class="text-xs text-zinc-500">1-on-1 Interlocutor exam session (~13–15 mins)</p>
+          <p class="text-xs sm:text-sm text-zinc-500">1-on-1 Interlocutor exam session (~13–15 mins)</p>
         </div>
-        <button onclick="generateRandomSpeakingMock()" class="px-2.5 py-1 rounded-full text-xs font-bold bg-orange-100 text-[#FF7A00] hover:bg-orange-200 transition active:scale-95 flex items-center gap-1">
+        <button onclick="generateRandomSpeakingMock()" class="px-3 py-1.5 rounded-full text-xs font-bold bg-orange-100 text-[#FF7A00] hover:bg-orange-200 transition active:scale-95 flex items-center gap-1.5">
           <span>🔄</span> New Mock
         </button>
       </div>
 
       <!-- Segmented Part Selector -->
-      <div class="grid grid-cols-4 bg-zinc-100 p-1 rounded-full text-xs font-semibold text-zinc-600">
-        <button onclick="setSpeakingPart(1)" id="sp-btn-1" class="py-2 rounded-full text-center bg-[#FF7A00] text-white shadow-md shadow-orange-500/20 font-bold transition">Part 1</button>
-        <button onclick="setSpeakingPart(2)" id="sp-btn-2" class="py-2 rounded-full text-center hover:text-zinc-950 transition">Part 2</button>
-        <button onclick="setSpeakingPart(3)" id="sp-btn-3" class="py-2 rounded-full text-center hover:text-zinc-950 transition">Part 3</button>
-        <button onclick="setSpeakingPart(4)" id="sp-btn-4" class="py-2 rounded-full text-center hover:text-zinc-950 transition">Part 4</button>
+      <div class="grid grid-cols-4 bg-zinc-100 p-1 rounded-full text-xs sm:text-sm font-semibold text-zinc-600">
+        <button onclick="setSpeakingPart(1)" id="sp-btn-1" class="py-2.5 rounded-full text-center bg-[#FF7A00] text-white shadow-md shadow-orange-500/20 font-bold transition">Part 1</button>
+        <button onclick="setSpeakingPart(2)" id="sp-btn-2" class="py-2.5 rounded-full text-center hover:text-zinc-950 transition">Part 2</button>
+        <button onclick="setSpeakingPart(3)" id="sp-btn-3" class="py-2.5 rounded-full text-center hover:text-zinc-950 transition">Part 3</button>
+        <button onclick="setSpeakingPart(4)" id="sp-btn-4" class="py-2.5 rounded-full text-center hover:text-zinc-950 transition">Part 4</button>
       </div>
 
       <!-- PART 1: ABSTRACT TOPICS & INTERVIEW -->
       <div id="sp-part-1" class="space-y-3">
-        <div class="agentix-card rounded-3xl p-4 space-y-2.5">
+        <div class="agentix-card rounded-3xl p-4 sm:p-5 space-y-2.5">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider">Part 1 • Personal & Abstract B2 Questions</span>
             <span class="text-xs font-mono text-zinc-400">~3 mins</span>
           </div>
-          <p class="text-xs text-zinc-600 leading-relaxed">
-            In B2, questions move quickly from your background into <strong>abstract opinions</strong> (technology in the workplace, travel culture, managing stress, personal values).
+          <p class="text-sm text-zinc-600 leading-relaxed">
+            In B2, questions move quickly into <strong>abstract opinions</strong> (technology in the workplace, travel culture, managing stress, personal values).
           </p>
-          <div class="flex items-center justify-between pt-1">
-            <span class="text-xs font-semibold text-zinc-800">Dynamic Question Bank:</span>
+          <div class="flex items-center justify-between pt-1 border-t border-zinc-100 mt-2">
+            <span class="text-xs font-semibold text-zinc-700">Dynamic Question Bank:</span>
             <button onclick="nextSpeakingP1Question()" class="text-xs font-bold text-[#FF7A00] hover:underline flex items-center gap-1">
               <span>Next Question &rarr;</span>
             </button>
@@ -225,16 +227,16 @@
 
       <!-- PART 2: COMPLEX B2 ROLEPLAYS -->
       <div id="sp-part-2" class="space-y-3 hidden">
-        <div class="agentix-card rounded-3xl p-4 space-y-2.5">
+        <div class="agentix-card rounded-3xl p-4 sm:p-5 space-y-2.5">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider">Part 2 • Two Situational Roleplays</span>
             <span class="text-xs font-mono text-zinc-400">~3 mins</span>
           </div>
-          <p class="text-xs text-zinc-600 leading-relaxed">
+          <p class="text-sm text-zinc-600 leading-relaxed">
             The interlocutor sets up 2 realistic professional or social scenarios. Candidate initiates one, interlocutor initiates one. You must express regret, persuade, or resolve conflict tactfully.
           </p>
-          <div class="flex items-center justify-between pt-1">
-            <span class="text-xs font-semibold text-zinc-800">Active Scenario:</span>
+          <div class="flex items-center justify-between pt-1 border-t border-zinc-100 mt-2">
+            <span class="text-xs font-semibold text-zinc-700">Active Scenario:</span>
             <button onclick="nextSpeakingP2Roleplay()" class="text-xs font-bold text-[#FF7A00] hover:underline flex items-center gap-1">
               <span>Next Scenario &rarr;</span>
             </button>
@@ -247,16 +249,16 @@
 
       <!-- PART 3: COLLABORATIVE DECISION -->
       <div id="sp-part-3" class="space-y-3 hidden">
-        <div class="agentix-card rounded-3xl p-4 space-y-2.5">
+        <div class="agentix-card rounded-3xl p-4 sm:p-5 space-y-2.5">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider">Part 3 • Collaborative Discussion</span>
             <span class="text-xs font-mono text-zinc-400">~3 mins</span>
           </div>
-          <p class="text-xs text-zinc-600 leading-relaxed">
+          <p class="text-sm text-zinc-600 leading-relaxed">
             You and the examiner look at a task sheet with 4–5 bullet points. You have 20s to think, then discuss and agree on recommendations together.
           </p>
-          <div class="flex items-center justify-between pt-1">
-            <span class="text-xs font-semibold text-zinc-800">Task Prompt:</span>
+          <div class="flex items-center justify-between pt-1 border-t border-zinc-100 mt-2">
+            <span class="text-xs font-semibold text-zinc-700">Task Prompt:</span>
             <button onclick="nextSpeakingP3Discussion()" class="text-xs font-bold text-[#FF7A00] hover:underline flex items-center gap-1">
               <span>Next Discussion &rarr;</span>
             </button>
@@ -267,56 +269,55 @@
         </div>
       </div>
 
-      <!-- PART 4: 2-MINUTE TALK (B2 COMMUNICATOR STANDARD) -->
+      <!-- PART 4: 2-MINUTE TALK -->
       <div id="sp-part-4" class="space-y-3 hidden">
-        <div class="agentix-card rounded-3xl p-4 space-y-2.5">
+        <div class="agentix-card rounded-3xl p-4 sm:p-5 space-y-2.5">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider">Part 4 • 2-Minute Long Turn</span>
             <span class="text-xs font-mono text-zinc-400">~4 mins</span>
           </div>
-          <p class="text-xs text-zinc-600 leading-relaxed">
+          <p class="text-sm text-zinc-600 leading-relaxed">
             LanguageCert B2 requires speaking for a <strong>full 2 minutes (120 seconds)</strong> after 30s prep, followed by 2 follow-up examiner questions.
           </p>
-          <div class="flex items-center justify-between pt-1">
-            <span class="text-xs font-semibold text-zinc-800">Topic Selection:</span>
+          <div class="flex items-center justify-between pt-1 border-t border-zinc-100 mt-2">
+            <span class="text-xs font-semibold text-zinc-700">Topic Selection:</span>
             <button onclick="nextSpeakingP4Topic()" class="text-xs font-bold text-[#FF7A00] hover:underline flex items-center gap-1">
               <span>Random Topic &rarr;</span>
             </button>
           </div>
         </div>
 
-        <!-- Topic Card & Timer -->
-        <div class="agentix-card rounded-3xl p-4 space-y-3">
-          <div id="part4TopicBox" class="bg-zinc-50 rounded-2xl p-3.5 border border-zinc-200 text-xs text-zinc-800 space-y-2">
+        <div class="agentix-card rounded-3xl p-4 sm:p-5 space-y-4">
+          <div id="part4TopicBox" class="bg-zinc-50 rounded-2xl p-4 border border-zinc-200 text-sm text-zinc-800 space-y-2.5">
             <!-- Populated by JS -->
           </div>
 
-          <!-- Circular Graphic Countdown Timer (Updated for 2 mins / 120s) -->
-          <div class="bg-zinc-50 p-5 rounded-3xl border border-zinc-200 text-center space-y-3 relative overflow-hidden">
-            <div class="text-[11px] font-bold text-zinc-500 tracking-wider uppercase" id="timerStatusLabel">
+          <!-- Circular Countdown Timer -->
+          <div class="bg-zinc-50 p-6 rounded-3xl border border-zinc-200 text-center space-y-3 relative overflow-hidden">
+            <div class="text-xs font-bold text-zinc-500 tracking-wider uppercase" id="timerStatusLabel">
               Ready for Simulation
             </div>
 
-            <div class="relative w-36 h-36 mx-auto flex items-center justify-center">
-              <svg class="w-36 h-36" viewBox="0 0 100 100">
+            <div class="relative w-40 h-40 mx-auto flex items-center justify-center">
+              <svg class="w-40 h-40" viewBox="0 0 100 100">
                 <circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="8" class="text-zinc-200 fill-none"/>
                 <circle id="timerCircleProgress" cx="50" cy="50" r="42" stroke="currentColor" stroke-width="8" stroke-dasharray="264" stroke-dashoffset="0" stroke-linecap="round" class="text-[#FF7A00] fill-none circle-progress transition-all duration-300"/>
               </svg>
               <div class="absolute inset-0 flex flex-col items-center justify-center">
-                <span id="timerDisplay" class="text-3xl font-display font-extrabold font-mono text-zinc-950 tracking-tight">00:30</span>
-                <span id="timerSubtext" class="text-[10px] text-zinc-500 font-semibold uppercase">Prep Time</span>
+                <span id="timerDisplay" class="text-3xl sm:text-4xl font-display font-extrabold font-mono text-zinc-950 tracking-tight">00:30</span>
+                <span id="timerSubtext" class="text-xs text-zinc-500 font-semibold uppercase mt-0.5">Prep Time</span>
               </div>
             </div>
 
             <!-- Action Buttons -->
-            <div class="flex gap-2 pt-2">
-              <button onclick="startPrepTimer()" id="prepTimerBtn" class="flex-1 py-3 bg-white hover:bg-orange-50 border border-zinc-200 text-zinc-900 rounded-full text-xs font-bold shadow-sm active:scale-95 transition">
+            <div class="flex gap-2.5 pt-2">
+              <button onclick="startPrepTimer()" id="prepTimerBtn" class="flex-1 py-3.5 bg-white hover:bg-orange-50 border border-zinc-200 text-zinc-900 rounded-full text-xs sm:text-sm font-bold shadow-sm active:scale-95 transition">
                 30s Prep
               </button>
-              <button onclick="startSpeakTimer()" id="speakTimerBtn" class="flex-1 py-3 bg-[#FF7A00] hover:bg-[#EA580C] text-white rounded-full text-xs font-bold shadow-lg shadow-orange-500/25 active:scale-95 transition">
+              <button onclick="startSpeakTimer()" id="speakTimerBtn" class="flex-1 py-3.5 bg-[#FF7A00] hover:bg-[#EA580C] text-white rounded-full text-xs sm:text-sm font-bold shadow-lg shadow-orange-500/25 active:scale-95 transition">
                 2-Min Speak
               </button>
-              <button onclick="resetTimers()" class="px-4 py-3 bg-zinc-200 hover:bg-zinc-300 text-zinc-700 rounded-full text-xs font-semibold active:scale-95 transition">
+              <button onclick="resetTimers()" class="px-4 py-3.5 bg-zinc-200 hover:bg-zinc-300 text-zinc-700 rounded-full text-xs sm:text-sm font-semibold active:scale-95 transition">
                 Reset
               </button>
             </div>
@@ -325,71 +326,71 @@
       </div>
 
       <!-- IN-BROWSER VOICE RECORDER -->
-      <div class="agentix-card rounded-3xl p-4 space-y-3 border-orange-200 bg-orange-50/20">
+      <div class="agentix-card rounded-3xl p-5 space-y-3.5 border-orange-200 bg-orange-50/20">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
-            <div class="w-3 h-3 rounded-full bg-[#FF7A00] animate-pulse"></div>
-            <span class="text-xs font-bold text-zinc-900 uppercase tracking-wider">Voice Self-Assessment</span>
+            <div class="w-3.5 h-3.5 rounded-full bg-[#FF7A00] animate-pulse"></div>
+            <span class="text-xs sm:text-sm font-bold text-zinc-900 uppercase tracking-wider">Voice Self-Assessment</span>
           </div>
-          <span id="recordTimer" class="text-xs font-mono font-bold text-[#FF7A00]">00:00</span>
+          <span id="recordTimer" class="text-sm font-mono font-bold text-[#FF7A00]">00:00</span>
         </div>
-        <p class="text-xs text-zinc-600 leading-relaxed">
+        <p class="text-sm text-zinc-600 leading-relaxed">
           Record your answer into your phone mic. Listen back to check fluency, vocabulary range, and grammatical accuracy.
         </p>
 
-        <button id="toggleRecordBtn" onclick="toggleRecording()" class="w-full py-3.5 bg-gradient-to-r from-[#FF6B00] via-[#FF2E93] to-[#C837AB] hover:opacity-95 active:scale-95 text-white rounded-full text-xs font-bold shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 transition">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <button id="toggleRecordBtn" onclick="toggleRecording()" class="w-full py-4 bg-gradient-to-r from-[#FF6B00] via-[#FF2E93] to-[#C837AB] hover:opacity-95 active:scale-95 text-white rounded-full text-sm font-bold shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 transition">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
           </svg>
           <span id="recordBtnText">Record My Voice</span>
         </button>
 
         <div id="audioPlaybackContainer" class="hidden pt-2">
-          <div class="text-[11px] text-emerald-700 font-semibold mb-1">✓ Recording Saved! Listen Below:</div>
-          <audio id="audioPlayback" controls class="w-full h-9 rounded-lg"></audio>
+          <div class="text-xs text-emerald-700 font-semibold mb-1.5">✓ Recording Saved! Listen Below:</div>
+          <audio id="audioPlayback" controls class="w-full h-10 rounded-lg"></audio>
         </div>
       </div>
     </div>
 
 
     <!-- ============================================================== -->
-    <!-- TAB 2: WRITING STUDIO (B2 WORD COUNTS & DISCOURSE MARKERS) -->
+    <!-- TAB 2: WRITING STUDIO -->
     <!-- ============================================================== -->
     <div id="tab-writing" class="tab-pane space-y-4 hidden">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-base font-display font-bold text-zinc-950 flex items-center gap-2">
-            <span class="w-6 h-6 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-xs font-bold border border-orange-200">2</span>
+          <h2 class="text-lg font-display font-bold text-zinc-950 flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-sm font-bold border border-orange-200">2</span>
             B2 Writing Studio
           </h2>
-          <p class="text-xs text-zinc-500">Task 1 (100–150w) & Task 2 (150–200w)</p>
+          <p class="text-xs sm:text-sm text-zinc-500">Task 1 (100–150w) & Task 2 (150–200w)</p>
         </div>
-        <button onclick="generateRandomWritingPrompt()" class="px-2.5 py-1 rounded-full text-xs font-bold bg-orange-100 text-[#FF7A00] hover:bg-orange-200 transition active:scale-95 flex items-center gap-1">
+        <button onclick="generateRandomWritingPrompt()" class="px-3 py-1.5 rounded-full text-xs font-bold bg-orange-100 text-[#FF7A00] hover:bg-orange-200 transition active:scale-95 flex items-center gap-1.5">
           <span>🔄</span> New Prompt
         </button>
       </div>
 
       <!-- Segmented Task Selector -->
-      <div class="grid grid-cols-2 bg-zinc-100 p-1 rounded-full text-xs font-semibold text-zinc-600">
+      <div class="grid grid-cols-2 bg-zinc-100 p-1 rounded-full text-xs sm:text-sm font-semibold text-zinc-600">
         <button onclick="setWritingTask(1)" id="wr-btn-1" class="py-2.5 rounded-full text-center bg-[#FF7A00] text-white font-bold shadow-md shadow-orange-500/20 transition">
-          Task 1: Formal Response (100–150w)
+          Task 1: Formal (100–150w)
         </button>
         <button onclick="setWritingTask(2)" id="wr-btn-2" class="py-2.5 rounded-full text-center hover:text-zinc-950 transition">
-          Task 2: Discursive Essay (150–200w)
+          Task 2: Essay (150–200w)
         </button>
       </div>
 
       <!-- TASK 1 GUIDE -->
       <div id="wr-task-1-guide" class="space-y-3">
-        <div class="agentix-card rounded-3xl p-4 space-y-3">
+        <div class="agentix-card rounded-3xl p-4 sm:p-5 space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider">Task 1 • Formal / Neutral Response</span>
-            <span class="text-xs font-mono font-bold bg-orange-100 text-[#FF7A00] px-2.5 py-0.5 rounded-full">100 – 150 words</span>
+            <span class="text-xs font-mono font-bold bg-orange-100 text-[#FF7A00] px-3 py-1 rounded-full">100 – 150 words</span>
           </div>
-          <p class="text-xs text-zinc-600 leading-relaxed">
+          <p class="text-sm text-zinc-600 leading-relaxed">
             Write a formal letter, email, or report based on an incoming document. You must address all specified bullet points using a formal register and sophisticated vocabulary.
           </p>
-          <button onclick="loadB2Task1Template()" class="w-full py-3 bg-white hover:bg-orange-50 border border-zinc-200 text-[#FF7A00] rounded-full text-xs font-bold shadow-sm active:scale-95 transition">
+          <button onclick="loadB2Task1Template()" class="w-full py-3.5 bg-white hover:bg-orange-50 border border-zinc-200 text-[#FF7A00] rounded-full text-xs sm:text-sm font-bold shadow-sm active:scale-95 transition">
             📋 Load B2 Task 1 High-Scoring Template (~125 words)
           </button>
         </div>
@@ -397,60 +398,61 @@
 
       <!-- TASK 2 GUIDE -->
       <div id="wr-task-2-guide" class="space-y-3 hidden">
-        <div class="agentix-card rounded-3xl p-4 space-y-3">
+        <div class="agentix-card rounded-3xl p-4 sm:p-5 space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider">Task 2 • Discursive Essay / Article</span>
-            <span class="text-xs font-mono font-bold bg-orange-100 text-[#FF7A00] px-2.5 py-0.5 rounded-full">150 – 200 words</span>
+            <span class="text-xs font-mono font-bold bg-orange-100 text-[#FF7A00] px-3 py-1 rounded-full">150 – 200 words</span>
           </div>
-          <p class="text-xs text-zinc-600 leading-relaxed">
+          <p class="text-sm text-zinc-600 leading-relaxed">
             Write a discursive piece weighing multiple viewpoints, evaluating arguments, and reaching a reasoned personal conclusion.
           </p>
-          <button onclick="loadB2Task2Template()" class="w-full py-3 bg-white hover:bg-orange-50 border border-zinc-200 text-[#FF7A00] rounded-full text-xs font-bold shadow-sm active:scale-95 transition">
+          <button onclick="loadB2Task2Template()" class="w-full py-3.5 bg-white hover:bg-orange-50 border border-zinc-200 text-[#FF7A00] rounded-full text-xs sm:text-sm font-bold shadow-sm active:scale-95 transition">
             📋 Load B2 Task 2 High-Scoring Template (~175 words)
           </button>
         </div>
       </div>
 
       <!-- WRITING SANDBOX -->
-      <div class="agentix-card rounded-3xl p-4 space-y-3">
+      <div class="agentix-card rounded-3xl p-4 sm:p-5 space-y-4">
         <div class="flex items-center justify-between">
-          <label class="text-xs font-bold text-zinc-900 uppercase tracking-wider">Live B2 Writing Sandbox</label>
-          <div id="wordCountBadge" class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600">
+          <label class="text-xs sm:text-sm font-bold text-zinc-900 uppercase tracking-wider">Live B2 Writing Sandbox</label>
+          <div id="wordCountBadge" class="text-xs sm:text-sm font-mono font-bold px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600">
             0 words
           </div>
         </div>
 
-        <div id="currentPromptDisplay" class="bg-zinc-50 p-3.5 rounded-2xl border border-zinc-200 text-xs text-zinc-700 leading-relaxed">
+        <div id="currentPromptDisplay" class="bg-zinc-50 p-4 rounded-2xl border border-zinc-200 text-sm text-zinc-700 leading-relaxed">
           <!-- Populated by JS -->
         </div>
 
-        <textarea id="userWritingInput" oninput="analyzeWriting()" rows="7" placeholder="Type your B2 response here or load a template above..." class="w-full bg-white border border-zinc-200 rounded-2xl p-3.5 text-xs text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-[#FF7A00] font-sans leading-relaxed shadow-sm"></textarea>
+        <!-- 16px text size prevents mobile iOS Safari auto-zoom on tap! -->
+        <textarea id="userWritingInput" oninput="analyzeWriting()" rows="8" placeholder="Type your B2 response here or load a template above..." class="w-full bg-white border border-zinc-200 rounded-2xl p-4 text-base text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-[#FF7A00] font-sans leading-relaxed shadow-sm"></textarea>
 
         <!-- Live Metrics & B2 Discourse Markers Detector -->
-        <div class="bg-zinc-50 p-3.5 rounded-2xl border border-zinc-200 space-y-2.5">
-          <div class="flex items-center justify-between text-xs">
+        <div class="bg-zinc-50 p-4 rounded-2xl border border-zinc-200 space-y-3">
+          <div class="flex items-center justify-between text-xs sm:text-sm">
             <span class="text-zinc-500 font-medium">B2 Target Range:</span>
-            <span id="targetRangeText" class="font-bold text-[#FF7A00] font-mono">100 – 150 words</span>
+            <span id="targetRangeText" class="font-bold text-[#FF7A00] font-mono text-sm">100 – 150 words</span>
           </div>
 
-          <div class="w-full bg-zinc-200 h-2.5 rounded-full overflow-hidden">
+          <div class="w-full bg-zinc-200 h-3 rounded-full overflow-hidden">
             <div id="wordCountBar" class="bg-zinc-400 h-full w-0 transition-all duration-300"></div>
           </div>
-          <div id="wordStatusMessage" class="text-xs font-medium text-zinc-500">
+          <div id="wordStatusMessage" class="text-xs sm:text-sm font-medium text-zinc-600">
             Start typing to see live word count analysis.
           </div>
 
           <div class="pt-2 border-t border-zinc-200">
-            <span class="text-[11px] text-zinc-500 font-semibold block mb-1.5 uppercase tracking-wider">Advanced B2 Discourse Markers:</span>
+            <span class="text-xs text-zinc-500 font-semibold block mb-2 uppercase tracking-wider">Advanced B2 Discourse Markers:</span>
             <div id="connectorsPills" class="flex flex-wrap gap-1.5">
-              <span class="text-[11px] text-zinc-400 italic">None yet. Try: consequently, nevertheless, whereas, in spite of, on the contrary...</span>
+              <span class="text-xs text-zinc-400 italic">None yet. Try: consequently, nevertheless, whereas, in spite of, on the contrary...</span>
             </div>
           </div>
         </div>
 
-        <div class="flex gap-2">
-          <button onclick="clearWritingEditor()" class="flex-1 py-3 bg-zinc-100 hover:bg-zinc-200 rounded-full text-xs text-zinc-700 font-semibold transition">Clear</button>
-          <button onclick="saveWritingDraft()" class="flex-1 py-3 bg-[#FF7A00] hover:bg-[#EA580C] text-white rounded-full text-xs font-bold shadow-lg shadow-orange-500/25 active:scale-95 transition">
+        <div class="flex gap-2.5">
+          <button onclick="clearWritingEditor()" class="flex-1 py-3.5 bg-zinc-100 hover:bg-zinc-200 rounded-full text-xs sm:text-sm text-zinc-700 font-semibold transition">Clear</button>
+          <button onclick="saveWritingDraft()" class="flex-1 py-3.5 bg-[#FF7A00] hover:bg-[#EA580C] text-white rounded-full text-xs sm:text-sm font-bold shadow-lg shadow-orange-500/25 active:scale-95 transition">
             Save Draft
           </button>
         </div>
@@ -459,37 +461,37 @@
 
 
     <!-- ============================================================== -->
-    <!-- TAB 3: LISTENING ENGINE (CONTINUOUS QUESTIONS & AUDIO) -->
+    <!-- TAB 3: LISTENING ENGINE -->
     <!-- ============================================================== -->
     <div id="tab-listening" class="tab-pane space-y-4 hidden">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-base font-display font-bold text-zinc-950 flex items-center gap-2">
-            <span class="w-6 h-6 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-xs font-bold border border-orange-200">3</span>
+          <h2 class="text-lg font-display font-bold text-zinc-950 flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-sm font-bold border border-orange-200">3</span>
             Listening Simulator
           </h2>
-          <p class="text-xs text-zinc-500">Continuous drills • 26 Questions Format</p>
+          <p class="text-xs sm:text-sm text-zinc-500">Continuous drills • 26 Questions Format</p>
         </div>
-        <div class="flex items-center gap-1.5 text-xs font-mono font-bold bg-zinc-100 px-2.5 py-1 rounded-full border border-zinc-200">
+        <div class="flex items-center gap-1.5 text-xs sm:text-sm font-mono font-bold bg-zinc-100 px-3 py-1 rounded-full border border-zinc-200">
           <span>Score:</span>
           <span id="listeningScoreDisplay" class="text-[#FF7A00]">0 / 0</span>
         </div>
       </div>
 
       <!-- Question Counter & Navigation Banner -->
-      <div class="agentix-card rounded-3xl p-4 space-y-3 border-orange-200">
+      <div class="agentix-card rounded-3xl p-5 space-y-4 border-orange-200">
         <div class="flex items-center justify-between">
-          <span id="listeningQuestionCounter" class="text-xs font-bold text-zinc-900 uppercase tracking-wider">
+          <span id="listeningQuestionCounter" class="text-xs sm:text-sm font-bold text-zinc-900 uppercase tracking-wider">
             Question 1 of 8
           </span>
-          <span id="listeningPartBadge" class="text-[10px] text-orange-700 bg-orange-100 px-2.5 py-0.5 rounded-full font-bold">
+          <span id="listeningPartBadge" class="text-xs text-orange-700 bg-orange-100 px-3 py-1 rounded-full font-bold">
             Part 1: Response Prediction
           </span>
         </div>
 
         <!-- Audio Player Button -->
-        <button onclick="playCurrentListeningAudio()" class="w-full py-3.5 bg-gradient-to-r from-[#FF6B00] via-[#FF2E93] to-[#C837AB] hover:opacity-95 text-white rounded-full text-xs font-bold shadow-lg shadow-orange-500/25 flex items-center justify-center gap-2 active:scale-95 transition">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <button onclick="playCurrentListeningAudio()" class="w-full py-4 bg-gradient-to-r from-[#FF6B00] via-[#FF2E93] to-[#C837AB] hover:opacity-95 text-white rounded-full text-sm font-bold shadow-lg shadow-orange-500/25 flex items-center justify-center gap-2.5 active:scale-95 transition">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
@@ -497,14 +499,14 @@
         </button>
 
         <!-- Question & Options Container -->
-        <div id="listeningQuestionBox" class="bg-zinc-50 p-3.5 rounded-2xl border border-zinc-200 space-y-3 text-xs">
+        <div id="listeningQuestionBox" class="bg-zinc-50 p-4 sm:p-5 rounded-2xl border border-zinc-200 space-y-3.5">
           <!-- Populated by JS -->
         </div>
 
         <!-- Feedback & Next Question Controls -->
-        <div id="listeningFeedbackBox" class="hidden space-y-2.5">
-          <div id="listeningFeedbackContent" class="text-xs p-3 rounded-2xl"></div>
-          <button onclick="advanceToNextListeningQuestion()" class="w-full py-3 bg-[#FF7A00] hover:bg-[#EA580C] text-white rounded-full text-xs font-bold shadow-md shadow-orange-500/20 active:scale-95 transition flex items-center justify-center gap-1.5">
+        <div id="listeningFeedbackBox" class="hidden space-y-3">
+          <div id="listeningFeedbackContent" class="text-sm p-4 rounded-2xl leading-relaxed"></div>
+          <button onclick="advanceToNextListeningQuestion()" class="w-full py-3.5 bg-[#FF7A00] hover:bg-[#EA580C] text-white rounded-full text-sm font-bold shadow-md shadow-orange-500/20 active:scale-95 transition flex items-center justify-center gap-2">
             <span>Next Question &rarr;</span>
           </button>
         </div>
@@ -513,49 +515,49 @@
 
 
     <!-- ============================================================== -->
-    <!-- TAB 4: READING ENGINE (SENTENCE GAPS & MULTI-MATCHING) -->
+    <!-- TAB 4: READING ENGINE -->
     <!-- ============================================================== -->
     <div id="tab-reading" class="tab-pane space-y-4 hidden">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-base font-display font-bold text-zinc-950 flex items-center gap-2">
-            <span class="w-6 h-6 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-xs font-bold border border-orange-200">4</span>
+          <h2 class="text-lg font-display font-bold text-zinc-950 flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-sm font-bold border border-orange-200">4</span>
             Reading Simulator
           </h2>
-          <p class="text-xs text-zinc-500">Sentence Gaps (Part 2) & Multi-Matching (Part 3)</p>
+          <p class="text-xs sm:text-sm text-zinc-500">Sentence Gaps (Part 2) & Multi-Matching (Part 3)</p>
         </div>
-        <div class="flex items-center gap-1.5 text-xs font-mono font-bold bg-zinc-100 px-2.5 py-1 rounded-full border border-zinc-200">
+        <div class="flex items-center gap-1.5 text-xs sm:text-sm font-mono font-bold bg-zinc-100 px-3 py-1 rounded-full border border-zinc-200">
           <span>Score:</span>
           <span id="readingScoreDisplay" class="text-[#FF7A00]">0 / 0</span>
         </div>
       </div>
 
       <!-- Reading Question Container -->
-      <div class="agentix-card rounded-3xl p-4 space-y-3">
+      <div class="agentix-card rounded-3xl p-5 space-y-4">
         <div class="flex items-center justify-between">
-          <span id="readingQuestionCounter" class="text-xs font-bold text-zinc-900 uppercase tracking-wider">
+          <span id="readingQuestionCounter" class="text-xs sm:text-sm font-bold text-zinc-900 uppercase tracking-wider">
             Passage 1 of 6
           </span>
-          <span id="readingTypeBadge" class="text-[10px] text-orange-700 bg-orange-100 px-2.5 py-0.5 rounded-full font-bold">
+          <span id="readingTypeBadge" class="text-xs text-orange-700 bg-orange-100 px-3 py-1 rounded-full font-bold">
             Part 2: Gapped Sentence
           </span>
         </div>
 
-        <div id="readingPassageBox" class="bg-zinc-50 p-3.5 rounded-2xl border border-zinc-200 text-xs text-zinc-800 leading-relaxed space-y-2">
+        <div id="readingPassageBox" class="bg-zinc-50 p-4 sm:p-5 rounded-2xl border border-zinc-200 text-sm sm:text-base text-zinc-800 leading-relaxed space-y-2.5">
           <!-- Populated by JS -->
         </div>
 
-        <div id="readingOptionsBox" class="space-y-2">
+        <div id="readingOptionsBox" class="space-y-2.5">
           <!-- Populated by JS -->
         </div>
 
-        <button id="checkReadingBtn" onclick="checkReadingAnswer()" class="w-full py-2.5 bg-zinc-900 hover:bg-zinc-800 text-white rounded-full text-xs font-bold transition">
+        <button id="checkReadingBtn" onclick="checkReadingAnswer()" class="w-full py-3.5 bg-zinc-900 hover:bg-zinc-800 text-white rounded-full text-sm font-bold transition">
           Verify Answer
         </button>
 
-        <div id="readingFeedbackBox" class="hidden space-y-2.5">
-          <div id="readingFeedbackContent" class="text-xs p-3 rounded-2xl"></div>
-          <button onclick="advanceToNextReadingQuestion()" class="w-full py-3 bg-[#FF7A00] hover:bg-[#EA580C] text-white rounded-full text-xs font-bold shadow-md shadow-orange-500/20 active:scale-95 transition flex items-center justify-center gap-1.5">
+        <div id="readingFeedbackBox" class="hidden space-y-3">
+          <div id="readingFeedbackContent" class="text-sm p-4 rounded-2xl leading-relaxed"></div>
+          <button onclick="advanceToNextReadingQuestion()" class="w-full py-3.5 bg-[#FF7A00] hover:bg-[#EA580C] text-white rounded-full text-sm font-bold shadow-md shadow-orange-500/20 active:scale-95 transition flex items-center justify-center gap-2">
             <span>Next Reading Task &rarr;</span>
           </button>
         </div>
@@ -569,52 +571,52 @@
     <div id="tab-plan" class="tab-pane space-y-4 hidden">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-base font-display font-bold text-zinc-950 flex items-center gap-2">
-            <span class="w-6 h-6 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-xs font-bold border border-orange-200">5</span>
+          <h2 class="text-lg font-display font-bold text-zinc-950 flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center text-sm font-bold border border-orange-200">5</span>
             B2 Strategy & Schedule
           </h2>
-          <p class="text-xs text-zinc-500">Phrases for high score & 48-hour timetable</p>
+          <p class="text-xs sm:text-sm text-zinc-500">High-scoring phrases & 48-hour timetable</p>
         </div>
       </div>
 
       <!-- Advanced B2 Phrases -->
-      <div class="agentix-card rounded-3xl p-4 space-y-3">
-        <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider block">B2 Advanced Conversational Gambits</span>
-        <div class="space-y-2 text-xs">
-          <div class="bg-zinc-50 p-2.5 rounded-2xl border border-zinc-200 flex items-center justify-between">
-            <span class="text-zinc-800">"While I concede that point, on balance I believe..."</span>
-            <button onclick="speakText('While I concede that point, on balance I believe we should consider the alternative.')" class="p-1 text-[#FF7A00]">🔊</button>
+      <div class="agentix-card rounded-3xl p-5 space-y-3.5">
+        <span class="text-xs sm:text-sm font-bold text-[#FF7A00] uppercase tracking-wider block">B2 Advanced Conversational Gambits</span>
+        <div class="space-y-2.5 text-sm">
+          <div class="bg-zinc-50 p-3.5 rounded-2xl border border-zinc-200 flex items-center justify-between">
+            <span class="text-zinc-800 font-medium">"While I concede that point, on balance I believe..."</span>
+            <button onclick="speakText('While I concede that point, on balance I believe we should consider the alternative.')" class="p-1.5 text-[#FF7A00]">🔊</button>
           </div>
-          <div class="bg-zinc-50 p-2.5 rounded-2xl border border-zinc-200 flex items-center justify-between">
-            <span class="text-zinc-800">"That raises a pertinent issue; however, looking at the data..."</span>
-            <button onclick="speakText('That raises a pertinent issue; however, looking at the data, the outcome is different.')" class="p-1 text-[#FF7A00]">🔊</button>
+          <div class="bg-zinc-50 p-3.5 rounded-2xl border border-zinc-200 flex items-center justify-between">
+            <span class="text-zinc-800 font-medium">"That raises a pertinent issue; however, looking at the data..."</span>
+            <button onclick="speakText('That raises a pertinent issue; however, looking at the data, the outcome is different.')" class="p-1.5 text-[#FF7A00]">🔊</button>
           </div>
-          <div class="bg-zinc-50 p-2.5 rounded-2xl border border-zinc-200 flex items-center justify-between">
-            <span class="text-zinc-800">"Could you elaborate on the second aspect you mentioned?"</span>
-            <button onclick="speakText('Could you elaborate on the second aspect you mentioned, please?')" class="p-1 text-[#FF7A00]">🔊</button>
+          <div class="bg-zinc-50 p-3.5 rounded-2xl border border-zinc-200 flex items-center justify-between">
+            <span class="text-zinc-800 font-medium">"Could you elaborate on the second aspect you mentioned?"</span>
+            <button onclick="speakText('Could you elaborate on the second aspect you mentioned, please?')" class="p-1.5 text-[#FF7A00]">🔊</button>
           </div>
         </div>
       </div>
 
       <!-- 48-Hour Plan -->
-      <div class="agentix-card rounded-3xl p-4 space-y-3">
-        <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
-          <span class="text-xs font-bold text-[#FF7A00] uppercase tracking-wider">48-Hour B2 Study Blueprint</span>
-          <span class="text-xs font-mono text-zinc-400">Target: 50%</span>
+      <div class="agentix-card rounded-3xl p-5 space-y-3.5">
+        <div class="flex items-center justify-between border-b border-zinc-100 pb-2.5">
+          <span class="text-xs sm:text-sm font-bold text-[#FF7A00] uppercase tracking-wider">48-Hour B2 Study Blueprint</span>
+          <span class="text-xs font-mono font-bold text-zinc-500">Target: 50%</span>
         </div>
-        <div class="space-y-3 text-xs">
-          <div class="flex gap-3">
+        <div class="space-y-3.5 text-sm">
+          <div class="flex gap-3.5">
             <span class="w-16 font-mono font-bold text-[#FF7A00] shrink-0">Day 1</span>
             <div>
               <div class="font-bold text-zinc-900">Writing Lengths & Speaking 2-Minute Flow</div>
-              <p class="text-zinc-500 text-[11px]">Lock in Task 1 (125w) & Task 2 (175w) templates. Drill 2-minute uninterrupted speech on 5 topics.</p>
+              <p class="text-zinc-600 text-xs sm:text-sm leading-relaxed">Lock in Task 1 (125w) & Task 2 (175w) templates. Drill 2-minute uninterrupted speech on 5 topics.</p>
             </div>
           </div>
-          <div class="flex gap-3">
+          <div class="flex gap-3.5">
             <span class="w-16 font-mono font-bold text-emerald-600 shrink-0">Day 2</span>
             <div>
               <div class="font-bold text-zinc-900">Listening Traps & Reading Gapped Sentences</div>
-              <p class="text-zinc-500 text-[11px]">Run through all 8 dynamic listening exercises and sentence insertion passages until scoring &gt;75%.</p>
+              <p class="text-zinc-600 text-xs sm:text-sm leading-relaxed">Run through all 8 dynamic listening exercises and sentence insertion passages until scoring &gt;75%.</p>
             </div>
           </div>
         </div>
@@ -627,40 +629,40 @@
   <!-- FLOATING BOTTOM DOCK NAVIGATION -->
   <!-- ============================================================== -->
   <nav class="fixed bottom-3 left-4 right-4 z-50 max-w-md mx-auto">
-    <div class="agentix-glass rounded-full border border-zinc-200/90 shadow-xl px-4 py-2.5 flex justify-around items-center">
+    <div class="agentix-glass rounded-full border border-zinc-200/90 shadow-2xl px-3 sm:px-4 py-2.5 flex justify-around items-center">
       <button onclick="switchTab('speaking')" id="nav-speaking" class="flex flex-col items-center gap-1 text-[#FF7A00] font-bold transition">
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
         </svg>
-        <span class="text-[10px] tracking-tight">Speaking</span>
+        <span class="text-xs tracking-tight">Speaking</span>
       </button>
 
       <button onclick="switchTab('writing')" id="nav-writing" class="flex flex-col items-center gap-1 text-zinc-400 hover:text-zinc-900 transition">
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
         </svg>
-        <span class="text-[10px] tracking-tight font-medium">Writing</span>
+        <span class="text-xs tracking-tight font-medium">Writing</span>
       </button>
 
       <button onclick="switchTab('listening')" id="nav-listening" class="flex flex-col items-center gap-1 text-zinc-400 hover:text-zinc-900 transition">
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"/>
         </svg>
-        <span class="text-[10px] tracking-tight font-medium">Listening</span>
+        <span class="text-xs tracking-tight font-medium">Listening</span>
       </button>
 
       <button onclick="switchTab('reading')" id="nav-reading" class="flex flex-col items-center gap-1 text-zinc-400 hover:text-zinc-900 transition">
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
         </svg>
-        <span class="text-[10px] tracking-tight font-medium">Reading</span>
+        <span class="text-xs tracking-tight font-medium">Reading</span>
       </button>
 
       <button onclick="switchTab('plan')" id="nav-plan" class="flex flex-col items-center gap-1 text-zinc-400 hover:text-zinc-900 transition">
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
         </svg>
-        <span class="text-[10px] tracking-tight font-medium">Strategy</span>
+        <span class="text-xs tracking-tight font-medium">Strategy</span>
       </button>
     </div>
   </nav>
@@ -821,19 +823,19 @@
         {
           id: "t1-1",
           title: "Formal Letter to Operations Director (Proposing Handover Reform)",
-          prompt: "You are a healthcare professional. Following several recent miscommunications during shift changes, write a formal proposal letter to your Operations Director, Dr. Jenkins.<br>In your letter, you must:<br>• Outline the specific communication shortcomings observed during shift handovers<br>• Propose the implementation of a standardized digital handover checklist<br>• Detail the anticipated advantages for patient safety and staff efficiency",
+          prompt: "You are a healthcare professional. Following several recent miscommunications during shift changes, write a formal proposal letter to your Operations Director, Dr. Jenkins.<br><br>In your letter, you must:<br>• Outline the specific communication shortcomings observed during shift handovers<br>• Propose the implementation of a standardized digital handover checklist<br>• Detail the anticipated advantages for patient safety and staff efficiency",
           min: 100, max: 150
         },
         {
           id: "t1-2",
           title: "Formal Response to Complaints Committee (Clinical Incident Clarification)",
-          prompt: "Write a formal statement letter to the Quality & Compliance Board regarding a delayed appointment incident on your ward.<br>In your letter, you must:<br>• Explain the unforeseen clinical emergency that necessitated the postponement<br>• Describe the measures taken to keep waiting patients informed and comfortable<br>• Suggest procedural improvements to prevent future scheduling bottlenecks",
+          prompt: "Write a formal statement letter to the Quality & Compliance Board regarding a delayed appointment incident on your ward.<br><br>In your letter, you must:<br>• Explain the unforeseen clinical emergency that necessitated the postponement<br>• Describe the measures taken to keep waiting patients informed and comfortable<br>• Suggest procedural improvements to prevent future scheduling bottlenecks",
           min: 100, max: 150
         },
         {
           id: "t1-3",
           title: "Semi-Formal Email to Senior Coordinator (Training Sabbatical Request)",
-          prompt: "Write a semi-formal email to your senior supervisor requesting a 2-week leave of absence to complete an accredited Advanced Patient Care certification.<br>In your email, you must:<br>• State the objectives and accreditation details of the course<br>• Explain how these advanced competencies will directly benefit your team<br>• Outline your pre-arranged cover arrangements with certified colleagues",
+          prompt: "Write a semi-formal email to your senior supervisor requesting a 2-week leave of absence to complete an accredited Advanced Patient Care certification.<br><br>In your email, you must:<br>• State the objectives and accreditation details of the course<br>• Explain how these advanced competencies will directly benefit your team<br>• Outline your pre-arranged cover arrangements with certified colleagues",
           min: 100, max: 150
         }
       ],
@@ -841,19 +843,19 @@
         {
           id: "t2-1",
           title: "Discursive Essay: Automation vs. Human Compassion in Healthcare",
-          prompt: "Some argue that artificial intelligence and diagnostic robotics will soon render traditional healthcare workers obsolete, while others maintain that genuine human compassion is irreplaceable.<br>Write a discursive essay discussing both perspectives and providing your own considered evaluation.",
+          prompt: "Some argue that artificial intelligence and diagnostic robotics will soon render traditional healthcare workers obsolete, while others maintain that genuine human compassion is irreplaceable.<br><br>Write a discursive essay discussing both perspectives and providing your own considered evaluation.",
           min: 150, max: 200
         },
         {
           id: "t2-2",
           title: "Opinion Article: Preventative Public Health vs. Curative Treatment",
-          prompt: "Write an analytical article for a health and society journal on whether governments should redirect the majority of healthcare expenditure from hospital treatments towards public preventative lifestyle campaigns.<br>Discuss both economic and social arguments, and present your conclusion.",
+          prompt: "Write an analytical article for a health and society journal on whether governments should redirect the majority of healthcare expenditure from hospital treatments towards public preventative lifestyle campaigns.<br><br>Discuss both economic and social arguments, and present your conclusion.",
           min: 150, max: 200
         },
         {
           id: "t2-3",
           title: "Discursive Essay: Flexible Working in Essential Public Services",
-          prompt: "The demand for flexible and remote working patterns has intensified across all sectors. However, many argue that essential public services require rigid, fixed scheduling.<br>Discuss both sides of this debate and conclude with your own perspective on striking an equitable balance.",
+          prompt: "The demand for flexible and remote working patterns has intensified across all sectors. However, many argue that essential public services require rigid, fixed scheduling.<br><br>Discuss both sides of this debate and conclude with your own perspective on striking an equitable balance.",
           min: 150, max: 200
         }
       ]
@@ -1137,8 +1139,8 @@
       if ('speechSynthesis' in window) {
         const load = () => {
           const voices = window.speechSynthesis.getVoices();
-          preferredVoice = voices.find(v => v.lang.includes('en-GB') || v.name.includes('UK') || v.name.includes('British'))
-                           || voices.find(v => v.lang.startsWith('en'))
+          preferredVoice = voices.find(v => v.lang.includes('en-GB') || v.name.includes('UK') || v.name.includes('British')) 
+                           || voices.find(v => v.lang.startsWith('en')) 
                            || null;
           if (preferredVoice) {
             document.getElementById('voiceHeaderLabel').textContent = preferredVoice.lang.includes('GB') ? 'UK Voice' : 'EN Voice';
@@ -1184,36 +1186,36 @@
     }
 
     // -------------------------------------------------------------
-    // SPEAKING MODULE (DYNAMIC GENERATION)
+    // SPEAKING MODULE
     // -------------------------------------------------------------
     function setSpeakingPart(n) {
       state.speaking.activePart = n;
       for (let i = 1; i <= 4; i++) {
         document.getElementById(`sp-part-${i}`).classList.add('hidden');
-        document.getElementById(`sp-btn-${i}`).className = "py-2 rounded-full text-center hover:text-zinc-950 transition";
+        document.getElementById(`sp-btn-${i}`).className = "py-2.5 rounded-full text-center hover:text-zinc-950 transition";
       }
       document.getElementById(`sp-part-${n}`).classList.remove('hidden');
-      document.getElementById(`sp-btn-${n}`).className = "py-2 rounded-full text-center bg-[#FF7A00] text-white shadow-md shadow-orange-500/20 font-bold transition";
+      document.getElementById(`sp-btn-${n}`).className = "py-2.5 rounded-full text-center bg-[#FF7A00] text-white shadow-md shadow-orange-500/20 font-bold transition";
     }
 
     function renderSpeakingP1() {
       const q = speakingP1Bank[state.speaking.p1Index];
       document.getElementById('activeP1QuestionCard').innerHTML = `
-        <div class="agentix-card rounded-3xl p-4 space-y-3">
-          <div class="flex items-start justify-between gap-2">
+        <div class="agentix-card rounded-3xl p-5 space-y-3.5">
+          <div class="flex items-start justify-between gap-3">
             <div>
-              <span class="text-[10px] font-bold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-full uppercase tracking-wider">${q.topic}</span>
-              <h3 class="text-xs font-bold text-zinc-900 pt-1.5">"${q.q}"</h3>
+              <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider">${q.topic}</span>
+              <h3 class="text-base font-bold text-zinc-950 pt-2 leading-snug">"${q.q}"</h3>
             </div>
-            <button onclick="speakText('${q.q.replace(/'/g, "\\'")}')" class="p-2 rounded-full bg-zinc-100 text-[#FF7A00] hover:bg-orange-50 shrink-0">🔊</button>
+            <button onclick="speakText('${q.q.replace(/'/g, "\\'")}')" class="p-2.5 rounded-full bg-zinc-100 text-[#FF7A00] hover:bg-orange-50 shrink-0">🔊</button>
           </div>
-          <div class="text-[11px] text-zinc-500 font-medium">B2 Strategy: ${q.tip}</div>
-          <div class="bg-zinc-50 p-3 rounded-2xl border border-zinc-200 text-xs text-zinc-700 space-y-1">
-            <div class="flex items-center justify-between font-bold text-emerald-700">
+          <div class="text-xs sm:text-sm text-zinc-500 font-medium">B2 Strategy: ${q.tip}</div>
+          <div class="bg-zinc-50 p-4 rounded-2xl border border-zinc-200 text-sm text-zinc-700 space-y-1.5">
+            <div class="flex items-center justify-between font-bold text-emerald-700 text-xs sm:text-sm">
               <span>High-Scoring Sample Response:</span>
-              <button onclick="speakText('${q.sample.replace(/'/g, "\\'")}')" class="text-zinc-400 hover:text-zinc-900 text-xs">▶ Play</button>
+              <button onclick="speakText('${q.sample.replace(/'/g, "\\'")}')" class="text-zinc-500 hover:text-zinc-950 text-xs font-bold">▶ Play Audio</button>
             </div>
-            <p class="italic text-[11px] leading-relaxed pt-1">"${q.sample}"</p>
+            <p class="italic text-sm leading-relaxed pt-1 text-zinc-800">"${q.sample}"</p>
           </div>
         </div>
       `;
@@ -1227,25 +1229,25 @@
     function renderSpeakingP2() {
       const r = speakingP2Bank[state.speaking.p2Index];
       document.getElementById('activeP2RoleplayCard').innerHTML = `
-        <div class="agentix-card rounded-3xl p-4 space-y-3">
+        <div class="agentix-card rounded-3xl p-5 space-y-3.5">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-[#FF7A00]">${r.title}</span>
-            <span class="text-[10px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded-full font-semibold">${r.initiator}</span>
+            <span class="text-sm font-bold text-[#FF7A00]">${r.title}</span>
+            <span class="text-xs bg-zinc-100 text-zinc-600 px-2.5 py-1 rounded-full font-semibold">${r.initiator}</span>
           </div>
-          <p class="text-xs text-zinc-600">${r.context}</p>
-          <div class="bg-zinc-50 p-3 rounded-2xl border border-zinc-200 space-y-1.5 text-xs">
+          <p class="text-sm text-zinc-700 leading-relaxed">${r.context}</p>
+          <div class="bg-zinc-50 p-4 rounded-2xl border border-zinc-200 space-y-2 text-sm">
             <div class="flex items-center justify-between font-bold text-indigo-700">
               <span>Examiner Line:</span>
               <button onclick="speakText('${r.examinerOpening.replace(/'/g, "\\'")}')" class="text-[#FF7A00]">🔊</button>
             </div>
-            <p class="italic text-zinc-600 text-[11px]">"${r.examinerOpening}"</p>
+            <p class="italic text-zinc-700 text-sm leading-relaxed">"${r.examinerOpening}"</p>
           </div>
-          <div class="bg-zinc-50 p-3 rounded-2xl border border-zinc-200 space-y-1.5 text-xs">
+          <div class="bg-zinc-50 p-4 rounded-2xl border border-zinc-200 space-y-2 text-sm">
             <div class="flex items-center justify-between font-bold text-emerald-700">
               <span>Your B2 Response:</span>
               <button onclick="speakText('${r.sampleResponse.replace(/'/g, "\\'")}')" class="text-emerald-600">🔊</button>
             </div>
-            <p class="text-zinc-800 text-[11px] leading-relaxed">"${r.sampleResponse}"</p>
+            <p class="text-zinc-900 text-sm leading-relaxed font-medium">"${r.sampleResponse}"</p>
           </div>
         </div>
       `;
@@ -1259,16 +1261,16 @@
     function renderSpeakingP3() {
       const d = speakingP3Bank[state.speaking.p3Index];
       document.getElementById('activeP3DiscussionCard').innerHTML = `
-        <div class="agentix-card rounded-3xl p-4 space-y-3">
-          <div class="text-xs font-bold text-[#FF7A00]">${d.title}</div>
-          <p class="text-xs text-zinc-600">${d.prompt}</p>
-          <div class="space-y-1 text-xs">
-            ${d.options.map(opt => `<div class="p-2 rounded-xl bg-zinc-50 border border-zinc-200 font-medium text-zinc-800">${opt}</div>`).join('')}
+        <div class="agentix-card rounded-3xl p-5 space-y-3.5">
+          <div class="text-sm sm:text-base font-bold text-[#FF7A00]">${d.title}</div>
+          <p class="text-sm text-zinc-700 leading-relaxed">${d.prompt}</p>
+          <div class="space-y-1.5 text-sm">
+            ${d.options.map(opt => `<div class="p-3 rounded-2xl bg-zinc-50 border border-zinc-200 font-medium text-zinc-900">${opt}</div>`).join('')}
           </div>
-          <div class="bg-zinc-50 p-3 rounded-2xl border border-zinc-200 space-y-1.5 text-xs">
-            <span class="text-[11px] font-bold text-orange-700 block mb-1">Key B2 Negotiation Phrases:</span>
+          <div class="bg-zinc-50 p-4 rounded-2xl border border-zinc-200 space-y-2 text-sm">
+            <span class="text-xs font-bold text-orange-700 block uppercase tracking-wider mb-1">Key B2 Negotiation Phrases:</span>
             ${d.usefulGambits.map(g => `
-              <div class="flex items-center justify-between text-[11px] text-zinc-700 py-0.5">
+              <div class="flex items-center justify-between text-sm text-zinc-800 py-1">
                 <span>• "${g}"</span>
                 <button onclick="speakText('${g.replace(/'/g, "\\'")}')" class="text-[#FF7A00]">🔊</button>
               </div>
@@ -1286,19 +1288,19 @@
     function renderSpeakingP4() {
       const t = speakingP4Bank[state.speaking.p4Index];
       document.getElementById('part4TopicBox').innerHTML = `
-        <div class="font-bold text-[#FF7A00] text-xs">${t.title}</div>
-        <div class="text-[11px] text-zinc-600 space-y-0.5 pt-1">
+        <div class="font-bold text-[#FF7A00] text-sm sm:text-base">${t.title}</div>
+        <div class="text-sm text-zinc-700 space-y-1 pt-1.5 leading-relaxed">
           ${t.points.map(p => `<div>${p}</div>`).join('')}
         </div>
-        <div class="pt-2 border-t border-zinc-200 mt-2 space-y-1.5">
+        <div class="pt-3 border-t border-zinc-200 mt-2 space-y-2">
           <div class="flex items-center justify-between">
-            <span class="text-[10px] uppercase font-bold text-emerald-700">Sample High-Scoring Speech (2 Minutes):</span>
-            <button onclick="speakText('${t.sample.replace(/'/g, "\\'")}')" class="text-[#FF7A00] text-[10px] font-bold flex items-center gap-1">
+            <span class="text-xs uppercase font-bold text-emerald-700">Sample High-Scoring Speech (2 Minutes):</span>
+            <button onclick="speakText('${t.sample.replace(/'/g, "\\'")}')" class="text-[#FF7A00] text-xs font-bold flex items-center gap-1">
               🔊 Listen
             </button>
           </div>
-          <p class="text-[11px] text-zinc-700 italic bg-white p-2.5 rounded-xl border border-zinc-200 leading-relaxed">${t.sample}</p>
-          <div class="pt-1.5 text-[11px] text-zinc-800 font-semibold">
+          <p class="text-sm text-zinc-800 italic bg-white p-3.5 rounded-2xl border border-zinc-200 leading-relaxed">${t.sample}</p>
+          <div class="pt-2 text-xs sm:text-sm text-zinc-900 font-semibold space-y-1">
             ${t.followUps.map(fu => `<div class="text-orange-900">• ${fu}</div>`).join('')}
           </div>
         </div>
@@ -1320,7 +1322,7 @@
     }
 
     // -------------------------------------------------------------
-    // CIRCULAR TIMER (30s PREP & 120s B2 SPEAKING)
+    // CIRCULAR TIMER
     // -------------------------------------------------------------
     let countdownInterval = null;
     let totalTime = 30;
@@ -1425,7 +1427,7 @@
           isRecording = true;
           recordSecs = 0;
           btnText.textContent = "Stop Recording";
-          document.getElementById('toggleRecordBtn').className = "w-full py-3.5 bg-zinc-800 text-white rounded-full text-xs font-bold flex items-center justify-center gap-2";
+          document.getElementById('toggleRecordBtn').className = "w-full py-4 bg-zinc-800 text-white rounded-full text-sm font-bold flex items-center justify-center gap-2";
 
           recordTimerInterval = setInterval(() => {
             recordSecs++;
@@ -1442,12 +1444,12 @@
         clearInterval(recordTimerInterval);
         isRecording = false;
         btnText.textContent = "Record Again";
-        document.getElementById('toggleRecordBtn').className = "w-full py-3.5 bg-gradient-to-r from-[#FF6B00] via-[#FF2E93] to-[#C837AB] hover:opacity-95 text-white rounded-full text-xs font-bold shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2";
+        document.getElementById('toggleRecordBtn').className = "w-full py-4 bg-gradient-to-r from-[#FF6B00] via-[#FF2E93] to-[#C837AB] hover:opacity-95 text-white rounded-full text-sm font-bold shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2";
       }
     }
 
     // -------------------------------------------------------------
-    // WRITING MODULE (B2 STANDARDS & CONTINUOUS PROMPT BANK)
+    // WRITING MODULE
     // -------------------------------------------------------------
     function setWritingTask(t) {
       state.writing.currentTask = t;
@@ -1472,8 +1474,8 @@
       const data = list[idx];
 
       document.getElementById('currentPromptDisplay').innerHTML = `
-        <div class="font-bold text-[#FF7A00] mb-1">${data.title}</div>
-        <div>${data.prompt}</div>
+        <div class="font-bold text-[#FF7A00] text-sm sm:text-base mb-1.5">${data.title}</div>
+        <div class="text-sm leading-relaxed">${data.prompt}</div>
       `;
       document.getElementById('targetRangeText').textContent = `${data.min} – ${data.max} words`;
       analyzeWriting();
@@ -1505,25 +1507,25 @@
       bar.style.width = `${pct}%`;
 
       if (count === 0) {
-        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600";
+        badge.className = "text-xs sm:text-sm font-mono font-bold px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600";
         bar.className = "bg-zinc-300 h-full transition-all duration-300";
         statusMsg.textContent = "Start typing or load a template above.";
-        statusMsg.className = "text-xs font-medium text-zinc-500";
+        statusMsg.className = "text-xs sm:text-sm font-medium text-zinc-500";
       } else if (count < target.min) {
-        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200";
+        badge.className = "text-xs sm:text-sm font-mono font-bold px-3 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200";
         bar.className = "bg-rose-500 h-full transition-all duration-300";
         statusMsg.textContent = `Below B2 minimum (${count} words). Need ${target.min - count} more words to reach ${target.min}w minimum!`;
-        statusMsg.className = "text-xs font-semibold text-rose-600";
+        statusMsg.className = "text-xs sm:text-sm font-semibold text-rose-600";
       } else if (count <= target.max) {
-        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200";
+        badge.className = "text-xs sm:text-sm font-mono font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200";
         bar.className = "bg-emerald-500 h-full transition-all duration-300";
         statusMsg.textContent = `Ideal B2 range (${count} words)! Exactly meets LanguageCert word count specifications.`;
-        statusMsg.className = "text-xs font-semibold text-emerald-600";
+        statusMsg.className = "text-xs sm:text-sm font-semibold text-emerald-600";
       } else {
-        badge.className = "text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200";
+        badge.className = "text-xs sm:text-sm font-mono font-bold px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200";
         bar.className = "bg-amber-500 h-full transition-all duration-300";
         statusMsg.textContent = `Exceeding B2 target (${count} words). Aim not to exceed ${target.max} words.`;
-        statusMsg.className = "text-xs font-semibold text-amber-600";
+        statusMsg.className = "text-xs sm:text-sm font-semibold text-amber-600";
       }
 
       // Check B2 Discourse Markers
@@ -1532,10 +1534,10 @@
       const pills = document.getElementById('connectorsPills');
       if (detected.length > 0) {
         pills.innerHTML = detected.map(c => `
-          <span class="text-[10px] bg-orange-50 border border-orange-200 text-orange-700 px-2 py-0.5 rounded-full font-mono font-semibold">${c}</span>
+          <span class="text-xs bg-orange-50 border border-orange-200 text-orange-700 px-2.5 py-1 rounded-full font-mono font-semibold">${c}</span>
         `).join('');
       } else {
-        pills.innerHTML = `<span class="text-[11px] text-zinc-400 italic">None yet. Try: consequently, nevertheless, whereas, in spite of, on the contrary...</span>`;
+        pills.innerHTML = `<span class="text-xs text-zinc-400 italic">None yet. Try: consequently, nevertheless, whereas, in spite of, on the contrary...</span>`;
       }
     }
 
@@ -1586,7 +1588,7 @@ To conclude, I firmly believe that automation should complement rather than subs
     }
 
     // -------------------------------------------------------------
-    // LISTENING ENGINE (CONTINUOUS PRACTICE & AUTO-ADVANCE)
+    // LISTENING ENGINE
     // -------------------------------------------------------------
     function renderListeningQuestion() {
       const item = listeningQuestionsBank[state.listening.index];
@@ -1600,10 +1602,10 @@ To conclude, I firmly believe that automation should complement rather than subs
       document.getElementById('listeningAudioBtnText').textContent = "Play Audio Dialogue (British Voice)";
 
       document.getElementById('listeningQuestionBox').innerHTML = `
-        <div class="font-bold text-zinc-900 text-xs">${item.q}</div>
-        <div class="space-y-2 pt-1">
+        <div class="font-bold text-zinc-950 text-sm sm:text-base leading-snug">${item.q}</div>
+        <div class="space-y-2.5 pt-1">
           ${item.options.map(opt => `
-            <label onclick="selectListeningOption('${opt.key}')" id="l-opt-${opt.key}" class="flex items-center space-x-2.5 text-zinc-700 p-2.5 rounded-2xl bg-white border border-zinc-200 hover:border-orange-300 cursor-pointer transition">
+            <label onclick="selectListeningOption('${opt.key}')" id="l-opt-${opt.key}" class="flex items-center space-x-3 text-zinc-800 p-3 sm:p-3.5 rounded-2xl bg-white border border-zinc-200 hover:border-orange-300 cursor-pointer transition text-sm">
               <input type="radio" name="listeningRadio" value="${opt.key}" class="text-[#FF7A00] focus:ring-0">
               <span class="font-medium">${opt.key}) ${opt.text}</span>
             </label>
@@ -1629,11 +1631,11 @@ To conclude, I firmly believe that automation should complement rather than subs
       if (selectedKey === item.correct) {
         state.listening.score++;
         playSuccessChime();
-        fbContent.className = "text-xs p-3 rounded-2xl bg-emerald-50 text-emerald-800 border border-emerald-200";
-        fbContent.innerHTML = `<strong>Correct! (${item.correct})</strong><br>${item.explanation}`;
+        fbContent.className = "text-sm p-4 rounded-2xl bg-emerald-50 text-emerald-800 border border-emerald-200 leading-relaxed";
+        fbContent.innerHTML = `<strong>Correct! (${item.correct})</strong><br><span class="pt-1 block">${item.explanation}</span>`;
       } else {
-        fbContent.className = "text-xs p-3 rounded-2xl bg-rose-50 text-rose-800 border border-rose-200";
-        fbContent.innerHTML = `<strong>Incorrect.</strong> You chose ${selectedKey}. The correct answer was <strong>${item.correct}</strong>.<br>${item.explanation}`;
+        fbContent.className = "text-sm p-4 rounded-2xl bg-rose-50 text-rose-800 border border-rose-200 leading-relaxed";
+        fbContent.innerHTML = `<strong>Incorrect.</strong> You chose ${selectedKey}. The correct answer was <strong>${item.correct}</strong>.<br><span class="pt-1 block">${item.explanation}</span>`;
       }
 
       document.getElementById('listeningScoreDisplay').textContent = `${state.listening.score} / ${state.listening.index + 1}`;
@@ -1651,7 +1653,7 @@ To conclude, I firmly believe that automation should complement rather than subs
     }
 
     // -------------------------------------------------------------
-    // READING ENGINE (CONTINUOUS PASSAGES & GAPPED DRILLS)
+    // READING ENGINE
     // -------------------------------------------------------------
     function renderReadingQuestion() {
       const item = readingQuestionsBank[state.reading.index];
@@ -1665,15 +1667,15 @@ To conclude, I firmly believe that automation should complement rather than subs
       document.getElementById('checkReadingBtn').classList.remove('hidden');
 
       document.getElementById('readingPassageBox').innerHTML = `
-        <div class="font-bold text-[#FF7A00] text-xs">${item.title}</div>
-        <p class="pt-1">${item.passage}</p>
+        <div class="font-bold text-[#FF7A00] text-sm sm:text-base">${item.title}</div>
+        <p class="pt-1.5 leading-relaxed">${item.passage}</p>
       `;
 
       document.getElementById('readingOptionsBox').innerHTML = `
-        <div class="font-bold text-zinc-900 text-xs pb-1">${item.q}</div>
-        <div class="space-y-2">
+        <div class="font-bold text-zinc-950 text-sm sm:text-base pb-1 leading-snug">${item.q}</div>
+        <div class="space-y-2.5">
           ${item.options.map(opt => `
-            <label class="flex items-center space-x-2.5 text-zinc-700 p-2.5 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-orange-300 cursor-pointer text-xs transition">
+            <label class="flex items-center space-x-3 text-zinc-800 p-3 sm:p-3.5 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-orange-300 cursor-pointer text-sm transition">
               <input type="radio" name="readingRadio" value="${opt.key}" class="text-[#FF7A00] focus:ring-0">
               <span class="font-medium">${opt.key}) ${opt.text}</span>
             </label>
@@ -1700,11 +1702,11 @@ To conclude, I firmly believe that automation should complement rather than subs
       if (selected.value === item.correct) {
         state.reading.score++;
         playSuccessChime();
-        fbContent.className = "text-xs p-3 rounded-2xl bg-emerald-50 text-emerald-800 border border-emerald-200";
-        fbContent.innerHTML = `<strong>Correct! (${item.correct})</strong><br>${item.explanation}`;
+        fbContent.className = "text-sm p-4 rounded-2xl bg-emerald-50 text-emerald-800 border border-emerald-200 leading-relaxed";
+        fbContent.innerHTML = `<strong>Correct! (${item.correct})</strong><br><span class="pt-1 block">${item.explanation}</span>`;
       } else {
-        fbContent.className = "text-xs p-3 rounded-2xl bg-rose-50 text-rose-800 border border-rose-200";
-        fbContent.innerHTML = `<strong>Incorrect.</strong> The correct answer was <strong>${item.correct}</strong>.<br>${item.explanation}`;
+        fbContent.className = "text-sm p-4 rounded-2xl bg-rose-50 text-rose-800 border border-rose-200 leading-relaxed";
+        fbContent.innerHTML = `<strong>Incorrect.</strong> The correct answer was <strong>${item.correct}</strong>.<br><span class="pt-1 block">${item.explanation}</span>`;
       }
 
       document.getElementById('readingScoreDisplay').textContent = `${state.reading.score} / ${state.reading.index + 1}`;
